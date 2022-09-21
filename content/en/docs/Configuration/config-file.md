@@ -1,10 +1,10 @@
 ---
 title: Configuration File
 linkTitle: Configuration File
-weight: 28
+weight: 27
 description: |
   Configuration File 
-lastmod: 2022-09-21T19:37:41.946Z
+lastmod: 2022-09-21T19:49:55.894Z
 ---
 
 The configuration file contains the same options and values as the environment variable but in a yaml file. You can refer to the environement documentation for more details.
