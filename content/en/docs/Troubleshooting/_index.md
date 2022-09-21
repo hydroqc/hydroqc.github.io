@@ -4,7 +4,7 @@ linkTitle: Troubleshooting
 weight: 50
 description: |
   General troubleshooting steps
-lastmod: 2022-09-21T00:12:26.987Z
+lastmod: 2022-09-21T18:46:49.654Z
 ---
 
 {{< alert color="warning" title="Important" >}}**All the components of the HydroQC project depend on the Hydro-Quebec customer portal.**
@@ -18,12 +18,12 @@ If your installation is working correctly but you are seeing container/addon res
 
 1. **Check that you can access your Hydro-Quebec customer portal with your account.**
 
-2. **Enable debugging**
+2. Check the Known Issues**
 
-   It can also be set through env variables :
+2. Enable debugging
 
     ```
     HQ2M_CONTRACTS_0_LOG_LEVEL=DEBUG 
     HQ2M_CONTRACTS_0_HTTP_LOG_LEVEL=DEBUG
     ```
-3. 
+3. Post the information on Discord [#support](https://discord.gg/2NrWKC7sfF) or open an issue for [hydroqc2mqtt](https://gitlab.com/hydroqc/hydroqc2mqtt/-/issues) or the [Home-Assistant addon](https://gitlab.com/hydroqc/hydroqc-hass-addons)
