@@ -1,10 +1,10 @@
 ---
-title: Home-assistant
-linkTitle: Home-assistant
+title: Home-Assistant
+linkTitle: Home-Assistant
 weight: 28
 description: |
   Home-Assistant specific configuration
-lastmod: 2022-09-21T20:03:12.487Z
+lastmod: 2022-09-21T20:03:32.100Z
 ---
 
 ## Hourly Consumption in Energy Dashboard
