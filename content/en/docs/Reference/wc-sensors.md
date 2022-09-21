@@ -4,12 +4,12 @@ linkTitle: Winter Credit Sensors
 weight: 35
 description: |
   Winter Credits specific sensor description.
-lastmod: 2022-09-20T23:51:46.624Z
+lastmod: 2022-09-21T00:32:28.979Z
 ---
 
 ## Sensor Description
 
-Here is the description of some of the sensors we provide that we feel needed more details. You need to be careful when using the current state values since they get updated only when we refresh the data every 10 minutes. This is a behavior we want to improve [(issue #5)](https://gitlab.com/hydroqc/hydroqc2mqtt/-/issues/5). In the mean time you can use the start/end timestamp values for more precise automations. If you want more details about the logics of each period you can get more details here: [https://hydroqc.readthedocs.io/en/latest/wintercredit/lexicon.html](https://hydroqc.readthedocs.io/en/latest/wintercredit/lexicon.html)
+Here is the description of some of the sensors we provide that we feel needed more details. You need to be careful when using the current state values since they get updated only when we refresh the data every 10 minutes. This is a behavior we want to improve [(issue #5)](https://gitlab.com/hydroqc/hydroqc2mqtt/-/issues/5). In the mean time you can use the start/end timestamp values for more precise automations. If you want more details about the logics of each period you can get more details here: [https://hydroqc.ca/en/docs/winter-credits/](https://hydroqc.ca/en/docs/winter-credits/)
 
 |Default HA name and MQTT Topic | Values | Description |
 |-|-|-|

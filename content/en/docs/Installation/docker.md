@@ -4,10 +4,10 @@ linkTitle: Docker
 weight: 12
 description: |
   Install with docker
-lastmod: 2022-09-20T18:13:47.527Z
+lastmod: 2022-09-21T00:50:53.468Z
 ---
 
-Edit the environment variable in the following command to start the project.
+Edit the environment variable in the following command to start the project. You can find more info
 
 ```bash
 docker run -d --restart=always --name hydroqc2mqtt \

@@ -4,18 +4,25 @@ linkTitle: Environment Variable
 weight: 26
 description: |
   Environment variables
-lastmod: 2022-09-21T00:28:48.461Z
+lastmod: 2022-09-21T00:38:19.782Z
 ---
 
+## Refresh interval
+
+The refresh interval is an area we have greatly improved on since version 0.4.0. The hydroqc library now provides caching of the data fetched from the customer portal. This means we can increase the refresh interval of the sensors without querying Hydro-Québec each time. The main gain here is that we are able to set the refresh interval to every 60 seconds which greatly improve the reliability of the Winter Credit sensors and partly adress [issue #5](https://gitlab.com/hydroqc/hydroqc2mqtt/-/issues/5).
+
+| Variable | Syntax | Example | Comment |
+|- | - | - | - |
+| HQ2M_SYNC_FREQUENCY | integer | 60 | |
 
 ## MQTT configuration variables
 
 | Variable | Syntax | Example | Comment |
 |- | - | - | - |
-MQTT_USERNAME | string | `hydroqcuser` | Optional |
-MQTT_PASSWORD | string | `yourmqttpassword` | Optional |
-MQTT_HOST | string | `yourmqttserver.tld` | Required |
-MQTT_PORT | string | `'1883'` | Required make sure it is between 'quotes' |
+| MQTT_USERNAME | string | `hydroqcuser` | Optional |
+| MQTT_PASSWORD | string | `yourmqttpassword` | Optional |
+| MQTT_HOST | string | `yourmqttserver.tld` | Required |
+| MQTT_PORT | string | `'1883'` | Required make sure it is between 'quotes' |
 
 ## Hydro-Quebec account variables
 
