@@ -4,7 +4,7 @@ linkTitle: Troubleshooting
 weight: 50
 description: |
   General troubleshooting steps
-lastmod: 2022-09-21T18:46:49.654Z
+lastmod: 2022-09-21T20:33:24.876Z
 ---
 
 {{< alert color="warning" title="Important" >}}**All the components of the HydroQC project depend on the Hydro-Quebec customer portal.**
@@ -18,7 +18,7 @@ If your installation is working correctly but you are seeing container/addon res
 
 1. **Check that you can access your Hydro-Quebec customer portal with your account.**
 
-2. Check the Known Issues**
+2. Check the [Known Issues](./known-issues)
 
 2. Enable debugging
 

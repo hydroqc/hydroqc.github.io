@@ -65,12 +65,12 @@ description = "HydroQC documentation"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
-[languages.fr]
-title = "HydroQC"
-description = "Documentation HydroQC"
-languageName ="Français"
-contentDir = "content/fr"
-time_format_default = "2006-01-02"
+#[languages.fr]
+#title = "HydroQC"
+#description = "Documentation HydroQC"
+#languageName ="Français"
+#contentDir = "content/fr"
+#time_format_default = "2006-01-02"
 
 
 
