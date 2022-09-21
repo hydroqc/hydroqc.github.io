@@ -3,8 +3,8 @@ title: Terms
 linkTitle: Terms
 weight: 42
 description: |
-  Terms
-lastmod: 2022-09-20T17:58:22.584Z
+  Terms used when working with Winter Credit logics and automations.
+lastmod: 2022-09-20T23:47:28.801Z
 ---
 
 The following terms are in use in this module and coming as much as possible from the official Hydro-Quebec electricy rates document (page 31) :

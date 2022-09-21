@@ -1,10 +1,10 @@
 ---
-title: Available Sensors
-linkTitle: Available Sensors
+title: Winter Credit Sensors
+linkTitle: Winter Credit Sensors
 weight: 35
 description: |
-  Winter Credits information
-lastmod: 2022-09-20T18:16:15.837Z
+  Winter Credits specific sensor description.
+lastmod: 2022-09-20T23:51:46.624Z
 ---
 
 ## Sensor Description
