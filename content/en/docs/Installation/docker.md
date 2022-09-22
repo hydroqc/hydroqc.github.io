@@ -4,7 +4,7 @@ linkTitle: Docker
 weight: 12
 description: |
   Install with docker
-lastmod: 2022-09-21T00:50:53.468Z
+lastmod: 2022-09-22T12:38:37.777Z
 ---
 
 Edit the environment variable in the following command to start the project. You can find more info
@@ -26,6 +26,8 @@ docker run -d --restart=always --name hydroqc2mqtt \
 -e HQ2M_CONTRACTS_0_HOME_ASSISTANT_TOKEN=dqwdq23dqwd34q234dr \
 registry.gitlab.com/hydroqc/hydroqc2mqtt
 ```
+
+You can also use the following `docker-compose.yaml` file in a folder and run `docker-compose up -d`.
 
 ```yaml
 version: "3"

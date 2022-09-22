@@ -4,7 +4,7 @@ linkTitle: Shell
 weight: 16
 description: |
   Install in shell
-lastmod: 2022-09-20T18:17:25.878Z
+lastmod: 2022-09-22T13:04:37.315Z
 ---
 
 
@@ -25,11 +25,11 @@ lastmod: 2022-09-20T18:17:25.878Z
 3. Install requirements and module
 
    ```bash
-   pip install -r requirements.txt --no-cache-dir --force
+   pip install --editable -r requirements.txt --no-cache-dir --force
    python setup.py develop
    ```
 
-4. Copy and change the configuration to enable the sensors you want
+4. Copy and change the configuration or use environement variable.
 
    ```bash
    cp config.sample.yaml config.yaml
