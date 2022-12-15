@@ -23,7 +23,7 @@ Ce projet a été créé pour fournir un moyen d'accéder aux données de compte
 
 ## Quels sont les différents composants?
 
-### [Librairie python HydroQC](https://gitlab.com/hydroqc/hydroqc)
+### [Bibliothèque python HydroQC](https://gitlab.com/hydroqc/hydroqc)
 
 La bibliothèque HydroqC Python est à la base du projet et traite tous les appels vers le portail client Hydro-Quebec.
 
@@ -37,7 +37,7 @@ Il comprend également une logique distincte qui envoie les statistiques de cons
 
 L'addon Home-Assistant intégre Hydroqc2MQTT dans un interface convivial à utiliser dans Home-Assistant
 
-### Projets exploitant la librairie HydroQC
+### Projets exploitant la bibliothèque HydroQC
 
 Les projets suivants font l'utilisation de la librairie HydroQC:
 

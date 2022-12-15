@@ -57,17 +57,17 @@ The idea is that instead of just moving the critical peak consumption to the res
 
 ```mermaid
 graph TD
-	      NormalStart[Consommation Normale] -->PeakStart & AnchorStart
-	      PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
-	      PeakCritical -->|Oui| PeakLowCon[Réduire consommation] 
+	      NormalStart[Normal consumption] -->PeakStart & AnchorStart
+	      PeakStart[Peak start<br/>6AM or 4PM] -->PeakCritical{Critical?}
+	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption] 
   
-	      AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
+	      AnchorStart[Anchor start<br/>1AM or 11AM] -->AnchorCritical{Critical?}
 	      
-	      AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
+	      AnchorCritical -->|Yes| AnchorHighCon[Raise consumption]
 	      PeakLowCon --> PeakEnd
 	      AnchorHighCon --> AnchorEnd
-	      PeakEnd[Fin de pointe<br/>9h ou 20h] --> Normal
-	      AnchorEnd[Fin d'ancrage<br/>4h ou 14h] --> Normal(Consommation Normale)
+	      PeakEnd[Peak end<br/>9AM ou 8PM] --> Normal
+	      AnchorEnd[Anchor end<br/>4AM or 2PM] --> Normal(Normal consumption)
 ```
 
 ### Long term anchor optimisation
@@ -76,20 +76,20 @@ By reducing your consumption during anchor periods every day you increase the di
 
 ```mermaid
 graph TD
-	      NormalStart[Consommation Normale] -->PeakStart & AnchorStart
-	      PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
-	      PeakCritical -->|Oui| PeakLowCon[Réduire consommation] 
+	      NormalStart[Normal Consumption] -->PeakStart & AnchorStart
+	      PeakStart[Peak start<br/>6AM or 4PM] -->PeakCritical{Critical?}
+	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption] 
 
 	  
-	      AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
-	      AnchorCritical -->|Non| AnchorLowCon[Réduire la consommation]
-	      AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
+	      AnchorStart[Anchor<br/>1AM or 11AM] -->AnchorCritical{Critical?}
+	      AnchorCritical -->|No| AnchorLowCon[Reduce consumption]
+	      AnchorCritical -->|Yes| AnchorHighCon[Increase consumption]
 
 	      PeakLowCon --> PeakEnd
 	      AnchorHighCon --> AnchorEnd
 	      AnchorLowCon --> AnchorEnd
-	      PeakEnd[Fin de pointe<br/>9h ou 20h] --> Normal
-	      AnchorEnd[Fin d'ancrage<br/>4h ou 14h] --> Normal(Consommation Normale)
+	      PeakEnd[Peak end<br/>9AM or 8PM] --> Normal
+	      AnchorEnd[Anchor end<br/>4AM or 2PM] --> Normal(Normal consumption)
 ```
 
 
@@ -107,19 +107,19 @@ This logic involves moving your consumption not only on days when there is a cri
 
 ```mermaid
 graph TD
-	      NormalStart[Consommation Normale] -->PeakStart & AnchorStart
-	      PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
-	      PeakCritical -->|Oui| PeakLowCon[Réduire consommation] 
-	      PeakCritical -->|Non| PeakHighCon[Augmente la consommation]
+	      NormalStart[Normal consumption] -->PeakStart & AnchorStart
+	      PeakStart[Peak start<br/>6h ou 16h] -->PeakCritical{Critical?}
+	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption] 
+	      PeakCritical -->|No| PeakHighCon[Increase consumption]
 	  
-	      AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
-	      AnchorCritical -->|Non| AnchorLowCon[Réduire la consommation]
-	      AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
+	      AnchorStart[Anchor Start<br/>1AM or 11AM] -->AnchorCritical{Critical?}
+	      AnchorCritical -->|No| AnchorLowCon[Reduce consumption]
+	      AnchorCritical -->|Yes| AnchorHighCon[Increase consumption]
 	      
 	      PeakHighCon --> PeakEnd
 	      PeakLowCon --> PeakEnd
 	      AnchorHighCon --> AnchorEnd
 	      AnchorLowCon --> AnchorEnd
-	      PeakEnd[Fin de pointe<br/>9h ou 20h] --> Normal
-	      AnchorEnd[Fin d'ancrage<br/>4h ou 14h] --> Normal(Consommation Normale)
+	      PeakEnd[Peak end<br/>9AM or 8PM] --> Normal
+	      AnchorEnd[Anchor end<br/>4AM or 2PM] --> Normal(Normal consumption)
 ```
