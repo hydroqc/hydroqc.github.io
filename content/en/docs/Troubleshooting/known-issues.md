@@ -11,6 +11,25 @@ lastmod: 2022-09-21T18:41:22.563Z
 
 Hydro-Quebec often have maintenance on their systems that will result in errors in hydroqc clients. If your installation is usually functionnal but the container/addon restarts once in a while there is no need to worry.
 
+For the Home-Assistant addon you can use the following automation to restart the addon:
+
+```yaml
+alias: AUTO restart HydroQC
+description: Restart automatiquement l'addon à 4h00 AM si il est planté/arrêté
+trigger:
+  - platform: time
+    at: "05:31:00"
+condition:
+  - condition: state
+    entity_id: binary_sensor.hydroqc_add_on_running
+    state: "off"
+action:
+  - service: hassio.addon_restart
+    data:
+      addon: 57e6a4ee_hydroqc
+mode: single
+```
+
 ## Duplicate entities in Home-Assistant
 
 Sometimes if issues are encountered when configuring hydroqc2mqtt (or the addon) for the first time it may run with invalid values and create empty entities.

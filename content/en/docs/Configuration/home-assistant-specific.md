@@ -20,7 +20,9 @@ In the Energy Dashboard you will have to use this sensor in the "Grid Consumptio
 
 ![img](/images/configuration/home-assistant-1.png)
 
-You can also add the "Current billing period total to date" sensor under the option "Use an entity tracking the total costs". Be aware that we are not 100% sure of the behaviour of this sensor with accounts with EPP (MVE).
+There is no accurate way to track the rate price currently since all the sensors available track data from the day before.
+
+If you don't care about accuracy, you can also add the "Current billing period total to date" sensor under the option "Use an entity tracking the total costs". This will display rate data but it will calculate it with the price from yesterday with the consumption of the current day.
 
 ## Historical energy consumption
 

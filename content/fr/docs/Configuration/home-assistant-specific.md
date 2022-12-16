@@ -20,7 +20,9 @@ Dans le tableau de bord énergétique, vous devrez utiliser ce capteur dans la s
 
 ![img](/images/configuration/home-assistant-1.png)
 
-Il n'y a pas de capteur disponible pour le calcul des coûts.
+Il n'y a aucun moyen précis de suivre le prix des tarifs actuellement, car tous les capteurs disponibles suivent les données de la veille.
+
+Si vous ne vous souciez pas de l'exactitude, vous pouvez également ajouter le capteur "Current billing period total to date" sous l'option "Utiliser une entité de suivi des coûts totaux". Cela affichera les données de taux, mais elle le calculera le prix d'hier avec la consommation du jour en cours.
 
 ## Historique de consommation d'énergie
 
