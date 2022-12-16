@@ -4,7 +4,7 @@ linkTitle: Home-Assistant
 weight: 28
 description: |
   Configurations spécifiques à Home-Assistant
-lastmod: 2022-09-21T20:03:32.100Z
+lastmod: 2022-12-16T06:40:29.522Z
 ---
 
 ## Consommation horaire dans le tableau de bord énergétique
@@ -16,9 +16,15 @@ Lorsque vous activez la synchronisation de la consommation horaire, un capteur e
 {{< alert color="warning">}}**Le capteur "Houly Consumption" aura toujours un état "inconnu".** Nous n'avons pas d'état pour cela, nous devons le créer afin d'y pousser les statistiques et pour qu'il soit disponible à ajouter auTableau de bord énergétique, mais il n'aura jamais de valeur.
 {{< /alert >}}
 
-Dans le tableau de bord énergétique, vous devrez utiliser ce capteur dans la section "Grid Consumption".
+Dans le tableau de bord énergétique, vous devrez utiliser ce capteur dans la section "Consommation du réseau".
 
 ![img](/images/configuration/home-assistant-1.png)
+
+Pour les tarif FlexD et Bi-Énergie vous pouvez mettre les capteurs "High price hourly consumption" et "Reg price hourly consumption". Ceci vous permettera de distinguer les deux types de consommation dans le tableau de bord.
+
+![img](/images/configuration/home-assistant-3.png)
+
+## Suivi des coûts
 
 Il n'y a aucun moyen précis de suivre le prix des tarifs actuellement, car tous les capteurs disponibles suivent les données de la veille.
 

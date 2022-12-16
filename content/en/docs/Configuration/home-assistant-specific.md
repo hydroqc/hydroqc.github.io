@@ -1,10 +1,10 @@
 ---
-title: Home-Assistant
+title: Home-Assistant Configurations
 linkTitle: Home-Assistant
 weight: 28
 description: |
-  Home-Assistant specific configuration
-lastmod: 2022-09-21T20:03:32.100Z
+  Home-Assistant specific configuration for hydroqc2mqtt
+lastmod: 2022-12-16T08:16:18.099Z
 ---
 
 ## Hourly Consumption in Energy Dashboard
@@ -19,6 +19,13 @@ When you enable sync of the hourly consumption a sensor is created in Home-Assis
 In the Energy Dashboard you will have to use this sensor in the "Grid Consumption" section.
 
 ![img](/images/configuration/home-assistant-1.png)
+
+For FlexD and Bi-Energy rates you can put the sensors "High price hourly consumption" and "Reg price hourly consumption". This will allow you to distinguish the two types of consumption in the dashboard.
+
+![img](/images/configuration/home-assistant-3.png)
+
+
+### Price tracking
 
 There is no accurate way to track the rate price currently since all the sensors available track data from the day before.
 
