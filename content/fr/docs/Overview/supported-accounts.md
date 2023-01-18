@@ -15,8 +15,8 @@ Nous prenons actuellement en charge les tarifs et les options tarifaires suivant
 | - | - | - | - | - | - |
 | D | | [Tarif résidentiel](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/tarif-d.html) | Complet | Oui | Tarif résidentiel commun |
 | D | CPC | [Residentiel avec crédit hivernaux](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/option-credit-hivernal.html) | Complet | Oui | Récupération des signaux de pointe critiques |
-| DPC | | [Flex-D](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/tarif-flex-d.html) | Contrat seulement | Partiel | En attente d'une première pointe critique pour extraire l'information du portail |
-| DT | | [Biénergie](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/tarif-dt.html) | Contrat seulement  | Partiel | |
+| DPC | | [Flex-D](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/tarif-flex-d.html) | Complet | Oui | Récupération des signaux de pointe critiques |
+| DT | | [Biénergie](https://www.hydroquebec.com/residentiel/espace-clients/tarifs/tarif-dt.html) | Complet  | Oui | |
 | M | | [Tarif M](https://www.hydroquebec.com/affaires/espace-clients/tarifs/tarif-m-general-clientele-moyenne-puissance.html) | Oui | Oui | Développement initial commandité par [HD Energie](https://hd.energy)
 | M | GDP | [Tarif M avec gestion de puissance](https://www.hydroquebec.com/affaires/espace-clients/tarifs/option-gestion-demande-puissance.html) | Oui | Oui | Développement initial commandité par [HD Energy](https://hd.energy)
 

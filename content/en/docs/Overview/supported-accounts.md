@@ -14,8 +14,8 @@ We currently support the following rates and rate options. We don't have access 
 | - | - | - | - | - | - |
 | D | | [Residential Rate](https://www.hydroquebec.com/residential/customer-space/rates/rate-d.html) | Complete | Yes | This is your regular residential rate |
 | D | CPC | [Residential with Winter Credits](https://www.hydroquebec.com/residential/customer-space/rates/winter-credit-option.html) | Complete | Yes | Extraction of the critical peak periods is available |
-| DPC | | [Flex-D](https://www.hydroquebec.com/residential/customer-space/rates/rate-flex-d.html) | Contract only | Partial | Waiting for Hydro to make the Flex-D info available in the portal (early december) |
-| DT | | [Dual Energy](https://www.hydroquebec.com/residential/customer-space/rates/rate-dt.html) | WIP  | Partial | |
+| DPC | | [Flex-D](https://www.hydroquebec.com/residential/customer-space/rates/rate-flex-d.html) | Complete | Yes | Extraction of the critical peak periods is available |
+| DT | | [Dual Energy](https://www.hydroquebec.com/residential/customer-space/rates/rate-dt.html) | Complete  | Yes | |
 | M | | [Rate M](https://www.hydroquebec.com/business/customer-space/rates/rate-m-general-rate-medium-power-customers.html) | Yes | Yes | Initial development sponsored by [HD Energy](https://hd.energy)
 | M | GDP | [Rate M with demand response option](https://www.hydroquebec.com/business/customer-space/rates/demand-response-option.html) | Yes | Yes | Initial development sponsored by [HD Energy](https://hd.energy)
 
