@@ -2,18 +2,19 @@
 title = "Hydroqc"
 linkTitle = "Hydroqc"
 description = "Integrate your home automation platform, such as Home-Assistant, to your Hydro-Québec account."
-
 +++
 
 {{< blocks/cover title="Welcome to Hydroqc" image_anchor="top" height="full" color="orange" >}}
 <div class="mx-auto">
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
+	<p class="lead mt-5">A collection of open-source tools to retrieve information from your Hydro-Québec account</p>
+	<br>	
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "docs" >}}">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://gitlab.com/hydroqc">
 		Project <i class="fab fa-gitlab ml-2 "></i>
 	</a>
-	<p class="lead mt-5">A collection of open-source tools to retrieve information from your Hydro-Québec account</p>
+	<br>
 	{{< blocks/link-down color="info" >}}
 </div>
 {{< /blocks/cover >}}
@@ -26,11 +27,8 @@ HydroQC interfaces with the Hydro-Québec customer portal to retrieve your accou
 {{% /blocks/lead %}}
 
 
-{{< blocks/section color="dark" >}}
+{{< blocks/section color="primary" >}}
 
-{{% blocks/feature icon="fab fa-python" title="Python Library" url="https://gitlab.com/hydroqc/hydroqc" %}}
-At the base of the project is the hydroqc python library.
-{{% /blocks/feature %}}
 
 {{% blocks/feature icon="fab fa-gitlab" title="Contributions welcome!" url="https://gitlab.com/hydroqc" %}}
 We do a [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) contributions workflow on **Gitlab**. New users are always welcome!
@@ -38,6 +36,11 @@ We do a [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) cont
 
 {{% blocks/feature icon="fab fa-discord" title="Join us on Discord!" url="https://discord.gg/BTPDntfaXH" %}}
 For support, discussion and announcement of latest features.
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-hand-holding-heart" title="Donate" url="/en/donations" %}}
+Support our work.
+{{% /blocks/feature %}}
 
 {{< /blocks/section >}}
 
