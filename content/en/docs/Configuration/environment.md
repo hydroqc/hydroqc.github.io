@@ -35,6 +35,8 @@ The refresh interval is an area we have greatly improved on since version 0.4.0.
 | HQ2M_CONTRACTS_0_ACCOUNT | string | `'654321987654'` | Account Number (Numéro de compte) from your invoice |
 | HQ2M_CONTRACTS_0_CONTRACT | string | `'0123456789'` | Contract Number (Numéro de contrat) from your invoice. **10 digits, you may need to add a leading 0 to the value.** Ex: '123 456 789' will be '0123456789'
 | HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES | string | `'180'` | Duration of the pre-heat period'
+| HQ2M_CONTRACTS_0_RATE | string | `'D'` | Code de votre tarif au contrat|
+| HQ2M_CONTRACTS_0_RATE_OPTION | string | `'CPC'` | Rate option for the contract **must be `'NONE'` if you do not have one.** |
 
 ## Home-Assistant specific variables
 

@@ -33,8 +33,10 @@ Depuis la version 0.4.0, la bibliothèque HydroqC fournit désormais la mise en 
 | HQ2M_CONTRACTS_0_PASSWORD | string | `'Soleil123'`| Mot de passe du portail |
 | HQ2M_CONTRACTS_0_CUSTOMER | string | `'0987654321'` | Numéro de client visible sur votre facture. **10 chiffres, vous devez possiblement ajouter un 0 au début** Ex: '987 654 321' deviendra '0987654321'|
 | HQ2M_CONTRACTS_0_ACCOUNT | string | `'654321987654'` | Numéro de compte visible sur votre facture. |
-| HQ2M_CONTRACTS_0_CONTRACT | string | `'0123456789'` | Numéro de contrat visible sur votre facture. **10 chiffres, vous devez possiblement ajouter un 0 au début** Ex: '123 456 789' deviendra '0123456789'
-| HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES | string | `'180'` | Durée désiré de la période de préchauffage'
+| HQ2M_CONTRACTS_0_CONTRACT | string | `'0123456789'` | Numéro de contrat visible sur votre facture. **10 chiffres, vous devez possiblement ajouter un 0 au début** Ex: '123 456 789' deviendra '0123456789'|
+| HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES | string | `'180'` | Durée désiré de la période de préchauffage'|
+| HQ2M_CONTRACTS_0_RATE | string | `'D'` | Code de votre tarif au contrat|
+| HQ2M_CONTRACTS_0_RATE_OPTION | string | `'CPC'` | Option tarifaire au contrat **Doit être à `'NONE'` si vous en avez pas** |
 
 ## Variables pour Home-Assistant
 

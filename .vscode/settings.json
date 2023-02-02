@@ -1,5 +1,6 @@
 {
-    "frontMatter.framework.startCommand": "hugo server -D --bind 0.0.0.0  --disableFastRender",
+    "frontMatter.framework.startCommand": "hugo server -D --disableFastRender",
     "[markdown]": {
-    }
+    },
+    "frontMatter.preview.host": "http://localhost:1313"
 }
