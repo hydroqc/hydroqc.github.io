@@ -7,42 +7,51 @@ date = "2023-01-18T18:47:21.352Z"
 +++
 
 
-{{< blocks/cover title="Bienvenue à Hydroqc" image_anchor="top" height="full" color="orange" >}}
+{{< blocks/cover title="Bienvenue à Hydroqc" image_anchor="top" height="full">}}
 <div class="mx-auto">
 	<p class="lead mt-5">Une collection d'outils open source pour récupérer les informations de votre compte Hydro-Québec.</p>
 	<br>
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< ref "docs" >}}">
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="./docs">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://gitlab.com/hydroqc">
 		Projet <i class="fab fa-gitlab ml-2 "></i>
 	</a>
 	<br>
-	{{< blocks/link-down color="info" >}}
+
 </div>
+{{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
 
 {{% blocks/lead color="primary" %}}
+
 HydroQC offre un interface avec le portail client Hydro-Québec pour récupérer les informations de votre compte et l'envoyer à d'autres systèmes.
 
-## **Ce projet n'est pas affilié à Hydro-Québec**
+<strong>**Ce projet n'est pas affilié à Hydro-Québec**</strong>
+
 {{% /blocks/lead %}}
 
 
-{{< blocks/section color="dark" >}}
+{{% blocks/section color="dark" type="row" %}}
 
 {{% blocks/feature icon="fab fa-gitlab" title="Bienvenue aux contributeurs!" url="https://gitlab.com/hydroqc" %}}
+
 Nous acceptons les [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) sur **Gitlab**. Les nouveaux contributeurs sont les bienvenues!
+
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/BTPDntfaXH" %}}
+
 Pour le soutien, clavardé et les annonces des dernières fonctionnalités.
+
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-solid fa-hand-holding-heart" title="Dons" url="/fr/dons" %}}
+
 Supportez l'équipe du projet Hydroqc
+
 {{% /blocks/feature %}}
 
-{{< /blocks/section >}}
+{{% /blocks/section %}}
 

@@ -1,9 +1,9 @@
 ---
-title: Home-Assistant
-linkTitle: Home-Assistant
-weight: 28
+title: Tableau de bord énergie
+linkTitle: Tableau de bord énergie
+weight: 25
 description: |
-  Configurations spécifiques à Home-Assistant
+  Configurations du tableau de bord d'énergie Home-Assistant
 lastmod: 2022-12-21T20:31:51.482Z
 ---
 
@@ -11,16 +11,9 @@ lastmod: 2022-12-21T20:31:51.482Z
 
 {{< alert color="warning">}}**La consommation horaire d'Hydro-Québec n'est pas en direct.** La consommation horaire se synchronisera automatiquement lorsqu'elle sera disponible auprès d'Hydro-Québec. Dans le portail web d'Hydro-Québec, vous ne pouvez voir la consommation horaire que de la veille.Avec Hydroqc2MQTT, vous pourrez parfois voir la consommation du jour en cours. Il y a toujours un retard de quelques heures avant la publication des données.{{< /alert >}}
 
-Lorsque vous activez la synchronisation de la consommation horaire, un ou plusiseurs capteur est créé dans Home-Assistant nommé "hourly consumption".
-
-{{< alert color="warning">}}**Les capteurs de consommation auront toujours un état "inconnu".** Nous n'avons pas d'état pour cela, nous devons le créer afin d'y pousser les statistiques et pour qu'il soit disponible à ajouter auTableau de bord énergétique, mais il n'aura jamais de valeur.
-![img](/images/configuration/home-assistant-1.png)
-{{< /alert >}}
-
+Lorsque vous activez la synchronisation de la consommation horaire, un ou plusiseurs capteur est créé dans Home-Assistant nommé "*_hourly consumption" selon votre tarif.
 ### Tarif D et D avec option CPC (Crédits Hivernaux)
 Dans le tableau de bord énergétique, vous devrez utiliser le capteur "Total Hourly Consumption" dans la section "Consommation du réseau".
-
-
 
 ### Tarifs Flex-D et DT (bi-énergie)
 
@@ -28,11 +21,9 @@ Pour les tarif FlexD et Bi-Énergie vous pouvez mettre les capteurs "High price 
 
 ![img](/images/configuration/home-assistant-3.png)
 
-## Suivi des coûts
-
-Il n'y a aucun moyen précis de suivre le prix des tarifs actuellement, car tous les capteurs disponibles suivent les données de la veille.
-
-Si vous ne vous souciez pas de l'exactitude, vous pouvez également ajouter le capteur "Current billing period total to date" sous l'option "Utiliser une entité de suivi des coûts totaux". Cela affichera les données de taux, mais elle le calculera le prix d'hier avec la consommation du jour en cours.
+{{< alert color="warning">}}**Les capteurs de consommation auront toujours un état "inconnu".** Nous n'avons pas d'état pour cela, nous devons le créer afin d'y pousser les statistiques et pour qu'il soit disponible à ajouter auTableau de bord énergétique, mais il n'aura jamais de valeur.
+![img](/images/configuration/home-assistant-1.png)
+{{< /alert >}}
 
 ## Historique de consommation d'énergie
 

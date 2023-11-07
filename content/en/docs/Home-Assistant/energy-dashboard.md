@@ -1,21 +1,17 @@
 ---
-title: Home-Assistant Configurations
-linkTitle: Home-Assistant
-weight: 28
+title: Energy Dashboard
+linkTitle: Energy Dashboard
+weight: 25
 description: |
-  Home-Assistant specific configuration for hydroqc2mqtt
-lastmod: 2022-12-21T20:33:50.556Z
+  Configurations of the Home-Assistant Energy Dashboard
+lastmod: 2022-12-21T20:31:51.482Z
 ---
 
 ## Hourly Consumption in Energy Dashboard
 
 {{< alert color="warning">}}**Hourly consumption from Hydro-Quebec is not live.** The hourly consumption will sync automatically when it is available from Hydro-Quebec. On the website you can only see the hourly consumption from the previous day. With hydroqc2mqtt you will sometime be able to see consumption of the current day. There is always a delay of a few hours before HQ publishes the information.{{< /alert >}}
 
-When you enable sync of the hourly consumption one or more sensors are created in Home-Assistant named "Hourly Consumption".
-
-{{< alert color="warning">}}**The "Houly Consumption" sensor will always have a state of "unknown".** We do not have a state for it, we need to create it in order to push the statistics to it and for it to be available to add to the Energy Dashboard, but there will never be a value for it.
-![img](/images/configuration/home-assistant-1.png)
-{{< /alert >}}
+When you enable sync of the hourly consumption one or more sensors are created in Home-Assistant named "* Hourly Consumption" depending on your rate.
 
 ### Rate D and D with CPC option (winter credits)
 
@@ -27,12 +23,9 @@ For FlexD and Bi-Energy rates you can put the sensors "High price hourly consump
 
 ![img](/images/configuration/home-assistant-3.png)
 
-
-### Price tracking
-
-There is no accurate way to track the rate price currently since all the sensors available track data from the day before.
-
-If you don't care about accuracy, you can also add the "Current billing period total to date" sensor under the option "Use an entity tracking the total costs". This will display rate data but it will calculate it with the price from yesterday with the consumption of the current day.
+{{< alert color="warning">}}**The "Houly Consumption" sensor will always have a state of "unknown".** We do not have a state for it, we need to create it in order to push the statistics to it and for it to be available to add to the Energy Dashboard, but there will never be a value for it.
+![img](/images/configuration/home-assistant-1.png)
+{{< /alert >}}
 
 ## Historical energy consumption
 

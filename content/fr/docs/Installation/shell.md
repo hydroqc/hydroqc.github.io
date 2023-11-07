@@ -40,7 +40,7 @@ Vous aurez besoin de python 3.10
    cp config.sample.yaml config.yaml
    ```
 
-5. Copiez et adaptez run.sh à votre configuration MQTT.Si votre serveur MQTT ne nécessite pas d'authentification, laissez les valeurs MQTT_USERNAME et  MQTT_PASSWORD vides.
+5. Copiez et adaptez run.sh à votre configuration MQTT.Si votre serveur MQTT ne nécessite pas d'authentification, laissez les valeurs MQTT_UNERNAME et  MQTT_PASSWORD vides.
 
    ```bash
    wget "https://gitlab.com/hydroqc/hydroqc2mqtt/-/raw/main/run.sample.sh"

@@ -5,30 +5,31 @@ description = "Integrate your home automation platform, such as Home-Assistant, 
 +++
 
 
-{{< blocks/cover title="Welcome to Hydroqc" image_anchor="top" height="full" color="orange" >}}
+{{< blocks/cover title="Welcome to Hydroqc" image_anchor="top" height="full" >}}
 <div class="mx-auto">
 	<p class="lead mt-5">A collection of open-source tools to retrieve information from your Hydro-Québec account</p>
-	<br>	
-	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "docs" >}}">
+	<br>
+	<a class="btn btn-lg btn-primary mr-3 mb-4" href="./docs"W>
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
 	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://gitlab.com/hydroqc">
 		Project <i class="fab fa-gitlab ml-2 "></i>
 	</a>
 	<br>
-	{{< blocks/link-down color="info" >}}
+
 </div>
+{{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
 
 {{% blocks/lead color="primary" %}}
 HydroQC interfaces with the Hydro-Québec customer portal to retrieve your account information and send it over to other systems.
 
-## **This project is in no way affiliated or endorsed by Hydro-Quebec.**
+<strong>**This project is in no way affiliated or endorsed by Hydro-Quebec.**<strong>
 {{% /blocks/lead %}}
 
 
-{{< blocks/section color="primary" >}}
+{{< blocks/section color="dark" type="row">}}
 
 
 {{% blocks/feature icon="fab fa-gitlab" title="Contributions welcome!" url="https://gitlab.com/hydroqc" %}}
