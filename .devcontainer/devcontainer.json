@@ -1,0 +1,12 @@
+{
+	"name": "Hydroqc Docs",
+	"image": "registry.gitlab.com/hydroqc/hydroqc-base-container/3.11:latest",
+	"features": {
+		"ghcr.io/devcontainers/features/hugo:1": {},
+		"ghcr.io/devcontainers/features/go:1": {}
+	},
+	"forwardPorts": [1313],
+	"remoteUser": "devcontainer",
+	"postCreateCommand": "hugo server --disableFastRender"
+
+}
