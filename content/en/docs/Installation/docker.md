@@ -4,10 +4,11 @@ linkTitle: Docker
 weight: 12
 description: |
   Install with docker
-lastmod: 2022-09-22T12:38:37.777Z
+date: 2022-09-22T12:38:37.777Z
+lastmod: 2025-01-08T15:59:39.478Z
 ---
 
-
+**The examples below are not always up to date, please refer to the [Configuration](/en/docs/configuration/) section for valid configurations.**
 
 Edit the environment variable in the following command to start the project.
 
@@ -23,6 +24,9 @@ docker run -d --restart=always --name hydroqc2mqtt \
 -e HQ2M_CONTRACTS_0_CUSTOMER='HQCustomerNo' \
 -e HQ2M_CONTRACTS_0_ACCOUNT='HQAccountNo' \
 -e HQ2M_CONTRACTS_0_CONTRACT='HQContractNo' \
+-e HQ2M_CONTRACTS_0_RATE='D' \
+-e HQ2M_CONTRACTS_0_RATE_OPTION='CPC' \
+-e HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES='180' \
 -e HQ2M_CONTRACTS_0_SYNC_HOURLY_CONSUMPTION_ENABLED="true" \
 -e HQ2M_CONTRACTS_0_HOME_ASSISTANT_WEBSOCKET_URL=http://home-assistant:8123/api/websocket \
 -e HQ2M_CONTRACTS_0_HOME_ASSISTANT_TOKEN=dqwdq23dqwd34q234dr \
@@ -48,12 +52,16 @@ services:
       HQ2M_CONTRACTS_0_CUSTOMER: 'HQCustomerNo'
       HQ2M_CONTRACTS_0_ACCOUNT: 'HQAccountNo'
       HQ2M_CONTRACTS_0_CONTRACT: 'HQContractNo'
+      HQ2M_CONTRACTS_0_RATE: 'D'
+      HQ2M_CONTRACTS_0_RATE_OPTION: 'CPC'
+      HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES: '180'
       HQ2M_CONTRACTS_0_SYNC_HOURLY_CONSUMPTION_ENABLED: "true"
+      HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES: '180'
       HQ2M_CONTRACTS_0_HOME_ASSISTANT_WEBSOCKET_URL: 'http://home-assistant:8123/api/websocket'
       HQ2M_CONTRACTS_0_HOME_ASSISTANT_TOKEN: 'dqwdq23dqwd34q234dr'
 ```
 
 ### Unraid
-If you are on unraid devzwf created a community app to install the hydroqc2mqtt 
+If you are on unraid devzwf created a community app to install the hydroqc2mqtt
  - [hydroqc2mqtt Unraid app](https://unraid.net/community/apps?q=hydroqc2mqtt)
  - [Unraid app specific support](https://forums.unraid.net/topic/129079-support-devzwf-hydroqc2mqtt)

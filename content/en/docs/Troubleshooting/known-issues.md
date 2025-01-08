@@ -1,62 +1,74 @@
 ---
-title: Known issues
-linkTitle: Known issues
+title: Known Issues
+linkTitle: Known Issues
 weight: 52
-description: >
-  Issues we are aware of and their workarounds when available
-lastmod: 2022-09-21T18:41:22.563Z
+description: |
+  Issues we are aware of and their workarounds.
+date: 2022-09-21T18:41:22.563Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
-## Hydroqc2mqtt (or the addon) restarts often
+## Consumption does not sync
 
-Hydro-Quebec often have maintenance on their systems that will result in errors in hydroqc clients. If your installation is usually functionnal but the container/addon restarts once in a while there is no need to worry.
+### Occasional Issue
 
-For the Home-Assistant addon you can use the following automation to restart the addon:
+During the start or end of the billing period, consumption is not available in the portal, so Hydroqc is unable to retrieve it. Wait two or three days after the start of your billing period and consumption should start syncing again on its own.
+
+### Long-term history does not sync
+
+When hydroqc2mqtt has been running for a while, the consumption history import functionality becomes non-functional. If you plan to import your long-term historical data, restart Hydroqc beforehand.
+
+## Hydroqc2mqtt (or the addon) restarts frequently
+
+Hydro-Québec often performs maintenance on their systems which results in errors in Hydroqc clients. If your installation is generally functional but the container/addon restarts from time to time, there's no need to worry.
+
+For the Home-Assistant addon, you can use the following automation to restart the add-on:
 
 ```yaml
 alias: AUTO restart HydroQC
-description: Restart automatiquement l'addon à 4h00 AM si il est planté/arrêté
+description: Automatically restart the addon at 4:00 AM if it&#x27;s crashed/stopped
 trigger:
-  - platform: time
-    at: "05:31:00"
+    - platform: time
+    at: &quot;05:31:00&quot;
 condition:
-  - condition: state
+    - condition: state
     entity_id: binary_sensor.hydroqc_add_on_running
-    state: "off"
+    state: &quot;off&quot;
 action:
-  - service: hassio.addon_restart
+    - service: hassio.addon_restart
     data:
       addon: 57e6a4ee_hydroqc
 mode: single
 ```
+Duplicate entities in Home-Assistant or contract change
 
-## Duplicate entities in Home-Assistant
+Sometimes, if problems are encountered during the initial configuration of Hydroqc2MQTT (or the addon), it may run with invalid values and create empty entities.
 
-Sometimes if issues are encountered when configuring hydroqc2mqtt (or the addon) for the first time it may run with invalid values and create empty entities.
+When changing contracts (Flex D to Winter Credits or vice-versa), obsolete entities are not automatically removed. You can follow this procedure to remove them.
 
-You can resolve this by doing the following
+You can resolve this by doing the following:
 
-1. Stop hydroqc2mqtt or the addon
+    Stop Hydroqc2MQTT or the addon
 
-2. Leave mqtt running
+    Leave MQTT running
 
-3. Go in the mqtt integration in Home-Assistant and open the hydroqc entity
+    Go to the MQTT integration in Home-Assistant and open the Hydroqc entity
 
-4. In the "Device Info" box click on the three dots and click "Delete"
-  This will remove all the hydroqc entities in Home-Assistant and in mqtt.
+    In the "Device Info" box, click the three dots and click "Remove"
+    This will delete all Hydroqc Home-Assistant entities and in MQTT.
 
-5. You can then start hydroqc2mqtt or the addon and all entities will be recreated without the duplicates.
+    You can then start Hydroqc2MQTT or the addon and all entities will be recreated without duplicates.
 
-## `binascii.Error: Incorrect padding` error
+binascii.Error: Incorrect padding error
 
-We have had one reported occurence of this issue. The problem come from Hydro-Québec customer portal returning malformed JSON when the person's name contain special characters. The solution is to change the name in the customer portal (no need to change it on the account).
+We have had a report of this issue. The problem comes from the Hydro-Québec client portal returning malformed JSON when the person's name contains special characters (for example Benoît). The solution is to modify the name in the client portal.
 
-- Login to your Hydro-Quebec customer portal
+    Log in to your hydro-quebec client portal
 
-- Move your cursor over your name in the top right
+    Move your cursor over your name in the top right
 
-- Click on "Login Information" (Données d'identification)
+    Click on "Login Information" (Identification Data)
 
-- Change your Full Name to remove any accented characters
+    Change your full name to remove all accented characters
 
 Try the module again.

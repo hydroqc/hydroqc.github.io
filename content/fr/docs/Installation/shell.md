@@ -3,15 +3,14 @@ title: Ligne de commande
 linkTitle: Ligne de commande
 weight: 16
 description: |
-  Installation native en ligne de commande
-lastmod: 2022-09-22T13:04:37.315Z
-date: 2022-12-14T02:37:12.970Z
+   Installation native en ligne de commande
+lastmod: 2024-12-14T19:23:05.450Z
+date: 2025-01-08T15:59:48.894Z
 ---
-
 
 ### Installation Linux
 
-Vous aurez besoin de python 3.10
+Vous aurez besoin de python 3.12
 
 1. Créez un dossier pour hydroqc2mqtt
 
@@ -27,36 +26,37 @@ Vous aurez besoin de python 3.10
    . env/bin/activate
    ```
 
-3. Installation du module et ses dépendances
+3. Installez (et/ou mettez à jour) le module et ses dépendances
 
    ```bash
    pip install hydroqc2mqtt
    ```
 
-4. Téléchargement et ajustement de la configuration par défault
+4. Créez votre configuration
 
-   ```bash
-   wget "https://gitlab.com/hydroqc/hydroqc2mqtt/-/raw/main/config.sample.yaml"
-   cp config.sample.yaml config.yaml
-   ```
+Utilisez soit des [variables d'environnement](/fr/docs/configuration/environment/) ou un [fichier de configuration](/fr/docs/configuration/config-file/)
 
-5. Copiez et adaptez run.sh à votre configuration MQTT.Si votre serveur MQTT ne nécessite pas d'authentification, laissez les valeurs MQTT_UNERNAME et  MQTT_PASSWORD vides.
 
-   ```bash
-   wget "https://gitlab.com/hydroqc/hydroqc2mqtt/-/raw/main/run.sample.sh"
-   cp run.sample.sh run.sh
-   chmod +x run.sh
-   ```
+5. Exécutez hydroqc2mqtt
 
-6. Démarrez le tout!
+Si vous utilisez des variables d'environnement
+```bash
 
-   ```bash
-   ./run.sh
-   ```
+hydroqc2mqtt
+```
 
-Pour mettre à jour, vous pouvez exécuter la commande suivante `pip install --upgrade hydroqc2mqtt`.
+Si vous utilisez un fichier de configuration
+```bash
+hydroqc2mqtt --config votreconfig.yaml
+```
 
+6. Mise à jour vers une nouvelle version
+```bash
+
+pip install --upgrade hydroqc2mqtt
+```
 
 ## Windows
 
-Procédure en cours d'élaboration.
+Les commandes d'installation sont sensiblement les mêmes.
+Une procédure plus complète est en cours d'élaboration.

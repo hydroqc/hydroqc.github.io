@@ -4,7 +4,7 @@ linkTitle: Energy Dashboard
 weight: 25
 description: |
   Configurations of the Home-Assistant Energy Dashboard
-lastmod: 2023-11-08T00:33:32.144Z
+lastmod: 2025-01-08T16:51:07.251Z
 date: 2023-11-08T00:33:30.524Z
 ---
 

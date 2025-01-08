@@ -4,7 +4,7 @@ linkTitle: Capteurs
 weight: 32
 description: |
   Description des capteurs présent dans Home-Assistant
-lastmod: 2022-12-21T20:26:46.748Z
+date: 2022-12-21T20:26:46.748Z
 ---
 
 ## Sensor Description

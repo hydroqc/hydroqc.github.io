@@ -67,5 +67,28 @@
         }
       ]
     }
+  ],
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.preview.host": "http://localhost:1313",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "Multilingual",
+      "path": "[[workspace]]/content",
+      "filePrefix": "",
+      "defaultLocale": "fr",
+      "locales": [
+        {
+          "title": "Français",
+          "locale": "fr",
+          "path": "fr",
+        },
+        {
+          "title": "English",
+          "locale": "en",
+          "path": "en"
+        }
+      ]
+    }
   ]
 }

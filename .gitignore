@@ -16,3 +16,5 @@ go.sum
 yarn.lock
 .lock
 jsconfig.json
+.frontmatter
+frontmatter.json

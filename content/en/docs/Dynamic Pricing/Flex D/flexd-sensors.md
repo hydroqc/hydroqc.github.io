@@ -4,7 +4,8 @@ linkTitle: Flex D Sensors
 weight: 47
 description: |
   Description of Flex D sensors
-lastmod: 2023-01-17T02:12:08.942Z
+date: 2023-01-17T02:12:08.942Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 ## Sensors description

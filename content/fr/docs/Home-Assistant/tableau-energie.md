@@ -4,7 +4,7 @@ linkTitle: Tableau de bord énergie
 weight: 25
 description: |
   Configurations du tableau de bord d'énergie Home-Assistant
-lastmod: 2023-11-08T00:33:07.480Z
+lastmod: 2025-01-08T16:51:07.251Z
 date: 2023-11-08T00:33:04.684Z
 ---
 

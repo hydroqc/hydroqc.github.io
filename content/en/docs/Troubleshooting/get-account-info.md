@@ -4,7 +4,8 @@ linkTitle: Obtaining your account information
 weight: 55
 description: |
   How to get information from your account to help us integrate new account types or features
-lastmod: 2022-09-21T18:41:22.563Z
+date: 2022-09-21T18:41:22.563Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 The developpers of the project don't have access to all of the account types and options available at Hydro-Quebec and rely on information provided by the users to implement them.
@@ -36,12 +37,12 @@ If your account type is not supported yet it may be helpful for us if you can pr
 Repeat this process for other section of the website relevant to your account and try to find the data.
 
 Here are some known place to find relevant data:
-  
+
   - Consommation page
       - contrat
       - conso?noContrat=
   - Facture
-    
+
     Under the facture section you will find different sections depending on your account. This is where you should search for your account specific information we might need. You will have to poke around a bit to find the relevant information. Check for the `estAbonne` url for your specific option and make sure to send it over to us.
     - estAbonne (for example `https://cl-services.idp.hydroquebec.com/cl/prive/api/v3_0/alertes/CPC/estAbonne` for winter credits)
     - account specific url (for example we have `creditPointeCritique` for winter credit)

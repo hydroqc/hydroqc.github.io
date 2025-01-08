@@ -4,7 +4,8 @@ linkTitle: Supported Rates
 weight: 35
 description: >
   Rates supported by the Hydroqc library.
-lastmod: 2022-09-21T19:53:56.545Z
+date: 2022-09-21T19:53:56.545Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 

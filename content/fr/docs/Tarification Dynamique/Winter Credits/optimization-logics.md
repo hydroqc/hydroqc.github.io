@@ -4,7 +4,10 @@ linkTitle: Logiques d'optimisation
 weight: 45
 description: >
   Description des différentes manière d'automatiser la gestion des pointes critiques dans le cadres des crédit hivernaux d'Hydro-Québec.
-lastmod: 2022-09-20T23:56:58.290Z
+date: 2022-09-20T23:56:58.290Z
+lastmod: 2025-01-08T16:51:07.251Z
+aliases:
+ - /fr/docs/winter-credits/optimization-logics/
 ---
 
 Les informations suivantes sont dérivées des formules de ce dossier soumis à la Régie de L'Énergie par Hydro-Québec:
@@ -39,7 +42,7 @@ graph TD
   UpcomingCriticalPeak -->|Oui| PreHeatStart
   UpcomingCriticalPeak -->|Non| NormalEnd
   PreHeatStart[Pré-chauffage]-->PeakStart
-  PeakStart[Début pointe<br/>6h ou 16h] -->PeakLowCon[Réduire consommation] 
+  PeakStart[Début pointe<br/>6h ou 16h] -->PeakLowCon[Réduire consommation]
   PeakLowCon --> PeakEnd
   PeakEnd[Fin de pointe<br/>9h ou 20h] --> NormalEnd[Consommation Normale]
 
@@ -47,7 +50,7 @@ graph TD
 
 ## Optimisations
 
-Les logiques suivantes viennent influer sur les calculs utilisés pour estimer l'effacement lors des pointes critiques. 
+Les logiques suivantes viennent influer sur les calculs utilisés pour estimer l'effacement lors des pointes critiques.
 
 Les diagrammes ci-dessous ne comporte pas de pré-chauffage mais celui-ci devrais être ajouté avant les pointes critiques selon les besoins.
 
@@ -59,10 +62,10 @@ L'idée est qu'au lieu de simplement déplacer la consommation de pointe critiqu
 graph TD
   NormalStart[Consommation Normale] -->PeakStart & AnchorStart
   PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
-  PeakCritical -->|Oui| PeakLowCon[Réduire consommation] 
+  PeakCritical -->|Oui| PeakLowCon[Réduire consommation]
 
   AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
-  
+
   AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
   PeakLowCon --> PeakEnd
   AnchorHighCon --> AnchorEnd
@@ -78,7 +81,7 @@ En réduisant votre consommation pendant les périodes d'ancrage chaque jour, vo
 graph TD
   NormalStart[Consommation Normale] -->PeakStart & AnchorStart
   PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
-  PeakCritical -->|Oui| PeakLowCon[Réduire consommation] 
+  PeakCritical -->|Oui| PeakLowCon[Réduire consommation]
 
   AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
   AnchorCritical -->|Non| AnchorLowCon[Réduire la consommation]

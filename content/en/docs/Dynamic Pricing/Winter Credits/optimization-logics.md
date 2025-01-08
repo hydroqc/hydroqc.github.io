@@ -5,7 +5,8 @@ weight: 45
 description: >
   Description of the various logics that can be implemented with the winter
   credits.
-lastmod: 2022-12-16T08:16:09.061Z
+date: 2022-12-16T08:16:09.061Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 The following information is derived from the formulas from this "Régie de l'énergie" filing:
@@ -20,7 +21,7 @@ They will then estimate the "Temperature effect" using the difference between a 
 
 ## Basic critical peak logic
 
-The instruction from Hydro-Quebec in regards to the winter credit is to move the consumption that would occur during the critical peak period to the rest of the day. 
+The instruction from Hydro-Quebec in regards to the winter credit is to move the consumption that would occur during the critical peak period to the rest of the day.
 
 ##### Before the critical peak
 They recommend to raise your thermostat setpoints a few hours before the critical peak period to pre-heat the house.
@@ -37,7 +38,7 @@ graph TD
   UpcomingCriticalPeak -->|Yes| PreHeatStart
   UpcomingCriticalPeak -->|No| NormalEnd
   PreHeatStart[Pre-heat]-->PeakStart
-  PeakStart[Peak start<br/>6AM or 4PM] -->PeakLowCon[Reduce consumption] 
+  PeakStart[Peak start<br/>6AM or 4PM] -->PeakLowCon[Reduce consumption]
   PeakLowCon --> PeakEnd
   PeakEnd[Peak end<br/>9AM or 8PM] --> NormalEnd[Normal consumption]
 
@@ -57,10 +58,10 @@ The idea is that instead of just moving the critical peak consumption to the res
 graph TD
 	      NormalStart[Normal consumption] -->PeakStart & AnchorStart
 	      PeakStart[Peak start<br/>6AM or 4PM] -->PeakCritical{Critical?}
-	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption] 
-  
+	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption]
+
 	      AnchorStart[Anchor start<br/>1AM or 11AM] -->AnchorCritical{Critical?}
-	      
+
 	      AnchorCritical -->|Yes| AnchorHighCon[Raise consumption]
 	      PeakLowCon --> PeakEnd
 	      AnchorHighCon --> AnchorEnd
@@ -76,9 +77,9 @@ By reducing your consumption during anchor periods every day you increase the di
 graph TD
 	      NormalStart[Normal Consumption] -->PeakStart & AnchorStart
 	      PeakStart[Peak start<br/>6AM or 4PM] -->PeakCritical{Critical?}
-	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption] 
+	      PeakCritical -->|Yes| PeakLowCon[Reduce consumption]
 
-	  
+
 	      AnchorStart[Anchor<br/>1AM or 11AM] -->AnchorCritical{Critical?}
 	      AnchorCritical -->|No| AnchorLowCon[Reduce consumption]
 	      AnchorCritical -->|Yes| AnchorHighCon[Increase consumption]

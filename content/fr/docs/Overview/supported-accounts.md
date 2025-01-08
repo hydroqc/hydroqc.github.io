@@ -4,7 +4,8 @@ linkTitle: Tarifs supportés
 weight: 35
 description: >
   Tarifs pris en charge par la bibliothèque HydroqC.
-lastmod: 2022-09-21T19:53:56.545Z
+date: 2022-09-21T19:53:56.545Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 

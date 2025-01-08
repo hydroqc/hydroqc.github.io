@@ -4,7 +4,7 @@ linkTitle: Diagnostic tool
 weight: 60
 description: |
   Extraction of account data with the diagnostic tool.
-lastmod: 2023-01-17T03:03:49.109Z
+lastmod: 2025-01-08T16:51:07.251Z
 date: 2022-12-29T02:21:55.644Z
 ---
 

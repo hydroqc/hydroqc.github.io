@@ -4,7 +4,8 @@ linkTitle: Blueprint Flex D
 weight: 47
 description: |
   Blueprint Home-Assistant pour Flex D
-lastmod: 2023-01-17T02:12:08.942Z
+date: 2023-01-17T02:12:08.942Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 ## Blueprint Home-Assistant

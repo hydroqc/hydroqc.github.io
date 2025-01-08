@@ -4,16 +4,9 @@ linkTitle: Environment Variable
 weight: 26
 description: |
   Environment variables
-lastmod: 2022-12-22T01:35:53.944Z
+date: 2022-12-22T01:35:53.944Z
+lastmod: 2025-01-08T16:04:41.213Z
 ---
-
-## Refresh interval
-
-The refresh interval is an area we have greatly improved on since version 0.4.0. The hydroqc library now provides caching of the data fetched from the customer portal. This means we can increase the refresh interval of the sensors without querying Hydro-Québec each time. The main gain here is that we are able to set the refresh interval to every 60 seconds which greatly improve the reliability of the Winter Credit sensors and partly adress [issue #5](https://gitlab.com/hydroqc/hydroqc2mqtt/-/issues/5).
-
-| Variable | Syntax | Example | Comment |
-|- | - | - | - |
-| HQ2M_SYNC_FREQUENCY | integer | 60 | |
 
 ## MQTT configuration variables
 
@@ -36,7 +29,7 @@ The refresh interval is an area we have greatly improved on since version 0.4.0.
 | HQ2M_CONTRACTS_0_CONTRACT | string | `'0123456789'` | Contract Number (Numéro de contrat) from your invoice. **10 digits, you may need to add a leading 0 to the value.** Ex: '123 456 789' will be '0123456789'
 | HQ2M_CONTRACTS_0_PREHEAT_DURATION_MINUTES | string | `'180'` | Duration of the pre-heat period'
 | HQ2M_CONTRACTS_0_RATE | string | `'D'` | Code de votre tarif au contrat|
-| HQ2M_CONTRACTS_0_RATE_OPTION | string | `'CPC'` | Rate option for the contract **must be `'NONE'` if you do not have one.** |
+| HQ2M_CONTRACTS_0_RATE_OPTION | string | `'CPC'` | Rate option for the contract |
 
 ## Home-Assistant specific variables
 
@@ -51,21 +44,25 @@ HQ2M_CONTRACTS_0_HOME_ASSISTANT_TOKEN | string | `dqwdq23dqwd34q234dr` | Long-li
 Account variables are configurable as an array which allows you to have more than one contract synced by the integration. You simply have to create new variable by incrementing the contract number.
 
 ```
-HQ2M_CONTRACTS_0_NAME='maison' \
+HQ2M_CONTRACTS_0_NAME='maison'
+HQ2M_CONTRACTS_0_RATE: D
+HQ2M_CONTRACTS_0_RATE_OPTION: CPC
 HQ2M_CONTRACTS_0_USERNAME='email@domain.tld'
 HQ2M_CONTRACTS_0_PASSWORD='Password'
 HQ2M_CONTRACTS_0_CUSTOMER='0987654321'
 HQ2M_CONTRACTS_0_ACCOUNT='654321987654'
 HQ2M_CONTRACTS_0_CONTRACT='0123456789'
 
-HQ2M_CONTRACTS_1_NAME='chalet' \
+HQ2M_CONTRACTS_1_NAME='chalet'
+HQ2M_CONTRACTS_1_RATE: DPC
 HQ2M_CONTRACTS_1_USERNAME='email@domain.tld'
 HQ2M_CONTRACTS_1_PASSWORD='Password'
 HQ2M_CONTRACTS_1_CUSTOMER='0912354321'
 HQ2M_CONTRACTS_1_ACCOUNT='654123987654'
 HQ2M_CONTRACTS_1_CONTRACT='0112356789'
 
-HQ2M_CONTRACTS_2_NAME='triplex' \
+HQ2M_CONTRACTS_2_NAME='triplex'
+HQ2M_CONTRACTS_2_RATE: DT
 HQ2M_CONTRACTS_2_USERNAME='email@domain.tld'
 HQ2M_CONTRACTS_2_PASSWORD='Password'
 HQ2M_CONTRACTS_2_CUSTOMER='0812354321'

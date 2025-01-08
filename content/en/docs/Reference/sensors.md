@@ -4,7 +4,8 @@ linkTitle: Sensors
 weight: 32
 description: |
   HydroQC sensor description.
-lastmod: 2022-12-21T20:27:36.262Z
+date: 2022-12-21T20:27:36.262Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 ## Sensor Description

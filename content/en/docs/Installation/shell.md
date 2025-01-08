@@ -1,51 +1,51 @@
 ---
-title: Shell
-linkTitle: Shell
+title: Command Line
+linkTitle: Command Line
 weight: 16
 description: |
-  Install in shell
-lastmod: 2022-09-22T13:04:37.315Z
+   Native command line installation
+lastmod: 2025-01-08T16:51:07.251Z
+date: 2022-12-14T02:37:12.970Z
 ---
 
+### Linux Installation
 
-1. Clone the repo
+You will need python 3.12
+
+1. Create a folder for hydroqc2mqtt
 
    ```bash
-   git clone https://gitlab.com/hydroqc/hydroqc2mqtt
+   mkdir hydroqc2mqtt
    cd hydroqc2mqtt
-   ```
 
-2. Create a python virtual env and activate it
+2. Create a python virtual environment and activate it
+```bash
+python -m venv env
+. env/bin/activate
+```
+3. Install (and/or upgrade) the module and its dependencies
+```bash
+pip install --upgrade hydroqc2mqtt
+```
+4. Create your configuration
 
-   ```bash
-   python -m venv env
-   . env/bin/activate
-   ```
+Either use [environment variable](/en/docs/configuration/environment/) or a [config file](/en/docs/configuration/config-file/)
 
-3. Install requirements and module
+5. Run hydroqc2mqtt
 
-   ```bash
-   pip install --upgrade setuptools_scm
-   pip install .
-   ```
+If you are using environment variables
+```bash
+hydroqc2mqtt
+```
+If you are using a config file
+```bash
+hydroqc2mqtt --config yourconfig.yaml
+```
+6. Upgrade to newer release
+```bash
+pip install --upgrade hydroqc2mqtt
+```
+## Windows
 
-4. Copy and change the configuration or use environement variable.
-
-   ```bash
-   cp config.sample.yaml config.yaml
-   ```
-
-5. Copy and adapt run.sh to your MQTT configuration. If your MQTT server does not require auth leave the MQTT_USERNAME and MQTT_PASSWORD values empty
-
-   ```bash
-   cp run.sample.sh run.sh
-   chmod +x run.sh
-   ```
-
-6. Run it!
-
-   ```bash
-   ./run.sh
-   ```
-
-To update you have to re-rerun the steps above. A simple git pull is not sufficient.
+Les commandes d'installation sont sensiblement les mêmes.
+Une procédure plus complète est en cours d'élaboration.

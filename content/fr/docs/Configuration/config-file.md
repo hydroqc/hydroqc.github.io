@@ -4,13 +4,14 @@ linkTitle: Fichier de configuration
 weight: 27
 description: |
   Fichier de configuration
-lastmod: 2022-09-21T19:49:55.894Z
+date: 2022-09-21T19:49:55.894Z
+lastmod: 2025-01-08T16:47:06.276Z
 ---
 
 Le fichier de configuration contient les mêmes options et valeurs que la variable d'environnement mais dans un fichier YAML. Vous pouvez vous référer à la documentation de l'environnement pour plus de détails.
 
 ```yaml
-sync_frequency: 600
+sync_frequency: 60
 # Multiple contracts can be defined here
 contracts:
   - name: maison # This will be used as the device name in HA and in the topic structure in MQTT
@@ -29,6 +30,10 @@ contracts:
     # 10 digits, you may need to add a leading 0 to the value!!!
     # Ex: "123 456 789" will be "0123456789"
     contract: "contract_id"
+
+    # Tarif et option tarifaire pour ce compte. Référez vous à # la section tarifs supportés de la documentation.
+    rate: "D"
+    rate_option: "CPC"
 
     # Home-Assistant energy statistics
     sync_hourly_consumption_enabled: false

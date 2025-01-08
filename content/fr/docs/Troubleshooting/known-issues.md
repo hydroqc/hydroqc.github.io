@@ -2,16 +2,28 @@
 title: Problèmes connus
 linkTitle: Problèmes connus
 weight: 52
-description: >
+description: |
   Problèmes dont nous sommes conscients et leurs solutions de contournement.
-lastmod: 2022-09-21T18:41:22.563Z
+date: 2022-09-21T18:41:22.563Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
+
+## La consommation ne se synchronise pas
+
+### Problème occasionnel
+
+Lors du début ou de la fin de la période de facturation la consommation n'est pas disponible dans le portail, Hydroqc n'est donc pas en mesure de la récupérer. Patientez deux ou trois jours après le début de votre période de facturation et la consommation devrais recommencer à se synchroniser d'elle-même
+
+### L'historique à long terme ne se synchronise pas
+
+Quand le hydroqc2mqtt est en marche depuis un certain temps, la fonctionnalité d'import de l'historique de consommation devient non-fonctionnel. Si vous prévoyez faire une importation de vos donnée historique long-terme, effectuez un redémarrage de Hydroqc avant.
+
 
 ## Hydroqc2mqtt (ou l'addon) redémarre souvent
 
-Hydro-quebec a souvent une maintenance sur leurs systèmes qui se traduiront par des erreurs dans les clients Hydroqc.Si votre installation est généralement fonctionnelle, mais que le conteneur / addon redémarre de temps en temps, il n'est pas nécessaire de s'inquiéter.
+Hydro-Québec font souvent des maintenances sur leurs systèmes qui se traduisent par des erreurs dans les clients Hydroqc. Si votre installation est généralement fonctionnelle, mais que le conteneur / addon redémarre de temps en temps, il n'est pas nécessaire de s'inquiéter.
 
-Pour le addon Home-Assistant vous pouvez utiliser l'automatisme suivant pour redémarrer le addon:
+Pour le add-on Home-Assistant vous pouvez utiliser l'automatisme suivant pour redémarrer le add-on:
 
 ```yaml
 alias: AUTO restart HydroQC
@@ -30,9 +42,11 @@ action:
 mode: single
 ```
 
-## Entitées en double dans Home-Assistant
+## Entitées en double dans Home-Assistant ou changement de contrat
 
 Parfois, si des problèmes sont rencontrés lors de la configuration initiale de Hydroqc2MQTT (ou de l'addon), il peut s'exécuter avec des valeurs non valides et créer des entités vides.
+
+Lors d'un changement de contrat (Flex D vers Crédits Hivernaux ou vice-versa) les entitées obsoletes ne sont pas automatiquement supprimées. Vous pouvez suivre cette procédure pour les retirer.
 
 Vous pouvez résoudre ce problème en faisant ce qui suit
 

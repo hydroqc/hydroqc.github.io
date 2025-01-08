@@ -4,14 +4,15 @@ linkTitle: Capteurs crédit hivernaux
 weight: 47
 description: |
   Description des capteurs crédit hivernaux
-lastmod: 2023-11-08T16:49:59.897Z
+date: 2024-12-14T19:18:47.798Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 ## Description des capteurs
 
-Voici la description de certains des capteurs en liens avec les crédits hivernaux. Si vous voulez plus de détails sur les logiques de chaque période, vous pouvez obtenir plus de détails ici: [logique pour les crédits hivernaux](/fr/docs/winter-credits/optimization-logics/)
+Voici la description de certains des capteurs en liens avec les crédits hivernaux. Si vous voulez plus de détails sur les logiques de chaque période, vous pouvez obtenir plus de détails ici: [logique pour les crédits hivernaux](/fr/docs/Tarification Dynamique/Winter Credits/optimization-logics/)
 
-{{< alert color="warning" title="Avertissement" >}}Les capteur qui représente un état présent (Current period state for winter credit / current wc period detail / wc critical peak in progress) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteur de type "timestamp" pour déclancher vos automatisme.{{< /alert >}}
+{{< alert color="warning" title="Avertissement" >}}Les capteurs qui représente un état présent (Current period state for winter credit / current wc period detail / wc critical peak in progress) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteurs de type "timestamp" pour déclencher vos automatismes.{{< /alert >}}
 
 | Nom du capteur | Valeurs | Description |
 |-|-|-|

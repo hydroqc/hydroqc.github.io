@@ -4,7 +4,8 @@ linkTitle: Termes
 weight: 42
 description: |
   Termes utilisés en lien avec les crédits hivernaux
-lastmod: 2022-09-20T23:47:28.801Z
+date: 2022-09-20T23:47:28.801Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 Les termes suivants sont utilisés dans ce module et proviennent autant que possible du document officiel des taux d'électricité hydro-quebec (page 37):

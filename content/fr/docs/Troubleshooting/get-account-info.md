@@ -4,7 +4,8 @@ linkTitle: Obtenir vos informations de compte
 weight: 55
 description: |
   Comment obtenir les informations de votre compte pour nous aider à intégrer de nouveaux types ou fonctionnalités de compte
-lastmod: 2022-09-21T18:41:22.563Z
+date: 2022-09-21T18:41:22.563Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
 
 Les développeurs du projet n'ont pas accès à tous les types de compte et aux options disponibles chez Hydro-quebec et s'appuient sur les informations fournies par les utilisateurs pour les implémenter.
@@ -37,12 +38,12 @@ Si votre type de compte n'est pas encore pris en charge, il peut être utile pou
 Répétez ce processus pour une autre section du site Web pertinente à votre compte et essayez de trouver les données.
 
 Voici un endroit connu pour trouver des données pertinentes:
-  
+
   - Consommation page
       - contrat
       - conso?noContrat=
   - Facture
-    
+
     Dans l'onglet Facture, vous trouverez différentes sections en fonction de votre compte. C'est là que vous devez rechercher les informations spécifiques à votre compte dont nous pourrions avoir besoin. Vous devrez fouiller un peu pour trouver les informations pertinentes.
 
 

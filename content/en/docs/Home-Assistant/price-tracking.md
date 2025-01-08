@@ -4,7 +4,7 @@ linkTitle: Price tracking
 weight: 28
 description: |
   Configurations for price tracking
-lastmod: 2023-11-08T00:33:47.016Z
+lastmod: 2025-01-08T16:51:07.251Z
 date: 2023-11-08T00:33:45.072Z
 ---
 

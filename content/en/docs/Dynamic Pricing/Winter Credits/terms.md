@@ -4,7 +4,7 @@ linkTitle: Terms
 weight: 42
 description: |
   Terms used when working with Winter Credit logics and automations.
-lastmod: 2022-09-20T23:47:28.801Z
+date: 2022-09-20T23:47:28.801Z
 ---
 
 The following terms are in use in this module and coming as much as possible from the official Hydro-Quebec electricy rates document (page 31) :
@@ -24,7 +24,7 @@ There are 3 type of period:
 
 ### peak
 
-A peak period is a period during which the energy consumption across all customers is generally high. 
+A peak period is a period during which the energy consumption across all customers is generally high.
 In the context of winter credits the following time range are always peak periods:
 
 Morning peak period: 06:00 to 09:00

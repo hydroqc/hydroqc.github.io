@@ -4,8 +4,15 @@ linkTitle: Home-Assistant Addon
 weight: 14
 description: |
   Install with the Home-Assistant Addon
-lastmod: 2022-09-21T19:50:59.393Z
+date: 2022-09-21T19:50:59.393Z
+lastmod: 2025-01-08T16:51:07.251Z
 ---
+
+**Prerequisites**
+
+You must have an MQTT broker installed on your system, for example Mosquitto.
+
+[![Open your Home Assistant instance and show the dashboard of an add-on.](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_mosquitto)
 
 **Option 1**
 

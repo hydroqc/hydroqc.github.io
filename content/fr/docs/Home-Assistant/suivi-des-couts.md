@@ -4,7 +4,7 @@ linkTitle: Suivit des coûts
 weight: 28
 description: |
   Configurations spécifiques à Home-Assistant
-lastmod: 2023-11-08T00:32:42.429Z
+lastmod: 2025-01-08T16:51:07.251Z
 date: 2023-11-08T00:32:44.060Z
 ---
 
