@@ -10,7 +10,7 @@ date: 2025-01-08T15:59:48.894Z
 
 ### Installation Linux
 
-Vous aurez besoin de python 3.12
+Vous aurez besoin de python 3.13
 
 1. Créez un dossier pour hydroqc2mqtt
 

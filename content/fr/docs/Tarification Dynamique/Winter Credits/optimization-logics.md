@@ -5,20 +5,22 @@ weight: 45
 description: >
   Description des différentes manière d'automatiser la gestion des pointes critiques dans le cadres des crédit hivernaux d'Hydro-Québec.
 date: 2022-09-20T23:56:58.290Z
-lastmod: 2025-01-08T16:51:07.251Z
+lastmod: 2025-11-24T17:56:00.000Z
 aliases:
  - /fr/docs/winter-credits/optimization-logics/
 ---
 
 Les informations suivantes sont dérivées des formules de ce dossier soumis à la Régie de L'Énergie par Hydro-Québec:
 
-http://publicsde.regie-energie.qc.ca/projets/469/DocPrj/R-4057-2018-B-0062-DDR-RepDDR-2018_10_26.pdf#page=127
+<http://publicsde.regie-energie.qc.ca/projets/469/DocPrj/R-4057-2018-B-0062-DDR-RepDDR-2018_10_26.pdf#page=127>
 
 ## Survol
 
 Le programme de crédit hivernaux met en œuvre un ensemble de calculs pour estimer la quantité réelle d'énergie que vous avez "effacé" lors d'un événement de pointe critique. En bref, ils utilisent la consommation des cinq jours précédents du même genre qui n'avaient pas d'événement critique (cinq jours en semaine ou cinq jours de week-end) pour estimer une consommation "normale".
 
-Ils estimeront ensuite «l'effet de température» en utilisant la différence entre une période définie appelée période d'ancrage. En comparant la période d'ancrage le jour de l'événement critique avec ceux des cinq jours précédents, ils sont en mesure d'estimer la consommation supplémentaire attribuable à la température plus froide et de l'ajouter à l'énergie effacée.
+Ils estimeront ensuite «l’effet de température» en utilisant la différence entre une période définie appelée période d'ancrage. En comparant la période d'ancrage le jour de l'événement critique avec ceux des cinq jours précédents, ils sont en mesure d'estimer la consommation supplémentaire attribuable à la température plus froide et de l'ajouter à l'énergie effacée.
+
+{{< alert color="warning" title="Limitation 2025" >}}**Nouveau plafond sur l'ajustement de température** : Si votre énergie effacée dépasse **40 kWh**, l'ajustement pour la température sera plafonné à 2 fois la consommation moyenne de la période d'ancrage des jours de référence. Cela limite le bénéfice des optimisations agressives. Voir la section [Termes](/fr/docs/tarification-dynamique/winter-credits/terms/#énergie-effacée-et-limitation-nouveau-2025) pour plus de détails.{{< /alert >}}
 
 ## Logique de base
 
@@ -44,7 +46,7 @@ graph TD
   PreHeatStart[Pré-chauffage]-->PeakStart
   PeakStart[Début pointe<br/>6h ou 16h] -->PeakLowCon[Réduire consommation]
   PeakLowCon --> PeakEnd
-  PeakEnd[Fin de pointe<br/>9h ou 20h] --> NormalEnd[Consommation Normale]
+  PeakEnd[Fin de pointe<br/>10h ou 20h] --> NormalEnd[Consommation Normale]
 
 ```
 
@@ -64,12 +66,12 @@ graph TD
   PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
   PeakCritical -->|Oui| PeakLowCon[Réduire consommation]
 
-  AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
+  AnchorStart[Début Ancrage<br/>1h ou 12h] -->AnchorCritical{Critique?}
 
   AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
   PeakLowCon --> PeakEnd
   AnchorHighCon --> AnchorEnd
-  PeakEnd[Fin de pointe<br/>9h ou 20h] --> Normal
+  PeakEnd[Fin de pointe<br/>10h ou 20h] --> Normal
   AnchorEnd[Fin d'ancrage<br/>4h ou 14h] --> Normal(Consommation Normale)
 ```
 
@@ -83,12 +85,12 @@ graph TD
   PeakStart[Début pointe<br/>6h ou 16h] -->PeakCritical{Critique?}
   PeakCritical -->|Oui| PeakLowCon[Réduire consommation]
 
-  AnchorStart[Début Ancrage<br/>1h ou 11h] -->AnchorCritical{Critique?}
+  AnchorStart[Début Ancrage<br/>1h ou 12h] -->AnchorCritical{Critique?}
   AnchorCritical -->|Non| AnchorLowCon[Réduire la consommation]
   AnchorCritical -->|Oui| AnchorHighCon[Augmente la consommation]
   PeakLowCon --> PeakEnd
   AnchorHighCon --> AnchorEnd
   AnchorLowCon --> AnchorEnd
-  PeakEnd[Fin de pointe<br/>9h ou 20h] --> Normal
+  PeakEnd[Fin de pointe<br/>10h ou 20h] --> Normal
   AnchorEnd[Fin d'ancrage<br/>4h ou 14h] --> Normal(Consommation Normale)
 ```

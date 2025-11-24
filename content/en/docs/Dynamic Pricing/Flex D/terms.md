@@ -5,7 +5,7 @@ weight: 42
 description: |
   Terms used in relation to winter credits
 date: 2022-09-20T23:47:28.801Z
-lastmod: 2025-01-08T16:51:07.251Z
+lastmod: 2025-11-24T17:56:00.000Z
 ---
 
 The following terms are used in this module and come as much as possible from the official Hydro-Quebec electricity rates document (page 37):
@@ -25,9 +25,9 @@ There are 2 types of periods:
 ### Peak
 
 A peak period is a period during which energy consumption of all customers is generally high.
-In the context of winter credits, the following time slots are peak periods:
+In the context of Flex D, the following time slots are peak periods:
 
-Morning peak period: 06:00 to 09:00
+Morning peak period: 06:00 to 10:00
 Evening peak period: 16:00 to 20:00
 
 ### Normal

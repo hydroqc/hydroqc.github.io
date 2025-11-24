@@ -5,7 +5,7 @@ weight: 42
 description: |
   Termes utilisés en lien avec les crédits hivernaux
 date: 2022-09-20T23:47:28.801Z
-lastmod: 2025-01-08T16:51:07.251Z
+lastmod: 2025-11-24T17:56:00.000Z
 ---
 
 Les termes suivants sont utilisés dans ce module et proviennent autant que possible du document officiel des taux d'électricité hydro-quebec (page 37):
@@ -25,9 +25,9 @@ Il y a 2 types de période:
 ### Pointe
 
 Une période de pointe est une période pendant laquelle la consommation d'énergie de tous les clients est généralement élevée.
-Dans le contexte des crédits hivernaux, les plages horaire suivantes sont des périodes de pointe:
+Dans le contexte de Flex D, les plages horaire suivantes sont des périodes de pointe:
 
-Période de pointe matinale : 06:00 à 09:00
+Période de pointe matinale : 06:00 à 10:00
 Période de pointe du soir: 16:00 à 20:00
 
 ### Normale
