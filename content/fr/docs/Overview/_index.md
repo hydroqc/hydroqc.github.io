@@ -5,7 +5,7 @@ weight: 1
 description: |
   Survol du projet
 date: 2022-09-22T12:40:13.967Z
-lastmod: 2025-12-02T00:00:00.000Z
+lastmod: 2025-12-02T18:00:00.000Z
 ---
 {{< alert color="warning" title="Important" >}}**Ce projet n'est pas affilié à Hydro-Québec!**{{< /alert >}}
 
@@ -28,7 +28,7 @@ Ce projet a été créé pour fournir un moyen d'accéder aux données de compte
 
 La bibliothèque HydroQC Python est à la base du projet et traite tous les appels vers le portail client Hydro-Québec.
 
-### [hydroqc-ha - Intégration personnalisée Home Assistant](https://github.com/hydroqc/hydroqc-ha) {{< badge >}}Recommandé{{< /badge >}}
+### [hydroqc-ha - Intégration personnalisée Home Assistant](https://github.com/hydroqc/hydroqc-ha) ⭐ **Recommandé**
 
 L'intégration personnalisée **hydroqc-ha** est la méthode recommandée pour intégrer Hydro-Québec avec Home Assistant. Elle fournit une intégration native Home Assistant avec toutes les fonctionnalités intégrées directement dans Home Assistant sans nécessiter de démons externes ou de courtiers MQTT.
 
@@ -54,7 +54,7 @@ La fonctionnalité de synchronisation de consommation vers Home Assistant dans h
 - Vous utilisez une plateforme domotique autre que Home Assistant
 - Vous voulez intégrer avec des systèmes personnalisés basés sur MQTT
 
-### [Addon Home-Assistant](https://gitlab.com/hydroqc/hydroqc-hass-addons) {{< badge color="warning" >}}Hérité{{< /badge >}}
+### [Addon Home-Assistant](https://gitlab.com/hydroqc/hydroqc-hass-addons) ⚠️ **Hérité**
 
 {{< alert color="warning" title="Avis de dépréciation" >}}
 L'addon Home Assistant est en cours de dépréciation en faveur de la nouvelle intégration personnalisée **hydroqc-ha**. L'addon ne recevra plus de nouvelles fonctionnalités et sera éventuellement retiré. Les utilisateurs existants devraient planifier la migration vers l'intégration hydroqc-ha.

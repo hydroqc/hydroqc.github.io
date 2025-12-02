@@ -78,6 +78,15 @@ Feature description
 
 **Key distinction**: Use `{{< >}}` for HTML content, `{{% %}}` for markdown content inside blocks.
 
+### Badge Shortcode (Removed in Docsy 0.12.0)
+The `{{< badge >}}` shortcode was removed in Docsy 0.12.0. Use emoji + bold text instead:
+```markdown
+⭐ **Recommended** (replaces {{< badge >}}Recommended{{< /badge >}})
+⚠️ **Legacy** (replaces {{< badge color="warning" >}}Legacy{{< /badge >}})
+✅ **Stable** (alternative format)
+🔧 **Experimental** (alternative format)
+```
+
 ### Images
 ```markdown
 ![img](/images/configuration/home-assistant-3.png)
