@@ -1,12 +1,26 @@
 ---
-title: Home-Assistant Addon
+title: Home-Assistant Addon (Hérité)
 linkTitle: Home-Assistant Addon
 weight: 14
 description: |
-  Installation avec le addon Home-Assistant
+  Installation avec le addon Home-Assistant (Hérité - Non recommandé pour les nouveaux utilisateurs)
 date: 2022-09-21T19:50:59.393Z
-lastmod: 2025-01-08T16:51:07.251Z
+lastmod: 2025-12-02T00:00:00.000Z
 ---
+
+{{< alert color="warning" title="Avis de dépréciation" >}}
+**Cet addon est en cours de dépréciation.** Pour les nouvelles installations, nous recommandons fortement d'utiliser [**l'intégration personnalisée hydroqc-ha**](../hass-integration) à la place. L'addon ne recevra plus de nouvelles fonctionnalités et sera éventuellement retiré.
+
+La nouvelle intégration personnalisée offre:
+- Intégration native Home Assistant sans MQTT
+- Meilleure performance et fiabilité
+- Configuration plus facile
+- Parité complète des fonctionnalités
+
+[Cliquez ici pour le nouveau guide d'installation](../hass-integration)
+{{< /alert >}}
+
+## Instructions d'installation héritées
 
 **Prérequis**
 

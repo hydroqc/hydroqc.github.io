@@ -1,12 +1,26 @@
 ---
-title: Home-Assistant Addon
+title: Home-Assistant Addon (Legacy)
 linkTitle: Home-Assistant Addon
 weight: 14
 description: |
-  Install with the Home-Assistant Addon
+  Install with the Home-Assistant Addon (Legacy - Not Recommended for New Users)
 date: 2022-09-21T19:50:59.393Z
-lastmod: 2025-01-08T16:51:07.251Z
+lastmod: 2025-12-02T00:00:00.000Z
 ---
+
+{{< alert color="warning" title="Deprecation Notice" >}}
+**This addon is being deprecated.** For new installations, we strongly recommend using the [**hydroqc-ha custom integration**](../hass-integration) instead. The addon will no longer receive new features and will eventually be retired.
+
+The new custom integration provides:
+- Native Home Assistant integration without MQTT
+- Better performance and reliability
+- Easier configuration
+- Full feature parity
+
+[Click here for the new installation guide](../hass-integration)
+{{< /alert >}}
+
+## Legacy Installation Instructions
 
 **Prerequisites**
 

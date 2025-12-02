@@ -5,7 +5,7 @@
 This is a **bilingual (French/English) Hugo documentation site** for HydroQC, a project that integrates Hydro-Québec customer portal data with home automation systems (primarily Home Assistant). The site uses the **Docsy theme** and is designed to run in a dev container.
 
 - **Main repo**: Documentation site (you are here)
-- **Related projects**: `hydroqc` (Python library), `hydroqc2mqtt` (MQTT daemon), `hydroqc-hass-addons` (Home Assistant addon)
+- **Related projects**: `Hydro-Quebec-API-Wrapper` (https://gitlab.com/hydroqc/hydroqc) (Python library), `hydroqc2mqtt` (https://gitlab.com/hydroqc/hydroqc2mqtt) (MQTT daemon), `hydroqc-hass-addons` (https://gitlab.com/hydroqc/hydroqc-hass-addons) (Home Assistant addon), 'hydroqc-ha' (https://github.com/hydroqc/hydroqc-ha) (home-assistant custom component)
 - **Hosting**: GitLab-based (https://gitlab.com/hydroqc/hydroqc-docs)
 - **Primary audience**: Home automation enthusiasts integrating with Hydro-Québec
 
