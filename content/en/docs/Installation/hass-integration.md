@@ -8,9 +8,9 @@ date: 2025-12-02T00:00:00.000Z
 lastmod: 2025-12-02T00:00:00.000Z
 ---
 
-{{< alert color="success" title="Recommended for Home Assistant Users" >}}
+{{% alert color="success" title="Recommended for Home Assistant Users" %}}
 The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-Québec with Home Assistant. It provides a native integration without requiring MQTT or external daemons.
-{{< /alert >}}
+{{% /alert %}}
 
 ## Why Choose hydroqc-ha?
 

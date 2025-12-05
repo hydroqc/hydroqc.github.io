@@ -12,7 +12,7 @@ lastmod: 2025-01-08T16:51:07.251Z
 
 Voici la description de certains des capteurs en liens avec les crédits hivernaux. Si vous voulez plus de détails sur les logiques de chaque période, vous pouvez obtenir plus de détails ici: [logique pour les crédits hivernaux](/fr/docs/Tarification Dynamique/Winter Credits/optimization-logics/)
 
-{{< alert color="warning" title="Avertissement" >}}Les capteurs qui représente un état présent (Current period state for winter credit / current wc period detail / wc critical peak in progress) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteurs de type "timestamp" pour déclencher vos automatismes.{{< /alert >}}
+{{% alert color="warning" title="Avertissement" %}}Les capteurs qui représente un état présent (Current period state for winter credit / current wc period detail / wc critical peak in progress) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteurs de type "timestamp" pour déclencher vos automatismes.{{% /alert %}}
 
 | Nom du capteur | Valeurs | Description |
 |-|-|-|

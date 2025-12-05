@@ -20,7 +20,7 @@ Le programme de crédit hivernaux met en œuvre un ensemble de calculs pour esti
 
 Ils estimeront ensuite «l’effet de température» en utilisant la différence entre une période définie appelée période d'ancrage. En comparant la période d'ancrage le jour de l'événement critique avec ceux des cinq jours précédents, ils sont en mesure d'estimer la consommation supplémentaire attribuable à la température plus froide et de l'ajouter à l'énergie effacée.
 
-{{< alert color="warning" title="Limitation 2025" >}}**Nouveau plafond sur l'ajustement de température** : Si votre énergie effacée dépasse **40 kWh**, l'ajustement pour la température sera plafonné à 2 fois la consommation moyenne de la période d'ancrage des jours de référence. Cela limite le bénéfice des optimisations agressives. Voir la section [Termes](/fr/docs/tarification-dynamique/winter-credits/terms/#énergie-effacée-et-limitation-nouveau-2025) pour plus de détails.{{< /alert >}}
+{{% alert color="warning" title="Limitation 2025" %}}**Nouveau plafond sur l'ajustement de température** : Si votre énergie effacée dépasse **40 kWh**, l'ajustement pour la température sera plafonné à 2 fois la consommation moyenne de la période d'ancrage des jours de référence. Cela limite le bénéfice des optimisations agressives. Voir la section [Termes](/fr/docs/tarification-dynamique/winter-credits/terms/#énergie-effacée-et-limitation-nouveau-2025) pour plus de détails.{{% /alert %}}
 
 ## Logique de base
 

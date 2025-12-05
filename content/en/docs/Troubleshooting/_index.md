@@ -8,13 +8,13 @@ date: 2022-09-21T20:33:24.876Z
 lastmod: 2025-01-08T16:51:07.251Z
 ---
 
-{{< alert color="warning" title="Important" >}}**All the components of the HydroQC project depend on the Hydro-Quebec customer portal.**
+{{% alert color="warning" title="Important" %}}**All the components of the HydroQC project depend on the Hydro-Quebec customer portal.**
 
 **The customer portal is not a high-criticality 24/7, 99.999% uptime service.**
 
 From our experience it undergoes maintenance almost daily, during the day, the evening or over night. There is often downtime after 21h-22h on weekends.
 
-If your installation is working correctly but you are seeing container/addon restart a few times a day know that it is expected.{{< /alert >}}
+If your installation is working correctly but you are seeing container/addon restart a few times a day know that it is expected.{{% /alert %}}
 
 
 1. **Check that you can access your Hydro-Quebec customer portal with your account.**

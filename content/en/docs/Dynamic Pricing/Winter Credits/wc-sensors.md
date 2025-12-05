@@ -12,7 +12,7 @@ lastmod: 2025-01-08T16:51:07.251Z
 
 Here is the description of some of the sensors we provide that we feel needed more details. If you want more details about the logics of each period you can get more details [here](/en/docs/Dynamic Pricing/Winter Credits/optimization-logics/).
 
-{{< alert color="warning" title="Avertissement" >}}The sensor which represents a current state (Current period state for winter credit / current wc period detail / wc critical peak in progress) are at risk of not being updated in a timely manner if any problem occur. For more reliability we recommend that you use the "timestamp" sensors to trigger your automation.{{< /alert >}}
+{{% alert color="warning" title="Avertissement" %}}The sensor which represents a current state (Current period state for winter credit / current wc period detail / wc critical peak in progress) are at risk of not being updated in a timely manner if any problem occur. For more reliability we recommend that you use the "timestamp" sensors to trigger your automation.{{% /alert %}}
 
 |Default HA name and MQTT Topic | Values | Description |
 |-|-|-|

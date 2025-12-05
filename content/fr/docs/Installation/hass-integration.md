@@ -8,9 +8,9 @@ date: 2025-12-02T00:00:00.000Z
 lastmod: 2025-12-02T00:00:00.000Z
 ---
 
-{{< alert color="success" title="Recommandé pour les utilisateurs de Home Assistant" >}}
+{{% alert color="success" title="Recommandé pour les utilisateurs de Home Assistant" %}}
 L'intégration personnalisée **hydroqc-ha** est la méthode recommandée pour intégrer Hydro-Québec avec Home Assistant. Elle fournit une intégration native sans nécessiter MQTT ou de démons externes.
-{{< /alert >}}
+{{% /alert %}}
 
 ## Pourquoi choisir hydroqc-ha?
 

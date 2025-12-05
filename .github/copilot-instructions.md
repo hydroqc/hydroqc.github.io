@@ -87,6 +87,12 @@ The `{{< badge >}}` shortcode was removed in Docsy 0.12.0. Use emoji + bold text
 🔧 **Experimental** (alternative format)
 ```
 
+### Docsy 0.13.0 Notable Changes
+- **Active TOC entry tracking**: The page TOC now highlights the current section in view using ScrollSpy
+- **Alert shortcode improvements**: Alert content now supports nested shortcodes and proper Markdown rendering
+- **KaTeX auto-activation**: Mathematical formulae now use Hugo's embedded KaTeX engine (no configuration needed)
+- **Language menu visibility**: Now always visible in navbar, hidden in sidebar (breaking UX change)
+
 ### Images
 ```markdown
 ![img](/images/configuration/home-assistant-3.png)

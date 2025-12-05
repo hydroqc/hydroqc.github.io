@@ -8,7 +8,7 @@ date: 2022-09-21T19:50:59.393Z
 lastmod: 2025-12-02T00:00:00.000Z
 ---
 
-{{< alert color="warning" title="Deprecation Notice" >}}
+{{% alert color="warning" title="Deprecation Notice" %}}
 **This addon is being deprecated.** For new installations, we strongly recommend using the [**hydroqc-ha custom integration**](../hass-integration) instead. The addon will no longer receive new features and will eventually be retired.
 
 The new custom integration provides:
@@ -18,7 +18,7 @@ The new custom integration provides:
 - Full feature parity
 
 [Click here for the new installation guide](../hass-integration)
-{{< /alert >}}
+{{% /alert %}}
 
 ## Legacy Installation Instructions
 

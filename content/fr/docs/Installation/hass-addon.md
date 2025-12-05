@@ -8,7 +8,7 @@ date: 2022-09-21T19:50:59.393Z
 lastmod: 2025-12-02T00:00:00.000Z
 ---
 
-{{< alert color="warning" title="Avis de dépréciation" >}}
+{{% alert color="warning" title="Avis de dépréciation" %}}
 **Cet addon est en cours de dépréciation.** Pour les nouvelles installations, nous recommandons fortement d'utiliser [**l'intégration personnalisée hydroqc-ha**](../hass-integration) à la place. L'addon ne recevra plus de nouvelles fonctionnalités et sera éventuellement retiré.
 
 La nouvelle intégration personnalisée offre:
@@ -18,7 +18,7 @@ La nouvelle intégration personnalisée offre:
 - Parité complète des fonctionnalités
 
 [Cliquez ici pour le nouveau guide d'installation](../hass-integration)
-{{< /alert >}}
+{{% /alert %}}
 
 ## Instructions d'installation héritées
 

@@ -12,7 +12,7 @@ The developpers of the project don't have access to all of the account types and
 
 If your account type is not supported yet it may be helpful for us if you can provide the information available in your Hydro-Quebec customer portal.
 
-{{< alert color="warning" title="Important" >}}Please make sure to remove all your personal information from the outputs before sending it to us.{{< /alert >}}
+{{% alert color="warning" title="Important" %}}Please make sure to remove all your personal information from the outputs before sending it to us.{{% /alert %}}
 
 1. Go to the Hydro-Quebec portal login page but don't login yet
 

@@ -19,7 +19,7 @@ The winter credit program implement a set of calculations to estimate the real a
 
 They will then estimate the "Temperature effect" using the difference between a set period called the anchor period. By comparing the anchor period on the day of the critical event with the ones from the previous five days, they are able to estimate how much additional consumption is caused by the cooler temperature and add it to the offset energy.
 
-{{< alert color="warning" title="2025 Limitation" >}}**New temperature adjustment cap**: If your erased energy exceeds **40 kWh**, the temperature adjustment will be capped at 2 times the average anchor period consumption from the reference days. This limits the benefit of aggressive optimization strategies. See the [Terms](/en/docs/dynamic-pricing/winter-credits/terms/#erased-energy-and-limitation-new-2025) section for more details.{{< /alert >}}
+{{% alert color="warning" title="2025 Limitation" %}}**New temperature adjustment cap**: If your erased energy exceeds **40 kWh**, the temperature adjustment will be capped at 2 times the average anchor period consumption from the reference days. This limits the benefit of aggressive optimization strategies. See the [Terms](/en/docs/dynamic-pricing/winter-credits/terms/#erased-energy-and-limitation-new-2025) section for more details.{{% /alert %}}
 
 ## Basic critical peak logic
 

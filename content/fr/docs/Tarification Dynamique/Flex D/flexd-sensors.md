@@ -12,7 +12,7 @@ date: 2023-01-18T18:47:29.816Z
 
 Voici la description de des capteurs en liens avec le tarif Flex D.
 
-{{< alert color="warning" title="Avertissement" >}}Les capteur qui représente un état présent (Current dpc period detail) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteur de type "timestamp" pour déclancher vos automatisme.{{< /alert >}}
+{{% alert color="warning" title="Avertissement" %}}Les capteur qui représente un état présent (Current dpc period detail) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteur de type "timestamp" pour déclancher vos automatisme.{{% /alert %}}
 
 | Nom du capteur | Valeurs | Description |
 |-|-|-|

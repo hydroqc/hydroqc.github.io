@@ -12,7 +12,7 @@ lastmod: 2025-01-08T16:51:07.251Z
 
 Here is the description of some of the sensors linked to the Flex D rate.
 
-{{< alert color="warning" title="Avertissement" >}}The sensor which represents a current state (Current dpc period detail) are at risk of not being updated in an timely manner. We recommend that you use the "timestamp" type sensor to trigger your automation.{{< /alert >}}
+{{% alert color="warning" title="Avertissement" %}}The sensor which represents a current state (Current dpc period detail) are at risk of not being updated in an timely manner. We recommend that you use the "timestamp" type sensor to trigger your automation.{{% /alert %}}
 
 | Sensor name | Values | Description |
 |-|-|-|

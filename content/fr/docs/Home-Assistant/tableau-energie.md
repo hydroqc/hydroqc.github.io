@@ -10,7 +10,7 @@ date: 2023-11-08T00:33:04.684Z
 
 ## Consommation horaire dans le tableau de bord énergétique
 
-{{< alert color="warning">}}**La consommation horaire d'Hydro-Québec n'est pas en direct.** La consommation horaire se synchronisera automatiquement lorsqu'elle sera disponible auprès d'Hydro-Québec. Dans le portail web d'Hydro-Québec, vous ne pouvez voir la consommation horaire que de la veille.Avec Hydroqc2MQTT, vous pourrez parfois voir la consommation du jour en cours. Il y a toujours un retard de quelques heures avant la publication des données.{{< /alert >}}
+{{% alert color="warning"%}}**La consommation horaire d'Hydro-Québec n'est pas en direct.** La consommation horaire se synchronisera automatiquement lorsqu'elle sera disponible auprès d'Hydro-Québec. Dans le portail web d'Hydro-Québec, vous ne pouvez voir la consommation horaire que de la veille.Avec Hydroqc2MQTT, vous pourrez parfois voir la consommation du jour en cours. Il y a toujours un retard de quelques heures avant la publication des données.{{% /alert %}}
 
 Lorsque vous activez la synchronisation de la consommation horaire, un ou plusiseurs capteur est créé dans Home-Assistant nommé "*_hourly consumption" selon votre tarif.
 ### Tarif D et D avec option CPC (Crédits Hivernaux)
@@ -24,10 +24,10 @@ Pour les tarif FlexD et Bi-Énergie vous pouvez mettre les capteurs "High price 
 
 ![img](/images/configuration/home-assistant-3.png)
 
-{{< alert color="warning">}}**Les capteurs de consommation auront toujours un état "inconnu".** Nous n'avons pas d'état pour cela, nous devons le créer afin d'y pousser les statistiques et pour qu'il soit disponible à ajouter auTableau de bord énergétique, mais il n'aura jamais de valeur.
+{{% alert color="warning"%}}**Les capteurs de consommation auront toujours un état "inconnu".** Nous n'avons pas d'état pour cela, nous devons le créer afin d'y pousser les statistiques et pour qu'il soit disponible à ajouter auTableau de bord énergétique, mais il n'aura jamais de valeur.
 
 ![img](/images/configuration/home-assistant-1.png)
-{{< /alert >}}
+{{% /alert %}}
 
 ## Historique de consommation d'énergie
 
@@ -43,6 +43,6 @@ L'option de jours à synchroniser vous permet de définir la période pour laque
 
 Le commutateur nommé "Sync hourly consumption history" doit être activé lorsque vous souhaitez démarrer la synchronisation.
 
-{{< alert color="warning">}}La synchronisation de l'historique peut prendre une heure ou plus pour terminer et entraîne souvent des erreurs. C'est normal, ne réactivez pas le bouton de synchronisation d'historique plusieurs fois d'affilée sans redémarrer d'abord Hydroqc2MQTT{{< /alert >}}
+{{% alert color="warning"%}}La synchronisation de l'historique peut prendre une heure ou plus pour terminer et entraîne souvent des erreurs. C'est normal, ne réactivez pas le bouton de synchronisation d'historique plusieurs fois d'affilée sans redémarrer d'abord Hydroqc2MQTT{{% /alert %}}
 
 Lorsque l'importation sera terminée, le commutateur reviendra à l'état désactivé. **Vous ne devriez l'allumer qu'une seule fois, il n'y a aucun avantage à faire une resynchronisation de l'historique si elle est déjà importée.**

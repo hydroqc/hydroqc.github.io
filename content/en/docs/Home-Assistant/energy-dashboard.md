@@ -10,7 +10,7 @@ date: 2023-11-08T00:33:30.524Z
 
 ## Hourly Consumption in Energy Dashboard
 
-{{< alert color="warning">}}**Hourly consumption from Hydro-Quebec is not live.** The hourly consumption will sync automatically when it is available from Hydro-Quebec. On the website you can only see the hourly consumption from the previous day. With hydroqc2mqtt you will sometime be able to see consumption of the current day. There is always a delay of a few hours before HQ publishes the information.{{< /alert >}}
+{{% alert color="warning"%}}**Hourly consumption from Hydro-Quebec is not live.** The hourly consumption will sync automatically when it is available from Hydro-Quebec. On the website you can only see the hourly consumption from the previous day. With hydroqc2mqtt you will sometime be able to see consumption of the current day. There is always a delay of a few hours before HQ publishes the information.{{% /alert %}}
 
 When you enable sync of the hourly consumption one or more sensors are created in Home-Assistant named "* Hourly Consumption" depending on your rate.
 
@@ -24,9 +24,9 @@ For FlexD and Bi-Energy rates you can put the sensors "High price hourly consump
 
 ![img](/images/configuration/home-assistant-3.png)
 
-{{< alert color="warning">}}**The "Houly Consumption" sensor will always have a state of "unknown".** We do not have a state for it, we need to create it in order to push the statistics to it and for it to be available to add to the Energy Dashboard, but there will never be a value for it.
+{{% alert color="warning"%}}**The "Houly Consumption" sensor will always have a state of "unknown".** We do not have a state for it, we need to create it in order to push the statistics to it and for it to be available to add to the Energy Dashboard, but there will never be a value for it.
 ![img](/images/configuration/home-assistant-1.png)
-{{< /alert >}}
+{{% /alert %}}
 
 ## Historical energy consumption
 
@@ -40,6 +40,6 @@ The Days to sync option let you scope how far back you want to import the histor
 
 The switch named "Sync hourly consumption history" is to be turned on when you want to start the sync.
 
-{{< alert color="warning">}}The history sync can take an hour or more to complete and often result in errors and retry in the logs. This is normal. Do not retrigger history sync several time in a row without first restarting hydroqc2mqtt{{< /alert >}}
+{{% alert color="warning"%}}The history sync can take an hour or more to complete and often result in errors and retry in the logs. This is normal. Do not retrigger history sync several time in a row without first restarting hydroqc2mqtt{{% /alert %}}
 
 When it is done syncing the switch will turn itself off again. **You should only turn it on once, there is no benefit in doing a resync of the history if it is already imported.**

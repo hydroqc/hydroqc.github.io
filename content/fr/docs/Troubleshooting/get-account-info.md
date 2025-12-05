@@ -12,7 +12,7 @@ Les développeurs du projet n'ont pas accès à tous les types de compte et aux 
 
 Si votre type de compte n'est pas encore pris en charge, il peut être utile pour nous si vous pouvez fournir les informations disponibles dans votre portail client Hydro-Quebec.
 
-{{< alert color="warning" title="Important" >}}Veuillez vous assurer de supprimer toutes vos informations personnelles des sorties avant de nous l'envoyer.{{< /alert >}}
+{{% alert color="warning" title="Important" %}}Veuillez vous assurer de supprimer toutes vos informations personnelles des sorties avant de nous l'envoyer.{{% /alert %}}
 
 1. Accédez à la page de connexion du portail Hydro-Quebec mais ne vous connectez pas encore
 

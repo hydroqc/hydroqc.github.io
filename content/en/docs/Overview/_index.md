@@ -7,7 +7,7 @@ description: |
 date: 2022-09-22T12:40:13.967Z
 lastmod: 2025-12-02T18:00:00.000Z
 ---
-{{< alert color="warning" title="Important" >}}**This project is not endorsed or affiliated with Hydro-Québec.**{{< /alert >}}
+{{% alert color="warning" title="Important" %}}**This project is not endorsed or affiliated with Hydro-Québec.**{{% /alert %}}
 
 ## Origin of the project
 
@@ -46,9 +46,9 @@ The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-
 
 This module uses the hydroqc library to fetch all pertinent account information and winter credit signals to be sent to MQTT. It also provides Home-Assistant discovery topics to create all the relevant sensors in Home-Assistant.
 
-{{< alert color="warning" title="Deprecation Notice" >}}
+{{% alert color="warning" title="Deprecation Notice" %}}
 The Home Assistant consumption sync functionality in hydroqc2mqtt is being deprecated in favor of the new **hydroqc-ha** custom integration. hydroqc2mqtt will continue to be maintained for users of platforms other than Home Assistant.
-{{< /alert >}}
+{{% /alert %}}
 
 **Use hydroqc2mqtt if:**
 - You use a home automation platform other than Home Assistant
@@ -56,9 +56,9 @@ The Home Assistant consumption sync functionality in hydroqc2mqtt is being depre
 
 ### [Home-Assistant addon](https://gitlab.com/hydroqc/hydroqc-hass-addons) ⚠️ **Legacy**
 
-{{< alert color="warning" title="Deprecation Notice" >}}
+{{% alert color="warning" title="Deprecation Notice" %}}
 The Home Assistant addon is being deprecated in favor of the new **hydroqc-ha** custom integration. The addon will no longer receive new features and will eventually be retired. Existing users should plan to migrate to the hydroqc-ha integration.
-{{< /alert >}}
+{{% /alert %}}
 
 The Home-Assistant addon wraps the hydroqc2mqtt daemon in a package for Home-Assistant. **New users should use the hydroqc-ha custom integration instead.**
 
