@@ -146,6 +146,20 @@ For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a local calend
 - Check for special characters in your password
 - Ensure your account has active contracts
 
+### Home Assistant Logging
+
+To enable debug logging for the Hydro-Québec integration, add the following 3
+`custom_components.hydroqc` entries to your `configuration.yaml` and restart Home Assistant:
+
+```yaml
+logger:
+  default: info
+  logs:
+    custom_components.hydroqc: debug
+    custom_components.hydroqc.config_flow.base: debug
+    custom_components.hydroqc.coordinator.base: debug
+```
+
 ### No Data Appearing
 - Wait 60 seconds for the first update
 - Check Home Assistant logs: Settings → System → Logs
