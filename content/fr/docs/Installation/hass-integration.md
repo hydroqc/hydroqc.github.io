@@ -154,7 +154,7 @@ redémarrez Home Assistant :
 
 ```yaml
 logger:
-  default: warning
+  default: info
   logs:
     custom_components.hydroqc: debug
     custom_components.hydroqc.config_flow.base: debug
