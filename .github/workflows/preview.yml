@@ -1,0 +1,114 @@
+# Builds every pull request and publishes it to /pr-preview/pr-<number>/ on the
+# gh-pages branch, then removes it again when the PR is closed or merged.
+#
+# Requires (repository settings):
+#   Settings > Pages > Source = "Deploy from a branch", branch = gh-pages, / (root)
+#   Settings > Actions > General > Workflow permissions = "Read and write permissions"
+name: Deploy PR preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+# One run per PR, so a new commit cancels the previous preview publish.
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write # push the preview to the gh-pages branch
+  pull-requests: write # post/update the sticky comment with the preview URL
+
+env:
+  HUGO_VERSION: 0.166.0
+  HUGO_ENVIRONMENT: production
+  PAGES_BASE_URL: https://hydroqc.ca
+  PREVIEW_BRANCH: gh-pages
+  PREVIEW_UMBRELLA: pr-preview
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  # Build the PR and publish it to <PAGES_BASE_URL>/pr-preview/pr-<number>/
+  deploy-preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install Hugo CLI
+        run: |
+          wget -O "${{ runner.temp }}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "${{ runner.temp }}/hugo.deb"
+
+      - name: Install Dart Sass 1.106.1
+        run: |
+          curl -fsSLo "$RUNNER_TEMP/dart-sass.tar.gz" \
+            https://github.com/sass/dart-sass/releases/download/1.106.1/dart-sass-1.106.1-linux-x64.tar.gz
+          sudo tar -xzf "$RUNNER_TEMP/dart-sass.tar.gz" -C /opt
+          sudo ln -sf /opt/dart-sass/sass /usr/local/bin/sass
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24'
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Download Hugo modules
+        run: hugo mod get
+
+      - name: Generate npm dependencies for Hugo modules
+        run: hugo mod npm pack
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+        run: |
+          hugo \
+            --minify \
+            --baseURL "${PAGES_BASE_URL}/${PREVIEW_UMBRELLA}/pr-${{ github.event.number }}/"
+
+      # Fork PRs get a read-only GITHUB_TOKEN, so they can be built but not
+      # published. Use a PAT (token: ${{ secrets.PREVIEW_TOKEN }}) to change that.
+      - name: Deploy preview
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./public
+          preview-branch: ${{ env.PREVIEW_BRANCH }}
+          umbrella-dir: ${{ env.PREVIEW_UMBRELLA }}
+          pages-base-url: ${{ env.PAGES_BASE_URL }}
+          qr-code: false
+
+  # Remove the preview directory again once the PR is closed or merged
+  remove-preview:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Remove preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          preview-branch: ${{ env.PREVIEW_BRANCH }}
+          umbrella-dir: ${{ env.PREVIEW_UMBRELLA }}
+          pages-base-url: ${{ env.PAGES_BASE_URL }}
+          action: remove
