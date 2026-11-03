@@ -7,7 +7,7 @@ description: >
 date: 2022-09-20T23:56:58.290Z
 lastmod: 2025-11-24T17:56:00.000Z
 aliases:
- - /fr/docs/winter-credits/optimization-logics/
+ - /docs/winter-credits/optimization-logics/
 ---
 
 Les informations suivantes sont dérivées des formules de ce dossier soumis à la Régie de L'Énergie par Hydro-Québec:

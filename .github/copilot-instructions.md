@@ -12,8 +12,9 @@ This is a **bilingual (French/English) Hugo documentation site** for HydroQC, a 
 ## Architecture & Key Technologies
 
 ### Hugo + Docsy Theme
-- **Static site generator**: Hugo v0.110.0+ (extended version required)
-- **Theme**: Google Docsy (imported as Hugo module in `hugo.toml`)
+- **Static site generator**: Hugo 0.166.0+ (extended version required)
+- **Theme**: Docsy 0.18.1, imported as the Hugo module `github.com/docsy/docsy/theme`
+- **CSS toolchain**: Dart Sass CLI (`sass`) on `PATH` — Docsy no longer uses Hugo's embedded LibSass
 - **Build output**: `public/` directory (gitignored)
 - **Dev server**: Runs on port 1313, auto-starts in dev container
 
@@ -87,11 +88,11 @@ The `{{< badge >}}` shortcode was removed in Docsy 0.12.0. Use emoji + bold text
 🔧 **Experimental** (alternative format)
 ```
 
-### Docsy 0.13.0 Notable Changes
-- **Active TOC entry tracking**: The page TOC now highlights the current section in view using ScrollSpy
-- **Alert shortcode improvements**: Alert content now supports nested shortcodes and proper Markdown rendering
-- **KaTeX auto-activation**: Mathematical formulae now use Hugo's embedded KaTeX engine (no configuration needed)
-- **Language menu visibility**: Now always visible in navbar, hidden in sidebar (breaking UX change)
+### Docsy 0.18.x Notable Changes
+- **Plugins**: optional scripts are configured under `params.docsy.plugins`; `mermaid` is enabled by default and only loads on pages with a `mermaid` code fence
+- **jQuery removed**: Docsy no longer loads `window.jQuery`/`$`, use standard DOM APIs in any custom script
+- **Favicons**: discovered from `static/` by filename (`favicon.ico`, `favicon-NxN.png`, `apple-touch-icon.png`); the `static/favicons/` override partial is gone
+- **Dart Sass required**: `sass` must be on `PATH`; PostCSS is now opt-in (not needed for this site)
 
 ### Images
 ```markdown
@@ -132,9 +133,9 @@ hugo new content/en/docs/section-name/page-name.md
 ```
 
 ### Dependency Management
-- **Go modules**: `go mod download` (Docsy theme dependencies)
-- **NPM packages**: `npm install` (PostCSS, Autoprefixer for asset processing)
-- Both run automatically in dev container: `postCreateCommand: "npm install && go mod download"`
+- **Go modules**: `hugo mod get` / `hugo mod tidy` (Docsy theme)
+- **NPM packages**: `hugo mod npm pack && npm install` — the theme's Bootstrap and Font Awesome dependencies are published into the generated `packages/hugoautogen` npm workspace (gitignored)
+- Both run automatically in the dev container and in the `nix-shell`
 
 ## Content Patterns & Conventions
 
@@ -204,8 +205,8 @@ The site includes many technical config examples (Docker, YAML, environment vari
 2. **Weight conflicts**: Two pages with same weight cause unpredictable ordering
 3. **Language folder mismatches**: Missing translations break navigation
 4. **Image paths**: Always use `/images/...` (leading slash) for static assets
-5. **Module updates**: Run `hugo mod get -u` to update Docsy, then `hugo mod tidy`
-6. **Mermaid diagrams**: Enabled in config (`params.mermaid.enable = true`), use standard mermaid syntax
+5. **Module updates**: Run `hugo mod get github.com/docsy/docsy/theme@vX.Y.Z`, then `hugo mod tidy`, `hugo mod npm pack`, and `npm install`
+6. **Mermaid diagrams**: Enabled by the `params.docsy.plugins.mermaid` plugin (on by default); just use a `mermaid` code fence
 
 ## Testing & Validation
 

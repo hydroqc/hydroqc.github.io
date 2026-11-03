@@ -4,13 +4,13 @@
 	"features": {
 		"ghcr.io/devcontainers/features/hugo:1": {
 			"extended": true,
-			"version": "latest"
+			"version": "0.166.0"
 		},
 		"ghcr.io/devcontainers/features/go:1": {
-			"version": "1.21"
+			"version": "1.24"
 		},
 		"ghcr.io/devcontainers/features/node:1": {
-			"version": "lts"
+			"version": "24"
 		},
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
@@ -21,7 +21,7 @@
 			"onAutoForward": "notify"
 		}
 	},
-	"postCreateCommand": "npm install && go mod download && sudo apt-get update -qq && sudo apt-get install -y poppler-utils",
+	"postCreateCommand": "curl -fsSLo /tmp/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/1.106.1/dart-sass-1.106.1-linux-x64.tar.gz && sudo tar -xzf /tmp/dart-sass.tar.gz -C /opt && sudo ln -sf /opt/dart-sass/sass /usr/local/bin/sass && hugo mod npm pack && npm install && sudo apt-get update -qq && sudo apt-get install -y poppler-utils",
 	"postStartCommand": "hugo server --bind 0.0.0.0 --disableFastRender --navigateToChanged",
 	"customizations": {
 		"vscode": {
