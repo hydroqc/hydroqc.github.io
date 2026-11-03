@@ -2,7 +2,7 @@
 title = "Hydroqc"
 linkTitle = "Hydroqc"
 description = "Intégrez votre plate-forme domotique, comme Home-Assistant, à votre compte Hydro-Québec."
-lastmod = "2023-01-18T18:46:14.846Z"
+lastmod = "2026-11-03T00:00:00.000Z"
 date = "2023-01-18T18:47:21.352Z"
 +++
 
@@ -14,8 +14,8 @@ date = "2023-01-18T18:47:21.352Z"
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="./docs">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://gitlab.com/hydroqc">
-		Projet <i class="fab fa-gitlab ml-2 "></i>
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/hydroqc">
+		Projet <i class="fab fa-github ml-2 "></i>
 	</a>
 	<br>
 
@@ -26,7 +26,7 @@ date = "2023-01-18T18:47:21.352Z"
 
 {{% blocks/lead color="primary" %}}
 
-HydroQC offre un interface avec le portail client Hydro-Québec pour récupérer les informations de votre compte et l'envoyer à d'autres systèmes.
+HydroQC offre une interface avec le portail client Hydro-Québec pour récupérer les informations de votre compte et les envoyer à d'autres systèmes.
 
 <strong>**Ce projet n'est pas affilié à Hydro-Québec**</strong>
 
@@ -35,15 +35,15 @@ HydroQC offre un interface avec le portail client Hydro-Québec pour récupérer
 
 {{% blocks/section color="dark" type="row" %}}
 
-{{% blocks/feature icon="fab fa-gitlab" title="Bienvenue aux contributeurs!" url="https://gitlab.com/hydroqc" %}}
+{{% blocks/feature icon="fab fa-github" title="Bienvenue aux contributeurs!" url="https://github.com/hydroqc" %}}
 
-Nous acceptons les [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) sur **Gitlab**. Les nouveaux contributeurs sont les bienvenues!
+Nous acceptons les [Pull Request](https://github.com/hydroqc) sur **GitHub**. Les nouveaux contributeurs sont les bienvenus!
 
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/BTPDntfaXH" %}}
+{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/JaRfRJEByz" %}}
 
-Pour le soutien, clavardé et les annonces des dernières fonctionnalités.
+Pour le soutien, le clavardage et les annonces des dernières fonctionnalités.
 
 {{% /blocks/feature %}}
 
@@ -54,4 +54,3 @@ Supportez l'équipe du projet Hydroqc
 {{% /blocks/feature %}}
 
 {{% /blocks/section %}}
-

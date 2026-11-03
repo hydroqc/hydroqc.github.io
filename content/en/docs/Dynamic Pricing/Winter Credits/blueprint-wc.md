@@ -55,10 +55,10 @@ At **every execution**, the blueprint calls the `calendar.get_events` service to
 ```
 
 This approach ensures the blueprint:
-- ✅ Reliably detects critical vs regular peaks
-- ✅ Works with both time-based AND calendar triggers
-- ✅ Doesn't require additional input_boolean helpers
-- ✅ Fetches calendar data at execution time
+- Reliably detects critical vs regular peaks
+- Works with both time-based AND calendar triggers
+- Doesn't require additional input_boolean helpers
+- Fetches calendar data at execution time
 
 ## Prerequisites
 

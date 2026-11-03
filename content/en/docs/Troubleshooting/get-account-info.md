@@ -48,7 +48,7 @@ Here are some known place to find relevant data:
     - account specific url (for example we have `creditPointeCritique` for winter credit)
 
 
-When everything is gathered please post the sanitized data (personal info removed) in an issue on gitlab https://gitlab.com/hydroqc/hydroqc/-/issues.
+When everything is gathered please post the sanitized data (personal info removed) in an issue on GitHub: https://github.com/hydroqc/hydroqc/issues.
 
 
 

@@ -14,7 +14,7 @@ Here is the description of some of the sensors we provide that we feel needed mo
 
 {{% alert color="warning" title="Avertissement" %}}The sensor which represents a current state (Current period state for winter credit / current wc period detail / wc critical peak in progress) are at risk of not being updated in a timely manner if any problem occur. For more reliability we recommend that you use the "timestamp" sensors to trigger your automation.{{% /alert %}}
 
-|Default HA name and MQTT Topic | Values | Description |
+|Sensor name | Values | Description |
 |-|-|-|
 |Current period state for winter credit / current wc period detail | anchor / normal / peak / critical_anchor / critical_peak | Current period name and state|
 | wc next anchor start / end | timestamp | The timestamp for the next anchor period start and end. Can be used as triggers in home-assistant automations. **Attribute `critical`** indicates if the anchor is linked to a critical peak. |

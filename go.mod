@@ -1,4 +1,4 @@
-module gitlab.com/hydroqc/hydroqc-docs
+module github.com/hydroqc/hydroqc.github.io
 
 go 1.21.5
 

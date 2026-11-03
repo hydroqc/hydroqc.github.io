@@ -55,10 +55,10 @@ Le blueprint utilise également des déclencheurs calendrier avec offset pour le
 ```
 
 Cette approche assure que le blueprint:
-- ✅ Détecte de manière fiable les pointes critiques vs régulières
-- ✅ Fonctionne avec les déclencheurs à heures fixes ET calendrier
-- ✅ Ne nécessite pas de helpers input_boolean supplémentaires
-- ✅ Récupère les données du calendrier au moment de l'exécution
+- Détecte de manière fiable les pointes critiques vs régulières
+- Fonctionne avec les déclencheurs à heures fixes ET calendrier
+- Ne nécessite pas de helpers input_boolean supplémentaires
+- Récupère les données du calendrier au moment de l'exécution
 
 ## Prérequis
 

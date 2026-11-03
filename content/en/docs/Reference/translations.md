@@ -26,9 +26,9 @@ This means that entity names will appear in the language configured for your ent
 
 | Language | Translation File | Coverage |
 |----------|------------------|----------|
-| English | `en.json` | ✅ Complete (58 sensors, 16 binary sensors) |
-| French | `fr.json` | ✅ Complete (58 sensors, 16 binary sensors) |
-| Spanish | `es.json` | ✅ Complete (58 sensors, 16 binary sensors) |
+| English | `en.json` | Complete (58 sensors, 16 binary sensors) |
+| French | `fr.json` | Complete (58 sensors, 16 binary sensors) |
+| Spanish | `es.json` | Complete (58 sensors, 16 binary sensors) |
 
 ## Changing the Display Language
 

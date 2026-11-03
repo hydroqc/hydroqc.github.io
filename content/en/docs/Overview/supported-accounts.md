@@ -22,4 +22,4 @@ We currently support the following rates and rate options. We don't have access 
 
 **Support**: Means we support the rate and have it integrated in part or completely
 
-**Tested**: We have tests running in our CI/CD pipelines using real accounts. More info and recent test result [here](https://gitlab.com/hydroqc/hydroqc/-/blob/main/README.md). If you are tech savvy and want to add your account to the tests you can find the details [here](https://gitlab.com/hydroqc/hydroqc-test-template/-/blob/main/README.md)
+**Tested**: We have tests running in our CI/CD pipelines using real accounts. More info and recent test results [here](https://github.com/hydroqc/hydroqc/blob/main/README.md).

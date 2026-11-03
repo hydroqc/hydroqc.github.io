@@ -26,9 +26,9 @@ Cela signifie que les noms d'entités apparaîtront dans la langue configurée p
 
 | Langue | Fichier de Traduction | Couverture |
 |--------|----------------------|------------|
-| Anglais | `en.json` | ✅ Complète (58 capteurs, 16 capteurs binaires) |
-| Français | `fr.json` | ✅ Complète (58 capteurs, 16 capteurs binaires) |
-| Espagnol | `es.json` | ✅ Complète (58 capteurs, 16 capteurs binaires) |
+| Anglais | `en.json` | Complète (58 capteurs, 16 capteurs binaires) |
+| Français | `fr.json` | Complète (58 capteurs, 16 capteurs binaires) |
+| Espagnol | `es.json` | Complète (58 capteurs, 16 capteurs binaires) |
 
 ## Changer la Langue d'Affichage
 
