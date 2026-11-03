@@ -146,6 +146,21 @@ Pour les tarifs DPC (Flex-D) et DCPC (Crédits Hivernaux), vous devez créer un 
 - Vérifiez les caractères spéciaux dans le mot de passe
 - Assurez-vous que le compte a des contrats actifs
 
+## Débogage
+
+Pour activer la journalisation en mode débogage pour l'intégration Hydro-Québec,
+ajoutez les 3 lignes `custom_components.hydroqc` dans votre fichier `configuration.yaml` et
+redémarrez Home Assistant :
+
+```yaml
+logger:
+  default: info
+  logs:
+    custom_components.hydroqc: debug
+    custom_components.hydroqc.config_flow.base: debug
+    custom_components.hydroqc.coordinator.base: debug
+```
+
 ### Aucune donnée n'apparaît
 - Attendez 60 secondes pour la première mise à jour
 - Vérifiez les journaux de Home Assistant : Paramètres → Système → Journaux
