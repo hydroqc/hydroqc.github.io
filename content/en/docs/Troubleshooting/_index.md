@@ -32,3 +32,24 @@ If your installation is working correctly but you are seeing errors in the logs 
     ```
 
 4. Post the information on Discord [#support](https://discord.gg/JaRfRJEByz) or open an issue for [hydroqc-ha](https://github.com/hydroqc/hydroqc-ha/issues).
+
+## Common problems
+
+### Connection failed
+
+- Verify your credentials on the [Hydro-Québec website](https://session.hydroquebec.com/)
+- Check for special characters in your password
+- Make sure the account has active contracts
+
+### No data appearing
+
+- Wait 60 seconds for the first update
+- Check the Home Assistant logs: **Settings > System > Logs**
+- Verify the Hydro-Québec portal is online
+
+### Sensors unavailable
+
+- Some sensors are only active during specific seasons (winter credits)
+- Verify that your rate plan supports the sensor
+- For peak sensors, verify that a calendar is configured and contains the expected events
+- Check that the coordinator is updating (check the logs)

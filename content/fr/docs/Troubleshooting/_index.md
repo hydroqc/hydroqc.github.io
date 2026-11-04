@@ -32,3 +32,24 @@ Si votre installation fonctionne correctement, mais que vous voyez des erreurs d
     ```
 
 4. Publiez les informations sur Discord [#support](https://discord.gg/JaRfRJEByz) ou ouvrez un "issue" pour [hydroqc-ha](https://github.com/hydroqc/hydroqc-ha/issues).
+
+## Problèmes courants
+
+### Échec de connexion
+
+- Vérifiez vos identifiants sur le [site web d'Hydro-Québec](https://session.hydroquebec.com/)
+- Vérifiez les caractères spéciaux dans le mot de passe
+- Assurez-vous que le compte a des contrats actifs
+
+### Aucune donnée n'apparaît
+
+- Attendez 60 secondes pour la première mise à jour
+- Vérifiez les journaux de Home Assistant : **Paramètres > Système > Journaux**
+- Vérifiez que le portail Hydro-Québec est en ligne
+
+### Capteurs indisponibles
+
+- Certains capteurs ne sont actifs que pendant des saisons spécifiques (crédits hivernaux)
+- Vérifiez si votre plan tarifaire supporte le capteur
+- Pour les capteurs de pointe, vérifiez qu'un calendrier est configuré et qu'il contient les événements attendus
+- Vérifiez que le coordinateur se met à jour (consultez les journaux)

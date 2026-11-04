@@ -189,37 +189,7 @@ For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a dedicated lo
 
 ## Troubleshooting
 
-### Connection failed
-
-- Verify your credentials on the [Hydro-Québec website](https://session.hydroquebec.com/)
-- Check for special characters in your password
-- Make sure the account has active contracts
-
-### No data appearing
-
-- Wait 60 seconds for the first update
-- Check the Home Assistant logs: Settings > System > Logs
-- Verify that the Hydro-Québec portal is online
-
-### Sensors unavailable
-
-- Some sensors are only active during specific seasons (winter credits)
-- Verify that your rate plan supports the sensor
-- For peak sensors, verify that a calendar is configured and contains the expected events
-- Check that the coordinator is updating (check the logs)
-
-### Debug logging
-
-To enable debug logging for the Hydro-Québec integration, add the following 3 `custom_components.hydroqc` entries to your `configuration.yaml` and restart Home Assistant:
-
-```yaml
-logger:
-  default: info
-  logs:
-    custom_components.hydroqc: debug
-    custom_components.hydroqc.config_flow.base: debug
-    custom_components.hydroqc.coordinator.base: debug
-```
+See [Troubleshooting](../../troubleshooting/) for connection problems, missing data and debug logging.
 
 ## Support
 

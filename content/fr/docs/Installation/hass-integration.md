@@ -189,37 +189,7 @@ Pour les tarifs DPC (Flex-D) et DCPC (Crédits hivernaux), vous devez créer un 
 
 ## Dépannage
 
-### Échec de connexion
-
-- Vérifiez vos identifiants sur le [site web d'Hydro-Québec](https://session.hydroquebec.com/)
-- Vérifiez les caractères spéciaux dans le mot de passe
-- Assurez-vous que le compte a des contrats actifs
-
-### Aucune donnée n'apparaît
-
-- Attendez 60 secondes pour la première mise à jour
-- Vérifiez les journaux de Home Assistant: Paramètres > Système > Journaux
-- Vérifiez que le portail Hydro-Québec est en ligne
-
-### Capteurs indisponibles
-
-- Certains capteurs ne sont actifs que pendant des saisons spécifiques (crédits hivernaux)
-- Vérifiez si votre plan tarifaire supporte le capteur
-- Pour les capteurs de pointe, vérifiez qu'un calendrier est configuré et qu'il contient les événements attendus
-- Vérifiez que le coordinateur se met à jour (consultez les journaux)
-
-### Débogage
-
-Pour activer la journalisation en mode débogage pour l'intégration Hydro-Québec, ajoutez les 3 entrées `custom_components.hydroqc` suivantes dans votre fichier `configuration.yaml` et redémarrez Home Assistant:
-
-```yaml
-logger:
-  default: info
-  logs:
-    custom_components.hydroqc: debug
-    custom_components.hydroqc.config_flow.base: debug
-    custom_components.hydroqc.coordinator.base: debug
-```
+Consultez la page [Dépannage](../../troubleshooting/) pour les problèmes de connexion, les données manquantes et la journalisation en mode débogage.
 
 ## Soutien
 
