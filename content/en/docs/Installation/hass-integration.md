@@ -174,4 +174,4 @@ See [Troubleshooting](../../troubleshooting/) for connection problems, missing d
 - **Issues**: [GitHub Issues](https://github.com/hydroqc/hydroqc-ha/issues)
 - **Documentation**: [hydroqc.ca](https://hydroqc.ca)
 - **Source code**: [GitHub Repository](https://github.com/hydroqc/hydroqc-ha)
-- **Discord**: [Join our Discord](https://discord.gg/JaRfRJEByz)
+- **Discord**: [Join our Discord](https://discord.gg/5zEpJjppgr)

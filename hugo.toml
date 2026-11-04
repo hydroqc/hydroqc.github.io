@@ -174,7 +174,7 @@ enable = false
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 #[[params.links.user]]
 #  name = "Discord"
-#  url = "https://discord.gg/JaRfRJEByz"
+#  url = "https://discord.gg/5zEpJjppgr"
 #  icon = "fab fa-discord"
 #  desc = "Discussion and help from your fellow users"
 #[[params.links.user]]
@@ -195,7 +195,7 @@ enable = false
   desc = "Development takes place here!"
 [[params.links.developer]]
   name = "Discord"
-  url = "https://discord.gg/JaRfRJEByz"
+  url = "https://discord.gg/5zEpJjppgr"
   icon = "fab fa-discord"
   desc = "Discussion and help from your fellow users"
 

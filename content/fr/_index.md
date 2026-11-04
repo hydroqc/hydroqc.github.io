@@ -41,7 +41,7 @@ Nous acceptons les [Pull Request](https://github.com/hydroqc) sur **GitHub**. Le
 
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/JaRfRJEByz" %}}
+{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/5zEpJjppgr" %}}
 
 Pour le soutien, le clavardage et les annonces des dernières fonctionnalités.
 

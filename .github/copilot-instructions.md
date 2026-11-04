@@ -248,7 +248,7 @@ When interacting with Github you should use the MCP-Server for github.
 - **Docsy theme docs**: https://www.docsy.dev/
 - **Hugo docs**: https://gohugo.io/documentation/
 - **GitLab repo**: https://gitlab.com/hydroqc/hydroqc-docs
-- **Discord support**: https://discord.gg/JaRfRJEByz (referenced throughout docs)
+- **Discord support**: https://discord.gg/5zEpJjppgr (referenced throughout docs)
 
 ---
 

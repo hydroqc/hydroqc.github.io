@@ -31,7 +31,7 @@ Si votre installation fonctionne correctement, mais que vous voyez des erreurs d
         custom_components.hydroqc.coordinator.base: debug
     ```
 
-4. Publiez les informations sur Discord [#support](https://discord.gg/JaRfRJEByz) ou ouvrez un "issue" pour [hydroqc-ha](https://github.com/hydroqc/hydroqc-ha/issues).
+4. Publiez les informations sur Discord [#support](https://discord.gg/5zEpJjppgr) ou ouvrez un "issue" pour [hydroqc-ha](https://github.com/hydroqc/hydroqc-ha/issues).
 
 ## Problèmes courants
 

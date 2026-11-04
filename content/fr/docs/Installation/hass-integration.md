@@ -174,4 +174,4 @@ Consultez la page [Dépannage](../../troubleshooting/) pour les problèmes de co
 - **Problèmes**: [GitHub Issues](https://github.com/hydroqc/hydroqc-ha/issues)
 - **Documentation**: [hydroqc.ca](https://hydroqc.ca)
 - **Code source**: [Dépôt GitHub](https://github.com/hydroqc/hydroqc-ha)
-- **Discord**: [Rejoindre notre Discord](https://discord.gg/JaRfRJEByz)
+- **Discord**: [Rejoindre notre Discord](https://discord.gg/5zEpJjppgr)
