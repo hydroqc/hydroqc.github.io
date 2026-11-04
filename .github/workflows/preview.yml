@@ -26,7 +26,9 @@ permissions:
 env:
   HUGO_VERSION: 0.166.0
   HUGO_ENVIRONMENT: production
-  PAGES_BASE_URL: https://hydroqc.ca
+  # Host only, without scheme: the preview action prepends https:// to build
+  # the preview link (https://<PAGES_BASE_URL>/<umbrella>/pr-<number>/).
+  PAGES_BASE_URL: hydroqc.ca
   PREVIEW_BRANCH: gh-pages
   PREVIEW_UMBRELLA: pr-preview
 
@@ -35,7 +37,7 @@ defaults:
     shell: bash
 
 jobs:
-  # Build the PR and publish it to <PAGES_BASE_URL>/pr-preview/pr-<number>/
+  # Build the PR and publish it to https://<PAGES_BASE_URL>/pr-preview/pr-<number>/
   deploy-preview:
     if: github.event.action != 'closed'
     runs-on: ubuntu-latest
@@ -83,7 +85,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${PAGES_BASE_URL}/${PREVIEW_UMBRELLA}/pr-${{ github.event.number }}/"
+            --baseURL "https://${PAGES_BASE_URL}/${PREVIEW_UMBRELLA}/pr-${{ github.event.number }}/"
 
       # Fork PRs get a read-only GITHUB_TOKEN, so they can be built but not
       # published. Use a PAT (token: ${{ secrets.PREVIEW_TOKEN }}) to change that.
