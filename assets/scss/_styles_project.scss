@@ -1,0 +1,18 @@
+// Site styles, imported last by Docsy's main.scss.
+
+// Docsy's navbar is `position: fixed` from the md breakpoint up, so the banner
+// rendered between the header and the page container must clear it explicitly.
+// lean-ctx: mirrors Docsy's hard-coded 4rem navbar height; revisit if the theme
+// makes that offset configurable.
+@media (min-width: 768px) {
+  .td-banner {
+    margin-top: 4rem;
+  }
+
+  // The docs layout (layouts/docs/baseof.html) already offsets its sidebar and
+  // main content by the 4rem navbar height, so pull the page container back up
+  // instead of leaving a 4rem gap between the banner and the content.
+  .td-docs .td-banner {
+    margin-bottom: -4rem;
+  }
+}

@@ -1,7 +1,9 @@
 {{- /*
   Site override of Docsy v0.18.1 theme/layouts/docs/baseof.html.
   Docsy uses a separate base template for the docs section, so the banner
-  partial must be added here as well (see layouts/baseof.html).
+  partial must be added here as well (see layouts/baseof.html). The extra
+  `td-docs` body class scopes the banner offset rule in
+  assets/scss/_styles_project.scss.
   Keep in sync when bumping the Docsy module (go.mod).
 */ -}}
 <!doctype html>
@@ -14,7 +16,7 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
+  <body class="td-{{ .Kind }} td-docs{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
     {{ partial "llms-directive.html" . -}}
     <header>
       {{ partial "navbar.html" . }}
