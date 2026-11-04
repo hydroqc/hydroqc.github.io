@@ -47,4 +47,4 @@ Voici un endroit connu pour trouver des données pertinentes:
     Dans l'onglet Facture, vous trouverez différentes sections en fonction de votre compte. C'est là que vous devez rechercher les informations spécifiques à votre compte dont nous pourrions avoir besoin. Vous devrez fouiller un peu pour trouver les informations pertinentes.
 
 
-Lorsque tout est récupéré, veuillez publier les données anonymisés (informations personnelles supprimées) dans un "Issue" sur Gitlab https://gitlab.com/hydroqc/hydroqc/-/issues.
+Lorsque tout est récupéré, veuillez publier les données anonymisées (informations personnelles supprimées) dans un "Issue" sur GitHub: https://github.com/hydroqc/hydroqc/issues.

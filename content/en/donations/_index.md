@@ -34,11 +34,11 @@ If you want to support the team's efforts and show your appreciation you can do 
 {{< blocks/section color="primary" type="row" >}}
 
 
-{{% blocks/feature icon="fab fa-gitlab" title="Contributions welcome!" url="https://gitlab.com/hydroqc" %}}
-We do a [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) contributions workflow on **Gitlab**. New users are always welcome!
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/hydroqc" %}}
+We do a [Pull Request](https://github.com/hydroqc) contributions workflow on **GitHub**. New users are always welcome!
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-discord" title="Join us on Discord!" url="https://discord.gg/BTPDntfaXH" %}}
+{{% blocks/feature icon="fab fa-discord" title="Join us on Discord!" url="https://discord.gg/JaRfRJEByz" %}}
 For support, discussion and announcement of latest features.
 {{% /blocks/feature %}}
 

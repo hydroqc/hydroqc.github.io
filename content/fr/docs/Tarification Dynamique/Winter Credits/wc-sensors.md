@@ -10,22 +10,61 @@ lastmod: 2025-01-08T16:51:07.251Z
 
 ## Description des capteurs
 
-Voici la description de certains des capteurs en liens avec les crédits hivernaux. Si vous voulez plus de détails sur les logiques de chaque période, vous pouvez obtenir plus de détails ici: [logique pour les crédits hivernaux](/fr/docs/Tarification Dynamique/Winter Credits/optimization-logics/)
+Les entités suivantes sont créées pour le tarif DCPC (Crédits hivernaux). Les entités d'événements de pointe lisent leurs données depuis le calendrier dédié configuré dans l'intégration. Pour le détail de chaque période, consultez la page de [logique d'optimisation](../optimization-logics/).
 
-{{% alert color="warning" title="Avertissement" %}}Les capteurs qui représente un état présent (Current period state for winter credit / current wc period detail / wc critical peak in progress) comportent un risque de ne pas être mis à jour de manière ponctuelle. Nous vous recommandons d'utiliser les capteurs de type "timestamp" pour déclencher vos automatismes.{{% /alert %}}
+{{% alert color="warning" title="Avertissement" %}}
 
-| Nom du capteur | Valeurs | Description |
+Les entités qui représentent l'état actuel (État Crédit Hivernal, Pointe critique active, Préchauffage actif) dépendent des événements du calendrier et de la mise à jour du coordinateur. Pour les automatisations qui doivent s'exécuter à une heure précise, privilégiez les entités d'horodatage (Début du prochain ancrage, Début prochaine pointe, Début prochain préchauffage, etc.).
+
+{{% /alert %}}
+
+### Capteurs
+
+| Entité | Valeurs | Description |
 |-|-|-|
-|Current period state for winter credit / current wc period detail | anchor / normal / peak / critical_anchor / critical_peak | Nom de la période et état actuel|
-| wc next anchor start / end | timestamp | L'heure où la prochaine période d'ancrage commence et se termine. Peut être utilisé comme déclencheurs dans les automatisations Home-Assistant. **Attribut `critical`** indique si l'ancrage est lié à une pointe critique. |
-| wc next peak start / end | timestamp | L'heure où la prochaine période de pointe commence et se termine. Peut être utilisé comme déclencheurs dans les automatisations Home-Assistant. **Attribut `critical`** indique si la pointe est critique. |
-| wc next pre-heat start | timestamp | L'heure où la prochaine période de pré-chauffage commence. Peut être utilisé comme déclencheur dans les automatisations Home-Assistant. **Attribut `critical`** indique si le pré-chauffage est pour une pointe critique. |
-| wc next critical peak start / end | timestamp | L'heure où la prochaine période de pointe **critique** commence et se termine. Peut être utilisé comme déclencheurs dans les automatisations Home-Assistant. Sera "Indisponible" si la prochaine pointe n'est pas critique |
-| wc upcoming_critical_peak | true/false | Y a-t-il une pointe critique à venir.Sera True dès que nous détecterons une annonce d'Hydro-Québec et reviendra à False une fois qu'il n'y aura pas de pointe critique à venir.|
-| wc critical peak in progress | true/false | Sommes-nous dans une pointe critique en ce moment.|
-| wc next anchor critical | true/false | Est-ce que la prochaine période d'ancrage est liée à une pointe critique? Sera true de la fin de la dernière pointe à la fin de la prochaine pointe si la prochaine pointe est critique.|
-| wc next peak critical | true/false | Est-ce que la prochaine pointe est critique? Sera true de la fin de la dernière pointe à la fin de la prochaine pointe si la prochaine pointe est critique.
-| wc upcoming critical peak today/tomorrow morning/evening | true/false | Est-ce qu'il y a une pointe critique planifiée dans la période spécifiée.Restera true/false jusqu'à la fin de la journée en question |
-| wc yesterday morning/evening * | various | Les valeurs (crédit, énergie de référence, énergie effacée, consommation réelle) pour les pointes critiques qui se sont produits hier. Ne sera pas disponible s'il n'y avait pas de pointe critique la veille. |
-| wc critical | true/false | Sera true de la fin de la dernière pointe à la fin de la prochaine pointe si la prochaine pointe est critique. Puisqu'il s'agit d'un double de "Next Peak Critical", il sera éventuellement supprimé |
-| pre-heat in progress | true/false | Vrai durant la période de pré-chauffage |
+| État Crédit Hivernal | anchor / normal / peak / critical_anchor / critical_peak / off_season | État actuel de la période (Diagnostic). `off_season` hors de la saison hivernale (1er décembre au 31 mars) |
+| Crédit hivernal total | 123,45 $ CA | Crédit hivernal accumulé à ce jour |
+| Crédit hivernal projeté | 234,56 $ CA | Crédit hivernal projeté à la fin de la période hivernale |
+| Début du prochain ancrage | horodatage | Début de la prochaine période d'ancrage (Diagnostic). Attribut `critical`: l'ancrage est lié à une pointe critique |
+| Fin du prochain ancrage | horodatage | Fin de la prochaine période d'ancrage (Diagnostic). Attribut `critical`: l'ancrage est lié à une pointe critique |
+| Début prochaine pointe | horodatage | Début de la prochaine période de pointe (Diagnostic). Attribut `critical`: la pointe est critique |
+| Fin prochaine pointe | horodatage | Fin de la prochaine période de pointe (Diagnostic). Attribut `critical`: la pointe est critique |
+| Début prochaine pointe critique | horodatage | Début de la prochaine pointe **critique**. Indisponible lorsque la prochaine pointe n'est pas critique |
+| Fin prochaine pointe critique | horodatage | Fin de la prochaine pointe **critique**. Indisponible lorsque la prochaine pointe n'est pas critique |
+| Début prochain préchauffage | horodatage | Début de la période de préchauffage avant la prochaine pointe (Diagnostic). Attribut `critical`: le préchauffage est pour une pointe critique |
+
+### Résultats d'hier
+
+Ces 8 capteurs rapportent le résultat des pointes critiques d'hier. Ils sont indisponibles s'il n'y a pas eu de pointe critique la veille.
+
+| Entité | Unité | Description |
+|-|-|-|
+| Crédit hier matin | $ CA | Crédit hivernal obtenu lors de la pointe d'hier matin |
+| Conso. réelle hier matin | kWh | Consommation réelle lors de la pointe d'hier matin |
+| Conso. réf. hier matin | kWh | Consommation de référence pour la pointe d'hier matin |
+| Conso. éco. hier matin | kWh | Consommation économisée par rapport à la référence pour la pointe d'hier matin |
+| Crédit hier soir | $ CA | Crédit hivernal obtenu lors de la pointe d'hier soir |
+| Conso. réelle hier soir | kWh | Consommation réelle lors de la pointe d'hier soir |
+| Conso. réf. hier soir | kWh | Consommation de référence pour la pointe d'hier soir |
+| Conso. éco. hier soir | kWh | Consommation économisée par rapport à la référence pour la pointe d'hier soir |
+
+### Capteurs binaires
+
+| Entité | Valeurs | Description |
+|-|-|-|
+| Période critique | on / off | La prochaine pointe est critique (Diagnostic). Conservé pour compatibilité avec Prochaine pointe critique |
+| Pointe critique active | on / off | Une pointe critique est en cours (Diagnostic) |
+| Préchauffage actif | on / off | La période de préchauffage avant une pointe est en cours (Diagnostic, désactivé par défaut) |
+| Prochain ancrage critique | on / off | La prochaine période d'ancrage est liée à une pointe critique (Diagnostic) |
+| Prochaine pointe critique | on / off | La prochaine période de pointe est critique (Diagnostic) |
+| Pointe critique à venir | on / off | Une pointe critique est annoncée et toujours à venir (Diagnostic) |
+| Pointe matin aujourd'hui | on / off | Une pointe critique est prévue ce matin (6h-10h) (Diagnostic, désactivé par défaut) |
+| Pointe soir aujourd'hui | on / off | Une pointe critique est prévue ce soir (16h-20h) (Diagnostic, désactivé par défaut) |
+| Pointe matin demain | on / off | Une pointe critique est prévue demain matin (6h-10h) (Diagnostic, désactivé par défaut) |
+| Pointe soir demain | on / off | Une pointe critique est prévue demain soir (16h-20h) (Diagnostic, désactivé par défaut) |
+
+## Pages connexes
+
+- [Logique d'optimisation des crédits hivernaux](../optimization-logics/)
+- [Blueprint crédits hivernaux](../blueprint-wc/)
+- [Capteurs Flex D](../../flex-d/flexd-sensors/)

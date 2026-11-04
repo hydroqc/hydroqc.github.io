@@ -23,4 +23,4 @@ Nous prenons actuellement en charge les tarifs et les options tarifaires suivant
 
 **Support**: Signifie que nous soutenons ce tarif et l'avons intégré en partie ou complètement
 
-**Testé**: Nous avons des tests en cours d'exécution dans nos pipelines CI/CD à l'aide de comptes réels. Voir [ici](https://gitlab.com/hydroqc/hydroqc/-/blob/main/README.md) pour plus d'informations et les résultats des tests récents . Si vous êtes "techno" et souhaitez ajouter votre compte aux tests, vous pouvez trouver les détails [ici](https://gitlab.com/hydroqc/hydroqc-test-template/-/blob/main/README.md)
+**Testé**: Nous avons des tests en cours d'exécution dans nos pipelines CI/CD à l'aide de comptes réels. Voir [ici](https://github.com/hydroqc/hydroqc/blob/main/README.md) pour plus d'informations et les résultats des tests récents.

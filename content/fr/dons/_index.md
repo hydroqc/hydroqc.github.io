@@ -31,12 +31,12 @@ Si vous désirez soutenir les efforts de l'équipe et nous signifier votre appui
 
 {{< blocks/section color="primary" type="row" >}}
 
-{{% blocks/feature icon="fab fa-gitlab" title="Bienvenue aux contributeurs!" url="https://gitlab.com/hydroqc" %}}
-Nous acceptons les [Merge Request](https://gitlab.com/groups/hydroqc/-/merge_requests) sur **Gitlab**. Les nouveaux contributeurs sont les bienvenues!
+{{% blocks/feature icon="fab fa-github" title="Bienvenue aux contributeurs!" url="https://github.com/hydroqc" %}}
+Nous acceptons les [Pull Request](https://github.com/hydroqc) sur **GitHub**. Les nouveaux contributeurs sont les bienvenus!
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/BTPDntfaXH" %}}
-Pour le soutien, clavardé et les annonces des dernières fonctionnalités.
+{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/JaRfRJEByz" %}}
+Pour le soutien, le clavardage et les annonces des dernières fonctionnalités.
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-solid fa-hand-holding-heart" title="Dons" url="/fr/dons" %}}
