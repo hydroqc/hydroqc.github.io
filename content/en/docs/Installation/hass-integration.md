@@ -4,6 +4,12 @@ linkTitle: Home Assistant Integration
 weight: 12
 description: |
   Install the hydroqc-ha custom integration for Home Assistant (Recommended)
+aliases:
+  - /docs/configuration/
+  - /docs/configuration/addon-advanced/
+  - /docs/configuration/config-file/
+  - /docs/configuration/environment/
+  - /docs/installation/hass-addon/
 date: 2025-12-02T00:00:00.000Z
 lastmod: 2026-11-03T00:00:00.000Z
 ---
