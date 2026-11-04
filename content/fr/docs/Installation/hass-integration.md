@@ -76,6 +76,12 @@ Cliquez sur le badge ci-dessus pour ajouter le dépôt à HACS, puis:
 
 La première étape demande le mode de connexion: **Portal Mode (requires login)** pour un compte Hydro-Québec, ou **OpenData Mode (no login required)** pour les données publiques de pointe sans identifiants.
 
+{{% alert color="info" title="Calendrier local requis" %}}
+
+Pour les tarifs DPC (Flex-D) et DCPC (Crédits hivernaux), vous devez créer un calendrier local dédié dans Home Assistant avant de configurer l'intégration. Tous les capteurs de pointe (état, heures des prochaines pointes et préchauffage) lisent leurs données depuis les événements du calendrier. N'utilisez pas un calendrier partagé.
+
+{{% /alert %}}
+
 ### Option 1: Mode Portail (compte Hydro-Québec)
 
 1. Allez dans **Paramètres** > **Appareils et services**
@@ -153,45 +159,11 @@ Hydro-Québec attribue un nouveau numéro de contrat chaque fois que le responsa
 
 Les entités conservent leur `entity_id` et l'historique de consommation est préservé.
 
-## Options de l'intégration
+## Étapes suivantes
 
-Ouvrez **Paramètres** > **Appareils et services** > **Hydro-Québec** > **Configurer** pour modifier:
-
-- **Durée de préchauffage**: combien de temps avant un événement de pointe la période de préchauffage commence (0-240 minutes, par défaut: 120)
-- **Activer la synchronisation de consommation**: importe la consommation horaire pour le tableau de bord énergétique. Nécessite un rechargement de l'intégration
-- **Entité calendrier**: le calendrier utilisé pour les événements de pointe. Requis pour les tarifs DPC/DCPC et validé lors de l'enregistrement
-
-## Services
-
-| Service | Description | Champs |
-|-|-|-|
-| `hydroqc.refresh_data` | Rafraîchir manuellement les données depuis l'API Hydro-Québec | Cible: une entité Hydro-Québec |
-| `hydroqc.sync_consumption_history` | Importer l'historique de consommation horaire (s'exécute en arrière-plan) | `days_back` (1-2000, par défaut: 731) |
-| `hydroqc.create_peak_event` | Créer manuellement un événement de pointe critique dans le calendrier configuré | `device_id`, `date` (AAAA-MM-JJ), `time_slot` (`AM` = 6h-10h, `PM` = 16h-20h) |
-
-`hydroqc.sync_consumption_history` nécessite le Mode Portail et la synchronisation de consommation activée. Un événement de pointe créé manuellement est automatiquement jumelé si Hydro-Québec annonce plus tard le même événement.
-
-## Entités
-
-L'intégration crée les entités suivantes pour chaque contrat:
-
-- **Compte et facturation**: Solde, Total facture à ce jour, Facture projetée, Moyenne quotidienne facture, Moyenne quotidienne conso, Conso. totale, Conso. totale projetée, Température moyenne, Coût moyen kWh, Jour période facturation, Durée période facturation, Tarif actuel, Option tarifaire
-- **Bi-énergie**: Conso. prix supérieur, Conso. prix inférieur, Différence Flex D vs Tarif D (DT et DPC)
-- **Événements de pointe**: État DPC et horodatages des prochaines pointes (DPC), État Crédit Hivernal, crédits hivernaux totaux et horodatages des prochaines pointes (DCPC)
-- **Résultats des crédits hivernaux**: crédit, consommation, consommation de référence et consommation économisée d'hier matin et d'hier soir (DCPC)
-- **Panne**: État panne, avec la cause, la durée et le statut en attributs
-- **Capteurs binaires**: MVE actif, Statut du portail, et indicateurs de pointe et de préchauffage pour DPC et DCPC
-- **Bouton**: Refresh Peak Data (DPC et DCPC uniquement)
-
-Certaines entités de diagnostic sont désactivées par défaut (Statut du portail, MVE actif, Début prochain préchauffage DPC et Préchauffage actif des crédits hivernaux). Activez-les dans les paramètres de l'entité si nécessaire.
-
-Consultez la référence des [capteurs](../../reference/sensors/) pour la liste complète, ainsi que les pages [Flex D](../../tarification-dynamique/flex-d/flexd-sensors/) et [Crédits hivernaux](../../tarification-dynamique/winter-credits/wc-sensors/) pour les entités propres à chaque tarif.
-
-{{% alert color="info" title="Calendrier local requis" %}}
-
-Pour les tarifs DPC (Flex-D) et DCPC (Crédits hivernaux), vous devez créer un calendrier local dédié dans Home Assistant avant de configurer l'intégration. Tous les capteurs de pointe (état, heures des prochaines pointes et préchauffage) lisent leurs données depuis les événements du calendrier. N'utilisez pas un calendrier partagé.
-
-{{% /alert %}}
+- [Options de l'intégration](../../home-assistant/integration-options/)
+- [Services](../../home-assistant/services/)
+- [Entités](../../home-assistant/entities/)
 
 ## Dépannage
 

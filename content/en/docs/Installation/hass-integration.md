@@ -76,6 +76,12 @@ Click the badge above to add the repository to HACS, then:
 
 The first step asks which connection mode to use: **Portal Mode (requires login)** for a Hydro-Québec account, or **OpenData Mode (no login required)** for public peak data without credentials.
 
+{{% alert color="info" title="Local Calendar Required" %}}
+
+For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a dedicated local calendar in Home Assistant before configuring the integration. All peak sensors (status, next peak times and preheat) read their data from calendar events. Do not use a shared calendar.
+
+{{% /alert %}}
+
 ### Option 1: Portal Mode (Hydro-Québec account)
 
 1. Go to **Settings** > **Devices & Services**
@@ -153,45 +159,11 @@ Hydro-Québec assigns a new contract number whenever the person responsible for 
 
 Entities keep their `entity_id` and the consumption history is preserved.
 
-## Integration options
+## Next steps
 
-Open **Settings** > **Devices & Services** > **Hydro-Québec** > **Configure** to change:
-
-- **Pre-heat Duration**: how long before a peak event the preheat period starts (0-240 minutes, default: 120)
-- **Enable consumption synchronization**: import hourly consumption for the Energy Dashboard. Requires an integration reload to take effect
-- **Calendar Entity**: the calendar used for peak events. Required for DPC/DCPC rates and validated when saving
-
-## Services
-
-| Service | Description | Fields |
-|-|-|-|
-| `hydroqc.refresh_data` | Manually refresh data from the Hydro-Québec API | Target: a Hydro-Québec entity |
-| `hydroqc.sync_consumption_history` | Import historical hourly consumption (runs in the background) | `days_back` (1-2000, default: 731) |
-| `hydroqc.create_peak_event` | Create a manual critical peak event in the configured calendar | `device_id`, `date` (YYYY-MM-DD), `time_slot` (`AM` = 6h-10h, `PM` = 16h-20h) |
-
-`hydroqc.sync_consumption_history` requires Portal Mode and consumption synchronization enabled. A manually created peak event is automatically matched if Hydro-Québec later announces the same event.
-
-## Entities
-
-The integration creates the following entities for each contract:
-
-- **Account and billing**: Balance, Bill Total to Date, Projected Bill, Daily Bill Average, Daily Consumption Average, Total Consumption, Projected Total Consumption, Average Temperature, Average kWh Cost, Billing Period Day, Billing Period Duration, Current Rate, Rate Option
-- **Dual-energy**: High Price Consumption, Low Price Consumption, Flex D vs Rate D Difference (DT and DPC)
-- **Peak events**: DPC Status and next peak timestamps (DPC), Winter Credit Status, winter credit totals and next peak timestamps (DCPC)
-- **Winter credit results**: yesterday morning and evening credit, consumption, reference consumption and saved consumption (DCPC)
-- **Outage**: Outage Status, with cause, duration and status as attributes
-- **Binary sensors**: EPP Active, Portal Status, and peak/preheat indicators for DPC and DCPC
-- **Button**: Refresh Peak Data (DPC and DCPC only)
-
-Some diagnostic entities are disabled by default (Portal Status, EPP Active, DPC Next Preheat Start and Winter Credits Preheat Active). Enable them in the entity settings if you need them.
-
-See the [Sensors](../../reference/sensors/) reference for the full list and the [Flex D](../../dynamic-pricing/flex-d/flexd-sensors/) and [Winter Credits](../../dynamic-pricing/winter-credits/wc-sensors/) pages for the rate-specific entities.
-
-{{% alert color="info" title="Local Calendar Required" %}}
-
-For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a dedicated local calendar in Home Assistant before configuring the integration. All peak sensors (status, next peak times and preheat) read their data from calendar events. Do not use a shared calendar.
-
-{{% /alert %}}
+- [Integration options](../../home-assistant/integration-options/)
+- [Services](../../home-assistant/services/)
+- [Entities](../../home-assistant/entities/)
 
 ## Troubleshooting
 
