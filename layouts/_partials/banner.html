@@ -1,0 +1,50 @@
+{{- /*
+  Site-wide announcement banner.
+
+  Configured per language in hugo.toml:
+
+    [languages.xx.params.banner]
+    enable = true
+    id = "..."          # bump to re-show a dismissed banner
+    message = "..."     # markdown allowed
+    link = "/docs/..."  # optional, language-relative
+    linkText = "..."
+    label = "..."       # aria-label for the region
+    dismissLabel = "..."
+
+  Dismissal is stored in localStorage; the no-flash hide lives in
+  layouts/_partials/hooks/head-end.html.
+*/ -}}
+{{- $banner := site.Params.banner -}}
+{{- with $banner -}}
+{{- if and .enable .message }}
+<aside id="td-banner" class="td-banner alert alert-warning rounded-0 mb-0 d-print-none"
+  role="region" aria-label="{{ .label | default "Announcement" }}">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center gap-2">
+      <div class="td-banner__message text-center">
+        {{ .message | markdownify }}
+        {{- with .link }}
+        <a class="alert-link fw-semibold ms-1" href="{{ . | relLangURL }}">{{ $banner.linkText | default "Learn more" }}</a>
+        {{- end }}
+      </div>
+      <button type="button" class="btn-close flex-shrink-0" data-td-banner-dismiss
+        aria-label="{{ .dismissLabel | default "Dismiss" }}"></button>
+    </div>
+  </div>
+</aside>
+<script>
+  (function () {
+    var banner = document.getElementById('td-banner');
+    if (!banner) return;
+    banner.addEventListener('click', function (event) {
+      if (!event.target.closest('[data-td-banner-dismiss]')) return;
+      banner.remove();
+      try {
+        localStorage.setItem('td-banner-dismissed:{{ .id }}:{{ site.Language.Lang }}', '1');
+      } catch (e) {}
+    });
+  })();
+</script>
+{{- end -}}
+{{- end -}}

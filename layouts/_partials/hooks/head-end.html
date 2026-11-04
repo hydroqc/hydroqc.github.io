@@ -1,0 +1,21 @@
+{{- /*
+  Docsy head-end hook: hide an already-dismissed banner before first paint.
+  Paired with layouts/_partials/banner.html.
+*/ -}}
+{{- $banner := site.Params.banner -}}
+{{- with $banner -}}
+{{- if and .enable .message }}
+<script>
+  (function () {
+    try {
+      if (localStorage.getItem('td-banner-dismissed:{{ .id }}:{{ site.Language.Lang }}') === '1') {
+        document.documentElement.setAttribute('data-td-banner-dismissed', '');
+      }
+    } catch (e) {}
+  })();
+</script>
+<style>
+  html[data-td-banner-dismissed] #td-banner { display: none !important; }
+</style>
+{{- end -}}
+{{- end -}}

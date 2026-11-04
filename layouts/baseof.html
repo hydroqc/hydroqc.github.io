@@ -1,0 +1,30 @@
+{{- /*
+  Site override of Docsy v0.18.1 theme/layouts/baseof.html.
+  The only addition is {{ partial "banner.html" . }} below the header.
+  Keep in sync when bumping the Docsy module (go.mod).
+*/ -}}
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage"
+    {{- with .Site.Language.Direction }} dir="{{ . }}" {{- end -}}
+    {{ with .Site.Language.Name }} lang="{{ . }}" {{- end }} {{/**/ -}}
+    class="no-js"
+    {{- $darkMode := partialCached "dark-mode-config.html" "dark-mode-global" -}}
+    {{- if $darkMode.enable }} data-theme-init{{ end }}>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
+    {{ partial "llms-directive.html" . -}}
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    {{ partial "banner.html" . }}
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="td-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

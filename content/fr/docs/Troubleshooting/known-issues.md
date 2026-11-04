@@ -5,8 +5,16 @@ weight: 52
 description: |
   Problèmes dont nous sommes conscients et leurs solutions de contournement.
 date: 2022-09-21T18:41:22.563Z
-lastmod: 2026-11-03T00:00:00.000Z
+lastmod: 2026-11-04T00:00:00.000Z
 ---
+
+## Vérification par courriel (MFA) exigée à chaque session
+
+À compter du 5 novembre 2026, le portail client d'Hydro-Québec demande un code de vérification envoyé par courriel pour chaque nouvelle session.
+
+**L'intégration est présentement brisée par ce changement.** HydroQC se connecte au portail à votre place et n'a pas accès à votre boîte courriel : il ne peut donc pas fournir ce code. Les données cessent de se mettre à jour et Home Assistant peut afficher **Réauthentification requise** dans **Paramètres** → **Appareils et services**.
+
+Il n'y a pas de solution de contournement pour le moment. **Nous sommes au courant du problème et travaillons activement à une solution.** Cette page sera mise à jour dès qu'une solution sera disponible.
 
 ## La consommation ne se synchronise pas
 

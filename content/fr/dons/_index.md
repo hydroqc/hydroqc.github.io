@@ -35,7 +35,7 @@ Si vous désirez soutenir les efforts de l'équipe et nous signifier votre appui
 Nous acceptons les [Pull Request](https://github.com/hydroqc) sur **GitHub**. Les nouveaux contributeurs sont les bienvenus!
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/JaRfRJEByz" %}}
+{{% blocks/feature icon="fab fa-discord" title="Venez discuter sur Discord!" url="https://discord.gg/5zEpJjppgr" %}}
 Pour le soutien, le clavardage et les annonces des dernières fonctionnalités.
 {{% /blocks/feature %}}
 
