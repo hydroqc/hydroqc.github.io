@@ -10,93 +10,133 @@ lastmod: 2025-12-18T00:00:00.000Z
 
 ## Home-Assistant Blueprint
 
-A Home-Assistant Blueprint with the options to carry out the automations described in this section is available [here](https://raw.githubusercontent.com/hydroqc/hydroqc-ha/main/blueprints/winter-credits-calendar.yaml) and can be installed directly with this button:
+A Home-Assistant blueprint that handles the Winter Credits (DCPC) schedule: fixed-time anchors and peaks, calendar-driven pre-heating for critical peaks, and a separate set of actions for regular peaks. It can be installed directly with this button:
 
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fraw.githubusercontent.com%2Fhydroqc%2Fhydroqc-ha%2Fmain%2Fblueprints%2Fwinter-credits-calendar.yaml)
 
-## Blueprint Architecture
+The blueprint source is available [here](https://raw.githubusercontent.com/hydroqc/hydroqc-ha/main/blueprints/winter-credits-calendar.yaml). To import it manually, go to **Settings** > **Automations & scenes** > **Blueprints** > **Import blueprint** and paste that URL.
 
-The Winter Credits blueprint uses a hybrid approach combining time-based triggers and calendar triggers:
+## How it works
 
-### Time-Based Triggers
+The blueprint is a single automation in `parallel` mode (with `max_exceeded: silent`) that combines two kinds of triggers:
 
-**Daily winter schedule** (December 1 - March 31):
-- **01:00** : Morning anchor start
-- **04:00** : Morning anchor end
-- **06:00** : Morning peak start
-- **10:00** : Morning peak end
-- **12:00** : Evening anchor start
-- **14:00** : Evening anchor end
-- **16:00** : Evening peak start
-- **20:00** : Evening peak end
+| Trigger | Fires |
+|---|---|
+| Pre-heat (morning) | `preheat_offset_morning` before a calendar event starts |
+| Pre-heat (evening) | `preheat_offset_evening` before a calendar event starts |
+| Morning anchor start | 01:00 |
+| Morning anchor end | 04:00 |
+| Morning peak start | 06:00 |
+| Morning peak end | 10:00 |
+| Evening anchor start | 12:00 |
+| Evening anchor end | 14:00 |
+| Evening peak start | 16:00 |
+| Evening peak end | 20:00 |
 
-These time-based triggers ensure your automations fire at each anchor and peak period, whether critical or regular.
+Two global conditions apply to every trigger:
 
-### Calendar Triggers
+- the current month must be December, or January through March, so the automation never runs outside the Winter Credits season
+- calendar triggers must have an event whose summary contains `pointe` and whose description contains `Tarif: DCPC`
 
-The blueprint requires a **local calendar entity** created in Home Assistant. The HydroQC integration automatically syncs critical peak events announced by Hydro-Québec to this calendar.
+### Critical or regular?
 
-**Important**: You must create your own local calendar in Home Assistant (Settings → Devices & Services → Local Calendars → Add Calendar). The integration does not create a calendar automatically; it adds events to an existing calendar that you specify in the configuration.
-
-**Recommendation**: Use a dedicated calendar only for peak events to avoid conflicts with other events.
-
-The blueprint also uses calendar triggers with offsets for pre-heating before critical peaks.
-
-### Automatic Criticality Detection
-
-At **every execution**, the blueprint calls the `calendar.get_events` service to fetch today's events and automatically determine if peaks are critical or regular:
+At every execution the blueprint reads the calendar for the current day with `calendar.get_events` and decides whether a critical peak exists:
 
 ```yaml
 - action: calendar.get_events
+  target:
+    entity_id: !input hydroqc_calendar
   data:
-    start_date_time: "{{ now().replace(hour=0, minute=0, second=0).isoformat() }}"
-    end_date_time: "{{ now().replace(hour=23, minute=59, second=59).isoformat() }}"
+    start_date_time: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0).isoformat() }}"
+    end_date_time: "{{ now().replace(hour=23, minute=59, second=59, microsecond=0).isoformat() }}"
   response_variable: calendar_events
 ```
 
-This approach ensures the blueprint:
-- Reliably detects critical vs regular peaks
-- Works with both time-based AND calendar triggers
-- Doesn't require additional input_boolean helpers
-- Fetches calendar data at execution time
+A morning peak counts as critical when an event of the day has a `pointe` summary, `Tarif: DCPC` in its description and a start time at 06:00. The evening peak is detected the same way at 16:00. This is why the automation works with time triggers alone: at 01:00, 04:00, 06:00, 10:00, 12:00, 14:00, 16:00 and 20:00 it re-reads the calendar instead of relying on a helper.
+
+Each anchor and peak branch then picks the critical actions when a critical peak exists that day, and the regular actions otherwise. Pre-heating is driven by the calendar triggers only, so it never runs for a regular peak.
+
+### Pre-heat offsets
+
+The two calendar triggers share the same event and are told apart by the event start hour: before 12:00 the morning pre-heat action runs, at 12:00 or later the evening one. Both offsets default to `-01:45:00`.
+
+The anchor end actions fire at 04:00 and 14:00. If you set a pre-heat offset of `-02:00:00` or more (for example `-02:30:00`), the pre-heat starts before or at the same time as the anchor end action, so plan both actions accordingly.
 
 ## Prerequisites
 
-### 1. Create a Local Calendar
+### 1. Create a local calendar
 
 {{% alert color="warning" title="Important" %}}
+
 You must create a local calendar in Home Assistant **before** configuring the HydroQC integration.
+
 {{% /alert %}}
 
-**Steps to create a local calendar**:
-
-1. Go to **Settings** → **Devices & Services** → **Integrations**
+1. Go to **Settings** > **Devices & Services** > **Integrations**
 2. Click **Add Integration**
 3. Search for **"Local Calendar"**
 4. Create a new calendar with a name like "HydroQC Peaks" or "Winter Credits"
 5. Note the calendar's `entity_id` (e.g., `calendar.hydroqc_peaks`)
 
-**Recommendation**: Use a dedicated calendar only for HydroQC peak events to avoid conflicts with other personal events.
+Use a dedicated calendar only for HydroQC peak events to avoid conflicts with personal events.
 
-### 2. Configure the HydroQC Integration
+### 2. Configure the HydroQC integration
 
-When configuring the Hydro-Québec integration, select the calendar entity you just created. The integration automatically syncs critical peak events to this calendar. For DPC (Flex D) and DCPC (Winter Credits) rates, the calendar is required.
+When configuring the Hydro-Québec integration, select the calendar entity you created. The integration automatically syncs critical peak events to this calendar. For DPC (Flex D) and DCPC (Winter Credits) rates, the calendar is required.
 
-## Configurable Actions
+{{% alert color="info" title="Blueprint language" %}}
 
-The blueprint provides separate actions for:
+The blueprint interface, its notifications and the calendar events written by the integration are in French only. The input names below are given as they appear in the UI.
 
-### Critical Peaks
-- **Pre-heat** (enabled by default)
-- **Anchor start** (disabled by default)
-- **Anchor end** (disabled by default)
-- **Peak start** (enabled by default)
-- **Peak end** (enabled by default)
+{{% /alert %}}
 
-### Regular (Non-Critical) Peaks
-- **Anchor start** (disabled by default)
-- **Anchor end** (disabled by default)
-- **Peak start** (disabled by default)
-- **Peak end** (disabled by default)
+## Inputs
 
-All actions include **persistent notifications disabled by default** that you can enable as needed.
+| Input | Default | Description |
+|---|---|---|
+| Calendrier Hydro-Québec | – | Calendar entity to watch. Select the same calendar as in the integration options |
+| Délai de pré-chauffage (matin) | `-01:45:00` | How long before a morning critical peak the pre-heat starts. `-HH:MM:SS` |
+| Délai de pré-chauffage (soir) | `-01:45:00` | Same, for evening critical peaks |
+| [Critique] Action pré-chauffage (matin) | Persistent notification | Actions to run before a morning critical peak |
+| [Critique] Action pré-chauffage (soir) | Persistent notification | Actions to run before an evening critical peak |
+| [Critique] Action début pointe | Persistent notification | Actions to run at 06:00 and 16:00 on a critical peak day |
+| [Critique] Action fin pointe | Random delay, then persistent notification | Actions to run at 10:00 and 20:00 on a critical peak day |
+
+The critical actions are enabled by default, including their notifications. Two optional collapsed sections hold the rest:
+
+| Section | Inputs | Default |
+|---|---|---|
+| Actions pointes régulières | [Régulière] Début pointe, [Régulière] Fin pointe | Disabled (`enabled: false`) |
+| Actions d'ancrage (optionnel) | Critical and regular anchor start/end for morning and evening | Disabled (`enabled: false`) |
+
+To use a disabled action, remove the `enabled: false` line from its sequence or replace the sequence entirely.
+
+## Peak events written by the integration
+
+For every upcoming critical peak, the integration creates one event in the configured calendar:
+
+- **Summary**: an icon followed by `Pointe critique`
+- **Location**: `Hydro-Québec DCPC`
+- **Description**:
+
+```
+Réduisez votre consommation d'électricité pendant cette période.
+
+Début: 06:00
+Fin: 10:00
+
+--- Métadonnées ---
+Ajouté le: 2026-01-15 08:12:34 EST
+Tarif: DCPC
+Critique: Oui
+ID: hydroqc_123456789_2026-01-16T06:00:00-05:00
+```
+
+The `Tarif` metadata line is what the blueprint filters on, and the start time (06:00 or 16:00) is what marks the day as a critical peak day. Regular peaks are not added to the calendar, and events created manually with the `hydroqc.create_peak_event` service use the same format.
+
+## Recommendations
+
+- Wrap your actions in `parallel:` rather than a plain sequence. A failing action then does not prevent the following ones from running.
+- Keep the random 30 seconds to 5 minutes delay in the end action, and spread similar delays between your own restart actions. Without it, thousands of devices restart at the same second and create a new demand peak.
+- Enable the anchor actions only if you want to act on the reference consumption periods. They are optional and disabled by default.
+- For complex logic, use the blueprint only as a trigger (a `time` trigger or a separate automation) instead of adding many conditions to it. It stays easier to maintain and debug.
