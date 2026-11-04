@@ -59,6 +59,16 @@ weight = 1
 title = "HydroQC"
 description = "HydroQC documentation"
 
+# Site-wide announcement banner (see layouts/_partials/banner.html).
+[languages.en.params.banner]
+enable = true
+id = "mfa-email-2026-11"
+label = "Important notice"
+dismissLabel = "Dismiss notice"
+message = "**Starting November 5, 2026**, the Hydro-Québec customer portal requires an email verification code for every new session. **The integration is currently broken by this change.** We are aware of the problem and are working on a solution."
+link = "/docs/troubleshooting/known-issues/"
+linkText = "Learn more"
+
 [languages.fr]
 label = "Français"
 contentDir = "content/fr"
@@ -67,6 +77,16 @@ contentDir = "content/fr"
 title = "HydroQC"
 time_format_default = "2006-01-02"
 description = "Documentation HydroQC"
+
+# Bannière d'annonce affichée sur tout le site (voir layouts/_partials/banner.html).
+[languages.fr.params.banner]
+enable = true
+id = "mfa-email-2026-11"
+label = "Avis important"
+dismissLabel = "Fermer l'avis"
+message = "**À compter du 5 novembre 2026**, le portail client d'Hydro-Québec exige un code de vérification par courriel pour chaque nouvelle session. **L'intégration est présentement brisée par ce changement.** Nous sommes au courant du problème et travaillons à une solution."
+link = "/docs/troubleshooting/known-issues/"
+linkText = "En savoir plus"
 
 [markup]
   [markup.goldmark]
