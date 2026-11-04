@@ -134,6 +134,16 @@ ID: hydroqc_123456789_2026-01-16T06:00:00-05:00
 
 La ligne de métadonnées `Tarif` est celle utilisée par les filtres du blueprint, et l'heure de début (06h00 ou 16h00) est ce qui marque la journée comme jour de pointe critique. Les pointes régulières ne sont pas ajoutées au calendrier, et les événements créés manuellement avec le service `hydroqc.create_peak_event` utilisent le même format.
 
+## Tester les automatisations de calendrier
+
+{{% alert color="info" title="Un événement de calendrier peut prendre jusqu'à 15 minutes à être vu" %}}
+
+Home Assistant peut prendre jusqu'à 15 minutes pour voir un événement ajouté au calendrier. Un événement de test créé pour commencer 5 minutes plus tard est habituellement manqué.
+
+Créez toujours des événements de test qui commencent au moins 15 minutes dans le futur, et ajoutez le délai de l'action à tester: le déclencheur se produit au début de l'événement plus le délai, donc un délai de pré-chauffage de `-01:45:00` exige de créer l'événement au moins 2 heures d'avance.
+
+{{% /alert %}}
+
 ## Recommandations
 
 - Regroupez vos actions dans `parallel:` plutôt que dans une séquence simple: une action en échec n'empêche alors pas les suivantes de s'exécuter.

@@ -134,6 +134,16 @@ ID: hydroqc_123456789_2026-01-16T06:00:00-05:00
 
 The `Tarif` metadata line is what the blueprint filters on, and the start time (06:00 or 16:00) is what marks the day as a critical peak day. Regular peaks are not added to the calendar, and events created manually with the `hydroqc.create_peak_event` service use the same format.
 
+## Testing calendar automations
+
+{{% alert color="info" title="Calendar events take up to 15 minutes to be seen" %}}
+
+Home Assistant can take up to 15 minutes to see an event added to the calendar. A test event created to start 5 minutes later is usually missed.
+
+Always create test events that start at least 15 minutes in the future, and add the offset of the action you want to test: the trigger fires at the event start plus the offset, so a `-01:45:00` pre-heat offset means the event must be created at least 2 hours ahead.
+
+{{% /alert %}}
+
 ## Recommendations
 
 - Wrap your actions in `parallel:` rather than a plain sequence. A failing action then does not prevent the following ones from running.
