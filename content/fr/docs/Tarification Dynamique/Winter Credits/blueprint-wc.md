@@ -80,7 +80,7 @@ Vous devez créer un calendrier local dans Home Assistant **avant** de configure
 
 ### 2. Configurer l'Intégration HydroQC
 
-Lors de la configuration de l'intégration HydroQC (v0.4.0-beta.1+), vous devrez spécifier l'entité calendrier que vous venez de créer. L'intégration synchronisera automatiquement les événements de pointe critique vers ce calendrier.
+Lors de la configuration de l'intégration Hydro-Québec, sélectionnez l'entité calendrier que vous venez de créer. L'intégration synchronise automatiquement les événements de pointe critique vers ce calendrier. Pour les tarifs DPC (Flex D) et DCPC (Crédits hivernaux), le calendrier est requis.
 
 ## Actions Configurables
 

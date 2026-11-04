@@ -30,12 +30,11 @@ La bibliothèque HydroQC Python est la base du projet et traite tous les appels 
 
 **Recommandé**
 
-L'intégration personnalisée **hydroqc-ha** est la méthode recommandée pour intégrer Hydro-Québec avec Home Assistant. Elle fournit une intégration native Home Assistant avec toutes les fonctionnalités intégrées directement dans Home Assistant, sans nécessiter de démons externes ou de courtiers MQTT.
+L'intégration personnalisée **hydroqc-ha** est la méthode recommandée pour intégrer Hydro-Québec avec Home Assistant. Elle fournit une intégration native Home Assistant avec toutes les fonctionnalités intégrées directement dans Home Assistant.
 
 **Caractéristiques principales:**
 
 - Intégration native Home Assistant
-- Aucun courtier MQTT requis
 - Découverte automatique des capteurs
 - Intégration au tableau de bord énergétique
 - Support pour les crédits hivernaux et la tarification dynamique

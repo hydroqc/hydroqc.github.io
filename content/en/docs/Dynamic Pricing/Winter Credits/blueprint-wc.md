@@ -80,7 +80,7 @@ You must create a local calendar in Home Assistant **before** configuring the Hy
 
 ### 2. Configure the HydroQC Integration
 
-When configuring the HydroQC integration (v0.4.0-beta.1+), you will need to specify the calendar entity you just created. The integration will automatically sync critical peak events to this calendar.
+When configuring the Hydro-Québec integration, select the calendar entity you just created. The integration automatically syncs critical peak events to this calendar. For DPC (Flex D) and DCPC (Winter Credits) rates, the calendar is required.
 
 ## Configurable Actions
 

@@ -26,9 +26,9 @@ This means that entity names will appear in the language configured for your ent
 
 | Language | Translation File | Coverage |
 |----------|------------------|----------|
-| English | `en.json` | Complete (58 sensors, 16 binary sensors) |
-| French | `fr.json` | Complete (58 sensors, 16 binary sensors) |
-| Spanish | `es.json` | Complete (58 sensors, 16 binary sensors) |
+| English | `en.json` | Complete (41 sensors, 18 binary sensors) |
+| French | `fr.json` | Complete (41 sensors, 18 binary sensors) |
+| Spanish | `es.json` | Complete (41 sensors, 18 binary sensors) |
 
 ## Changing the Display Language
 
@@ -57,9 +57,9 @@ Here are some examples of how sensor names appear in each language:
 |------------|---------|--------|---------|
 | `balance` | Balance | Solde | Saldo |
 | `current_billing_period_current_day` | Billing Period Day | Jour période facturation | Día período facturación |
-| `current_billing_period_total_consumption` | Billing Period Consumption | Conso. période facturation | Consumo período facturación |
-| `wc_cumulated_credit` | Winter Credit | Crédit cumulé | Crédito acumulado |
-| `dpc_pre_heat` | Pre-heat Period | Période de préchauffage | Período de precalentamiento |
+| `current_billing_period_total_consumption` | Total Consumption | Conso. totale | Consumo total |
+| `wc_cumulated_credit` | Total Winter Credit | Crédit hivernal total | Crédito invierno total |
+| `dpc_pre_heat` | Preheat Active | Préchauffage actif | Precalentamiento activo |
 
 ## Contributing Translations
 

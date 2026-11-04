@@ -26,9 +26,9 @@ Cela signifie que les noms d'entités apparaîtront dans la langue configurée p
 
 | Langue | Fichier de Traduction | Couverture |
 |--------|----------------------|------------|
-| Anglais | `en.json` | Complète (58 capteurs, 16 capteurs binaires) |
-| Français | `fr.json` | Complète (58 capteurs, 16 capteurs binaires) |
-| Espagnol | `es.json` | Complète (58 capteurs, 16 capteurs binaires) |
+| Anglais | `en.json` | Complète (41 capteurs, 18 capteurs binaires) |
+| Français | `fr.json` | Complète (41 capteurs, 18 capteurs binaires) |
+| Espagnol | `es.json` | Complète (41 capteurs, 18 capteurs binaires) |
 
 ## Changer la Langue d'Affichage
 
@@ -57,9 +57,9 @@ Voici quelques exemples de la façon dont les noms de capteurs apparaissent dans
 |----------------|---------|----------|----------|
 | `balance` | Balance | Solde | Saldo |
 | `current_billing_period_current_day` | Billing Period Day | Jour période facturation | Día período facturación |
-| `current_billing_period_total_consumption` | Billing Period Consumption | Conso. période facturation | Consumo período facturación |
-| `wc_cumulated_credit` | Winter Credit | Crédit cumulé | Crédito acumulado |
-| `dpc_pre_heat` | Pre-heat Period | Période de préchauffage | Período de precalentamiento |
+| `current_billing_period_total_consumption` | Total Consumption | Conso. totale | Consumo total |
+| `wc_cumulated_credit` | Total Winter Credit | Crédit hivernal total | Crédito invierno total |
+| `dpc_pre_heat` | Preheat Active | Préchauffage actif | Precalentamiento activo |
 
 ## Contribuer aux Traductions
 

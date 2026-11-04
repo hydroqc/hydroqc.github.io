@@ -11,27 +11,26 @@ date: 2023-11-08T00:33:30.524Z
 ## Hourly Consumption in Energy Dashboard
 
 {{% alert color="info" title="Disable Consumption Sync" %}}
-If you don't need consumption tracking or use another integration for this, you can disable consumption sync during initial setup or in the integration options. This will prevent consumption sensors from being created and disable the history sync service.
+If you don't need consumption tracking or use another integration for this, you can disable consumption sync during initial setup or in the integration options. This prevents hourly consumption statistics from being imported and disables the history sync service.
 {{% /alert %}}
 
 {{% alert color="warning"%}}**Hourly consumption from Hydro-Québec is not live.** The hourly consumption will sync automatically when it is available from Hydro-Québec. On the website you can only see the hourly consumption from the previous day. There is always a delay of a few hours before HQ publishes the information.{{% /alert %}}
 
-When you enable sync of the hourly consumption, one or more sensors are created in Home-Assistant named "* Hourly Consumption" depending on your rate.
+When you enable hourly consumption sync, the integration imports consumption as Home Assistant **external statistics** (not sensors). The statistic IDs depend on your contract name (slugified):
+
+- `hydroqc:<contract>_hourly_consumption` (total)
+- `hydroqc:<contract>_reg_hourly_consumption` (regular/lower price)
+- `hydroqc:<contract>_haut_hourly_consumption` (higher price)
 
 ### Rate D and D with CPC option (winter credits)
 
-In the Energy Dashboard you will have to use the "Total Hourly Consumption" sensor in the "Grid Consumption" section.
+In the Energy Dashboard, use the total hourly consumption statistic in the "Grid Consumption" section.
 
 ### Flex-D and DT (dual energy)
 
-For FlexD and Bi-Energy rates you can put the sensors "High price hourly consumption" and "Reg price hourly consumption". This will allow you to distinguish the two types of consumption in the dashboard.
+For Flex-D and Bi-Energy rates, three statistics are imported: total, regular and higher price. Use the regular and higher price statistics to distinguish the two types of consumption in the dashboard.
 
 ![img](/images/configuration/home-assistant-3.png)
-
-{{% alert color="warning"%}}**The "Hourly Consumption" sensor will always have a state of "unknown".** We do not have a state for it, we need to create it in order to push the statistics to it and for it to be available to add to the Energy Dashboard, but there will never be a value for it.
-
-![img](/images/configuration/home-assistant-1.png)
-{{% /alert %}}
 
 ## Historical Energy Consumption
 
@@ -44,7 +43,7 @@ Enabling hourly consumption sync during **hydroqc-ha** integration setup will au
 
 ### Manual History Import
 
-The **hydroqc-ha** integration provides a Home Assistant service to manually import hourly consumption history up to **2 years back**.
+The **hydroqc-ha** integration provides a Home Assistant service to manually import hourly consumption history up to **2000 days back**.
 
 **Service**: `hydroqc.sync_consumption_history`
 
@@ -87,8 +86,8 @@ If you need to correct or delete hourly consumption statistics (for example, aft
 **Access statistics**:
 
 1. Go to **Developer Tools** → **Statistics**
-2. Search for your hourly consumption sensors (e.g., `sensor.home_total_hourly_consumption`)
-3. Click on the sensor to see all recorded statistics
+2. Search for your hourly consumption statistics (e.g., `hydroqc:home_hourly_consumption`)
+3. Click on the statistic to see all recorded values
 
 **Adjust or delete a statistic**:
 

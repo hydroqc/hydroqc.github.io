@@ -10,17 +10,17 @@ lastmod: 2026-11-03T00:00:00.000Z
 
 {{% alert color="success" title="Recommended for Home Assistant Users" %}}
 
-The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-Québec with Home Assistant. It provides a native integration without requiring MQTT or external daemons.
+The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-Québec with Home Assistant. It provides a native integration built directly into Home Assistant.
 
 {{% /alert %}}
 
 ## Why choose hydroqc-ha?
 
-- **Native integration**: Built directly into Home Assistant as a custom component
-- **No MQTT required**: Direct integration without the need for an MQTT broker
-- **Easy configuration**: Simple setup through the Home Assistant user interface
-- **Full feature support**: All features, including consumption tracking, winter credits and dynamic pricing
-- **Multiple contracts**: Support for multiple Hydro-Québec contracts
+- **Native integration**: Runs as a Home Assistant custom component
+- **Easy configuration**: Setup entirely through the Home Assistant interface
+- **Full feature support**: Consumption, billing, winter credits and dynamic pricing
+- **Multiple contracts**: One device per Hydro-Québec contract
+- **Diagnostic entities**: Optional entities for troubleshooting and advanced automations
 
 ## Installation
 
@@ -48,17 +48,17 @@ Click the badge above to add the repository to HACS, then:
 
 1. Open **HACS** in Home Assistant
 2. Click on **Integrations**
-3. Click the **3 dots** in the top right corner
+3. Click the **three-dot** menu in the top right corner
 4. Select **"Custom repositories"**
 5. Add the repository URL: `https://github.com/hydroqc/hydroqc-ha`
-6. Select the category: **Integration**
+6. Select category: **Integration**
 7. Click **"Add"**
-8. Search for **"Hydro-Québec"** in the HACS integrations list
+8. Search **"Hydro-Québec"** in the HACS integrations list
 9. Click on the **Hydro-Québec** integration
 10. Click **"Download"** (or **"Install"**)
 11. **Restart Home Assistant**
 
-**Note**: After restarting, you still need to configure the integration (see the Configuration section below).
+**Note**: after restarting, you still need to configure the integration (see the Configuration section below).
 
 ### Manual installation
 
@@ -68,56 +68,63 @@ Click the badge above to add the repository to HACS, then:
 
 ## Configuration
 
-### Option 1: Hydro-Québec account (full access)
+The first step asks which connection mode to use: **Portal Mode (requires login)** for a Hydro-Québec account, or **OpenData Mode (no login required)** for public peak data without credentials.
 
-1. Go to **Settings** → **Devices & Services**
+### Option 1: Portal Mode (Hydro-Québec account)
+
+1. Go to **Settings** > **Devices & Services**
 2. Click **+ Add Integration**
-3. Search for **Hydro-Québec**
-4. Select **"Connect a Hydro-Québec account"**
+3. Search **Hydro-Québec**
+4. Select **Portal Mode (requires login)**
 5. Enter your credentials:
-   - **Username**: your Hydro-Québec email
-   - **Password**: your Hydro-Québec password
+   - **Username**: Hydro-Québec email
+   - **Password**: Hydro-Québec password
    - **Contract name**: a friendly name (e.g., "Home", "Cottage")
-6. Select the contract to monitor from the list
-7. Select the number of days of consumption history (0-800 days)
-8. Enable or disable consumption sync (enabled by default)
-9. Done! Sensors will appear in about 60 seconds
+6. Select the contract to monitor
+7. Choose how many days of consumption history to import (0-800). Set `0` to sync only the last 30 days
+8. Enable or disable consumption synchronization
+9. For DPC (Flex D) and DCPC (Winter Credits), select a dedicated calendar
+10. Done! Entities appear shortly
 
 **Features with an account:**
 
 - Current and historical consumption data
 - Balance and billing information
+- Current rate and rate option
 - Winter credits and peak events
-- Outage notifications
-- Energy dashboard integration
+- Outage information
+- Energy Dashboard statistics
 
 {{% alert color="info" title="Consumption Sync" %}}
 
-Consumption sync imports hourly consumption data to the Home Assistant Energy dashboard. You can disable it if you don't need historical consumption tracking or want to reduce API calls. This can be changed later in the integration options.
+Consumption sync imports hourly consumption as long-term statistics for the Home Assistant Energy Dashboard. You can disable it if you don't need historical consumption tracking or want to reduce API calls. This can be changed later in the integration options.
 
 {{% /alert %}}
 
-### Option 2: Peak data only (no account required)
+### Option 2: OpenData Mode (no account required)
 
 For users who only want peak period information without logging in:
 
-1. Go to **Settings** → **Devices & Services**
+1. Go to **Settings** > **Devices & Services**
 2. Click **+ Add Integration**
-3. Search for **Hydro-Québec**
-4. Select **"Peak data only (no account)"**
-5. Choose your rate sector and plan
-6. Done! Sensors will appear shortly
+3. Search **Hydro-Québec**
+4. Select **OpenData Mode (no login required)**
+5. Choose your customer sector (residential or commercial)
+6. Select your rate plan (the available plans are fetched from Hydro-Québec's public API)
+7. Enter a contract name and a preheat duration (0-240 minutes)
+8. For DPC (Flex D) and DCPC (Winter Credits), select a dedicated calendar
+9. Done! Entities appear shortly
 
 **Features without an account:**
 
-- Peak event notifications
+- Peak event information
 - Dynamic pricing information
 - No consumption tracking
 - No billing information
 
 {{% alert color="info" title="Preheat Duration" %}}
 
-The preheat duration can be configured in the integration options after setup. This determines how far in advance you will be notified before a peak event starts (default: 120 minutes).
+The preheat duration can be configured during setup and changed later in the integration options. It determines how far in advance the preheat period starts before a peak event (default: 120 minutes, range: 0-240 minutes).
 
 {{% /alert %}}
 
@@ -126,36 +133,57 @@ The preheat duration can be configured in the integration options after setup. T
 To monitor multiple contracts (e.g., home and cottage):
 
 1. Add the integration multiple times
-2. Use different contract names for each one
+2. Use a different contract name for each one
 3. Select a different contract during each setup
 
 ### Changing contract or password
 
 Hydro-Québec assigns a new contract number whenever the person responsible for a consumption site changes, even if the site is already linked to the account. You don't need to remove the integration to update it:
 
-1. Go to **Settings** → **Devices & Services** → **Hydro-Québec**
-2. Open the **⋮** menu of the entry and select **Reconfigure**
-3. Confirm your email. Leave the password empty to keep the current one, or enter the new one
+1. Go to **Settings** > **Devices & Services** > **Hydro-Québec**
+2. Open the **three-dot** menu of the entry and select **Reconfigure**
+3. Confirm your email. Leave the password empty to keep the current one, or enter a new one
 4. Select the contract
 
 Entities keep their `entity_id` and the consumption history is preserved.
 
-## Available sensors
+## Integration options
 
-The integration creates sensors for:
+Open **Settings** > **Devices & Services** > **Hydro-Québec** > **Configure** to change:
 
-- **Consumption**: Current period, yesterday, today
-- **Billing**: Balance, projected amount
-- **Peak events**: Current status, next event
-- **Winter credits**: Events and projections
-- **Calendar**: Automatic synchronization of critical peak events to a local calendar (DPC and DCPC rates only - you must create your own local calendar in Home Assistant)
-- **Outages**: Current outages in your area
+- **Pre-heat Duration**: how long before a peak event the preheat period starts (0-240 minutes, default: 120)
+- **Enable consumption synchronization**: import hourly consumption for the Energy Dashboard. Requires an integration reload to take effect
+- **Calendar Entity**: the calendar used for peak events. Required for DPC/DCPC rates and validated when saving
 
-See the [Home Assistant](../../home-assistant/) section for detailed sensor information.
+## Services
+
+| Service | Description | Fields |
+|-|-|-|
+| `hydroqc.refresh_data` | Manually refresh data from the Hydro-Québec API | Target: a Hydro-Québec entity |
+| `hydroqc.sync_consumption_history` | Import historical hourly consumption (runs in the background) | `days_back` (1-2000, default: 731) |
+| `hydroqc.create_peak_event` | Create a manual critical peak event in the configured calendar | `device_id`, `date` (YYYY-MM-DD), `time_slot` (`AM` = 6h-10h, `PM` = 16h-20h) |
+
+`hydroqc.sync_consumption_history` requires Portal Mode and consumption synchronization enabled. A manually created peak event is automatically matched if Hydro-Québec later announces the same event.
+
+## Entities
+
+The integration creates the following entities for each contract:
+
+- **Account and billing**: Balance, Bill Total to Date, Projected Bill, Daily Bill Average, Daily Consumption Average, Total Consumption, Projected Total Consumption, Average Temperature, Average kWh Cost, Billing Period Day, Billing Period Duration, Current Rate, Rate Option
+- **Dual-energy**: High Price Consumption, Low Price Consumption, Flex D vs Rate D Difference (DT and DPC)
+- **Peak events**: DPC Status and next peak timestamps (DPC), Winter Credit Status, winter credit totals and next peak timestamps (DCPC)
+- **Winter credit results**: yesterday morning and evening credit, consumption, reference consumption and saved consumption (DCPC)
+- **Outage**: Outage Status, with cause, duration and status as attributes
+- **Binary sensors**: EPP Active, Portal Status, and peak/preheat indicators for DPC and DCPC
+- **Button**: Refresh Peak Data (DPC and DCPC only)
+
+Some diagnostic entities are disabled by default (Portal Status, EPP Active, DPC Next Preheat Start and Winter Credits Preheat Active). Enable them in the entity settings if you need them.
+
+See the [Sensors](../../reference/sensors/) reference for the full list and the [Flex D](../../dynamic-pricing/flex-d/flexd-sensors/) and [Winter Credits](../../dynamic-pricing/winter-credits/wc-sensors/) pages for the rate-specific entities.
 
 {{% alert color="info" title="Local Calendar Required" %}}
 
-For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a local calendar in Home Assistant before configuring the integration. The integration will sync critical peak events to this calendar. See the blueprint documentation for detailed instructions.
+For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a dedicated local calendar in Home Assistant before configuring the integration. All peak sensors (status, next peak times and preheat) read their data from calendar events. Do not use a shared calendar.
 
 {{% /alert %}}
 
@@ -170,13 +198,14 @@ For DPC (Flex-D) and DCPC (Winter Credits) rates, you must create a local calend
 ### No data appearing
 
 - Wait 60 seconds for the first update
-- Check the Home Assistant logs: Settings → System → Logs
+- Check the Home Assistant logs: Settings > System > Logs
 - Verify that the Hydro-Québec portal is online
 
 ### Sensors unavailable
 
 - Some sensors are only active during specific seasons (winter credits)
 - Verify that your rate plan supports the sensor
+- For peak sensors, verify that a calendar is configured and contains the expected events
 - Check that the coordinator is updating (check the logs)
 
 ### Debug logging

@@ -30,12 +30,11 @@ The HydroQC Python library is the base of the project and handles all calls to t
 
 **Recommended**
 
-The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-Québec with Home Assistant. It provides a native Home Assistant integration with all features built directly into Home Assistant, without requiring external daemons or MQTT brokers.
+The **hydroqc-ha** custom integration is the recommended way to integrate Hydro-Québec with Home Assistant. It provides a native Home Assistant integration with all features built directly into Home Assistant.
 
 **Key features:**
 
 - Native Home Assistant integration
-- No MQTT broker required
 - Automatic sensor discovery
 - Energy dashboard integration
 - Support for winter credits and dynamic pricing
