@@ -5,16 +5,18 @@ weight: 52
 description: |
   Issues we are aware of and their workarounds.
 date: 2022-09-21T18:41:22.563Z
-lastmod: 2026-11-04T00:00:00.000Z
+lastmod: 2026-11-05T00:00:00.000Z
 ---
 
-## Email verification (MFA) required on every session
+## Email verification (MFA) and 24-hour sessions
 
-Starting November 5, 2026, the Hydro-Québec customer portal requires an email verification code for every new session.
+Since November 5, 2026, the Hydro-Québec customer portal requires an email verification code for every new session.
 
-**The integration is currently broken by this change.** HydroQC logs in to the portal on your behalf and has no access to your mailbox, so it cannot supply that code. Data stops updating and Home Assistant may show **Reauthentication required** in **Settings** → **Devices & services**.
+**Resolved since version 0.9.0.** The integration now shows the **Email verification** step during initial setup, reconfiguration and reauthentication. Enter the code you received; an empty field requests a new code.
 
-There is no workaround at the moment. **We are aware of the problem and are actively working on a solution.** This page will be updated as soon as a solution is available.
+The portal session lasts about **24 hours**. During that time, Home Assistant restarts reuse the session without a password or code. After that, Home Assistant shows **Reauthentication required** in **Settings** → **Devices & services**: click **Reauthenticate** and enter the new code.
+
+Automatic logins never request a code: they stop at the verification step and wait for a reauthentication. See [Email verification](../../installation/hass-integration/#email-verification-mfa).
 
 ## Consumption does not sync
 

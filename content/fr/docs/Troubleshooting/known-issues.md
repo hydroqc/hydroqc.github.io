@@ -5,16 +5,18 @@ weight: 52
 description: |
   Problèmes dont nous sommes conscients et leurs solutions de contournement.
 date: 2022-09-21T18:41:22.563Z
-lastmod: 2026-11-04T00:00:00.000Z
+lastmod: 2026-11-05T00:00:00.000Z
 ---
 
-## Vérification par courriel (MFA) exigée à chaque session
+## Vérification par courriel (MFA) et sessions de 24 h
 
-À compter du 5 novembre 2026, le portail client d'Hydro-Québec demande un code de vérification envoyé par courriel pour chaque nouvelle session.
+Depuis le 5 novembre 2026, le portail client d'Hydro-Québec demande un code de vérification envoyé par courriel pour chaque nouvelle session.
 
-**L'intégration est présentement brisée par ce changement.** HydroQC se connecte au portail à votre place et n'a pas accès à votre boîte courriel : il ne peut donc pas fournir ce code. Les données cessent de se mettre à jour et Home Assistant peut afficher **Réauthentification requise** dans **Paramètres** → **Appareils et services**.
+**Résolu depuis la version 0.9.0.** L'intégration affiche maintenant l'étape **Vérification par courriel** pendant la configuration initiale, la reconfiguration et la réauthentification. Entrez le code reçu; un champ vide demande un nouveau code.
 
-Il n'y a pas de solution de contournement pour le moment. **Nous sommes au courant du problème et travaillons activement à une solution.** Cette page sera mise à jour dès qu'une solution sera disponible.
+La session du portail dure environ **24 heures**. Pendant ce délai, les redémarrages de Home Assistant réutilisent la session sans mot de passe ni code. Après ce délai, Home Assistant affiche **Réauthentification requise** dans **Paramètres** → **Appareils et services** : cliquez sur **Réauthentifier** et saisissez le nouveau code.
+
+Les connexions automatiques ne demandent jamais de code : elles s'arrêtent à l'étape de vérification et attendent une réauthentification. Voir [Vérification par courriel](../../installation/hass-integration/#vérification-par-courriel-mfa).
 
 ## La consommation ne se synchronise pas
 

@@ -11,7 +11,7 @@ aliases:
   - /docs/configuration/environment/
   - /docs/installation/hass-addon/
 date: 2025-12-02T00:00:00.000Z
-lastmod: 2026-11-03T00:00:00.000Z
+lastmod: 2026-11-05T00:00:00.000Z
 ---
 
 {{% alert color="success" title="Recommandé pour les utilisateurs de Home Assistant" %}}
@@ -158,6 +158,24 @@ Hydro-Québec attribue un nouveau numéro de contrat chaque fois que le responsa
 4. Sélectionnez le contrat
 
 Les entités conservent leur `entity_id` et l'historique de consommation est préservé.
+
+### Vérification par courriel (MFA)
+
+Hydro-Québec peut exiger un code de vérification envoyé par courriel après le mot de passe.
+
+1. Pendant la configuration initiale, une reconfiguration ou une réauthentification, l'intégration affiche l'étape **Vérification par courriel**.
+2. Entrez le code reçu. Laissez le champ vide pour recevoir un nouveau code. Si le code est expiré, la connexion est relancée et un nouveau code est envoyé automatiquement.
+3. La session du portail (jeton de rafraîchissement et témoins de connexion Azure AD B2C) est conservée dans le stockage de Home Assistant. Au redémarrage, l'intégration tente une connexion silencieuse avant de redemander des identifiants. La session obtenue pendant la configuration initiale est réutilisée : aucun second code n'est demandé juste après l'ajout.
+
+**Aucune demande de code en arrière-plan**
+
+Les connexions automatiques s'arrêtent à l'étape de vérification : aucun code n'est envoyé et la connexion n'est pas relancée en boucle. Home Assistant affiche **Réauthentification requise** dans **Paramètres** > **Appareils et services**. Cliquez sur **Réauthentifier** pour saisir un nouveau code.
+
+{{% alert color="warning" title="Session valide environ 24 h" %}}
+
+Le portail Hydro-Québec conserve la session environ **24 heures**. Pendant ce délai, les redémarrages ne demandent ni mot de passe ni code. Passé ce délai, une nouvelle connexion avec code de vérification est obligatoire : prévoyez une réauthentification environ une fois par jour.
+
+{{% /alert %}}
 
 ## Étapes suivantes
 

@@ -11,7 +11,7 @@ aliases:
   - /docs/configuration/environment/
   - /docs/installation/hass-addon/
 date: 2025-12-02T00:00:00.000Z
-lastmod: 2026-11-03T00:00:00.000Z
+lastmod: 2026-11-05T00:00:00.000Z
 ---
 
 {{% alert color="success" title="Recommended for Home Assistant Users" %}}
@@ -158,6 +158,24 @@ Hydro-Québec assigns a new contract number whenever the person responsible for 
 4. Select the contract
 
 Entities keep their `entity_id` and the consumption history is preserved.
+
+### Email verification (MFA)
+
+Hydro-Québec may require an email verification code after the password.
+
+1. During initial setup, reconfiguration or reauthentication, the integration shows the **Email verification** step.
+2. Enter the code you received. Leave the field empty to request a new code. If the code has expired, the login is restarted and a new code is sent automatically.
+3. The portal session (refresh token and Azure AD B2C cookies) is kept in Home Assistant storage. On restart, the integration tries a silent login before asking for credentials again. The session obtained during initial setup is reused: no second code is requested right after adding the integration.
+
+**No code requested in the background**
+
+Automatic logins stop at the verification step: no code is sent and the login is not retried in a loop. Home Assistant shows **Reauthentication required** in **Settings** > **Devices & services**. Click **Reauthenticate** to enter a new code.
+
+{{% alert color="warning" title="Session valid for about 24 h" %}}
+
+The Hydro-Québec portal keeps the session for about **24 hours**. During that time, restarts require neither a password nor a code. After that, a new login with an email code is mandatory: expect to reauthenticate roughly once a day.
+
+{{% /alert %}}
 
 ## Next steps
 
