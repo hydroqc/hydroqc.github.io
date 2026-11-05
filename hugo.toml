@@ -62,10 +62,10 @@ description = "HydroQC documentation"
 # Site-wide announcement banner (see layouts/_partials/banner.html).
 [languages.en.params.banner]
 enable = true
-id = "mfa-email-2026-11"
+id = "mfa-email-2026-11-supported"
 label = "Important notice"
 dismissLabel = "Dismiss notice"
-message = "**Starting November 5, 2026**, the Hydro-Québec customer portal requires an email verification code for every new session. **The integration is currently broken by this change.** We are aware of the problem and are working on a solution."
+message = "**Email verification is now supported** since version 0.9.0 of the integration. The portal session lasts about **24 hours**; after that, reauthenticate with a new email code."
 link = "/docs/troubleshooting/known-issues/"
 linkText = "Learn more"
 
@@ -81,10 +81,10 @@ description = "Documentation HydroQC"
 # Bannière d'annonce affichée sur tout le site (voir layouts/_partials/banner.html).
 [languages.fr.params.banner]
 enable = true
-id = "mfa-email-2026-11"
+id = "mfa-email-2026-11-supported"
 label = "Avis important"
 dismissLabel = "Fermer l'avis"
-message = "**À compter du 5 novembre 2026**, le portail client d'Hydro-Québec exige un code de vérification par courriel pour chaque nouvelle session. **L'intégration est présentement brisée par ce changement.** Nous sommes au courant du problème et travaillons à une solution."
+message = "**La vérification par courriel est maintenant prise en charge** depuis la version 0.9.0 de l'intégration. La session du portail dure environ **24 h**; ensuite, réauthentifiez-vous avec un nouveau code."
 link = "/docs/troubleshooting/known-issues/"
 linkText = "En savoir plus"
 
