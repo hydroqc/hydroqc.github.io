@@ -177,8 +177,6 @@ The Hydro-Québec portal keeps the session for about **24 hours**. During that t
 
 {{% /alert %}}
 
-The verification step requires **Hydro-Quebec-API-Wrapper 4.3.1 or newer**, already pinned by the integration.
-
 ## Next steps
 
 - [Integration options](../../home-assistant/integration-options/)

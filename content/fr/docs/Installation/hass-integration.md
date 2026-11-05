@@ -177,8 +177,6 @@ Le portail Hydro-Québec conserve la session environ **24 heures**. Pendant ce d
 
 {{% /alert %}}
 
-L'étape de vérification nécessite **Hydro-Quebec-API-Wrapper 4.3.1 ou plus récente**, déjà épinglée par l'intégration.
-
 ## Étapes suivantes
 
 - [Options de l'intégration](../../home-assistant/integration-options/)
