@@ -5,18 +5,27 @@ weight: 52
 description: |
   Problèmes dont nous sommes conscients et leurs solutions de contournement.
 date: 2022-09-21T18:41:22.563Z
-lastmod: 2026-11-05T00:00:00.000Z
+lastmod: 2026-11-11T00:00:00.000Z
 ---
 
-## Vérification par courriel (MFA) et sessions de 24 h
+## Vérification par courriel (MFA) et durée de la session
 
 Depuis le 5 novembre 2026, le portail client d'Hydro-Québec demande un code de vérification envoyé par courriel pour chaque nouvelle session.
 
-**Résolu depuis la version 0.9.0.** L'intégration affiche maintenant l'étape **Vérification par courriel** pendant la configuration initiale, la reconfiguration et la réauthentification. Entrez le code reçu; un champ vide demande un nouveau code.
+**Résolu depuis la version 0.9.1.** L'intégration se connecte maintenant au moyen des points de terminaison d'authentification de l'**application mobile** d'Hydro-Québec. Ce client renouvelle la session automatiquement et la conserve environ **90 jours** : le code de vérification par courriel n'est donc demandé qu'à la première configuration et lorsque la session expire.
 
-La session du portail dure environ **24 heures**. Pendant ce délai, les redémarrages de Home Assistant réutilisent la session sans mot de passe ni code. Après ce délai, Home Assistant affiche **Réauthentification requise** dans **Paramètres** → **Appareils et services** : cliquez sur **Réauthentifier** et saisissez le nouveau code.
+L'intégration affiche l'étape **Vérification par courriel** pendant la configuration initiale, la reconfiguration et la réauthentification. Entrez le code reçu; un champ vide demande un nouveau code.
 
-Les connexions automatiques ne demandent jamais de code : elles s'arrêtent à l'étape de vérification et attendent une réauthentification. Voir [Vérification par courriel](../../installation/hass-integration/#vérification-par-courriel-mfa).
+Le client de connexion se change dans **Paramètres** → **Appareils et services** → **Hydro-Québec** → **Configurer** → **Avancé** → **Client de connexion** :
+
+| Client | Durée de la session | Code de vérification |
+| --- | --- | --- |
+| **Application mobile** (par défaut) | 90 jours, renouvelée à chaque connexion | Une seule fois, puis seulement si la session expire |
+| **Portail web** | 24 heures | Chaque jour |
+
+Changer de client recharge l'intégration et demande un nouveau code : la session d'un client ne sert pas à l'autre. Si le client mobile cesse de fonctionner, choisissez le portail web.
+
+Après l'expiration de la session, Home Assistant affiche **Réauthentification requise** dans **Paramètres** → **Appareils et services** : cliquez sur **Réauthentifier** et saisissez le nouveau code. Les connexions automatiques ne demandent jamais de code : elles s'arrêtent à l'étape de vérification et attendent une réauthentification. Voir [Vérification par courriel](../../installation/hass-integration/#vérification-par-courriel-mfa).
 
 ## La consommation ne se synchronise pas
 

@@ -5,18 +5,27 @@ weight: 52
 description: |
   Issues we are aware of and their workarounds.
 date: 2022-09-21T18:41:22.563Z
-lastmod: 2026-11-05T00:00:00.000Z
+lastmod: 2026-11-11T00:00:00.000Z
 ---
 
-## Email verification (MFA) and 24-hour sessions
+## Email verification (MFA) and session duration
 
 Since November 5, 2026, the Hydro-Québec customer portal requires an email verification code for every new session.
 
-**Resolved since version 0.9.0.** The integration now shows the **Email verification** step during initial setup, reconfiguration and reauthentication. Enter the code you received; an empty field requests a new code.
+**Resolved since version 0.9.1.** The integration now signs in through the **Hydro-Québec mobile app** authentication endpoints. That client renews the session automatically and keeps it for about **90 days**, so the email verification code is only requested during the first setup and when the session expires.
 
-The portal session lasts about **24 hours**. During that time, Home Assistant restarts reuse the session without a password or code. After that, Home Assistant shows **Reauthentication required** in **Settings** → **Devices & services**: click **Reauthenticate** and enter the new code.
+The integration shows the **Email verification** step during initial setup, reconfiguration and reauthentication. Enter the code you received; an empty field requests a new code.
 
-Automatic logins never request a code: they stop at the verification step and wait for a reauthentication. See [Email verification](../../installation/hass-integration/#email-verification-mfa).
+The login client can be changed in **Settings** → **Devices & services** → **Hydro-Québec** → **Configure** → **Advanced** → **Login client**:
+
+| Client | Session duration | Verification code |
+| --- | --- | --- |
+| **Mobile app** (default) | 90 days, renewed on each login | Once, then only when the session expires |
+| **Web portal** | 24 hours | Every day |
+
+Switching client reloads the integration and asks for a new code: a session from one client cannot be used with the other. If the mobile client stops working, select the web portal.
+
+After the session expires, Home Assistant shows **Reauthentication required** in **Settings** → **Devices & services**: click **Reauthenticate** and enter the new code. Automatic logins never request a code: they stop at the verification step and wait for a reauthentication. See [Email verification](../../installation/hass-integration/#email-verification-mfa).
 
 ## Consumption does not sync
 

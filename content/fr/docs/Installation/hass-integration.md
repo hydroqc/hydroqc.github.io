@@ -11,7 +11,7 @@ aliases:
   - /docs/configuration/environment/
   - /docs/installation/hass-addon/
 date: 2025-12-02T00:00:00.000Z
-lastmod: 2026-11-05T00:00:00.000Z
+lastmod: 2026-11-11T00:00:00.000Z
 ---
 
 {{% alert color="success" title="Recommandé pour les utilisateurs de Home Assistant" %}}
@@ -163,6 +163,8 @@ Les entités conservent leur `entity_id` et l'historique de consommation est pr�
 
 Hydro-Québec peut exiger un code de vérification envoyé par courriel après le mot de passe.
 
+Depuis la version **0.9.1**, l'intégration se connecte par défaut au moyen des points de terminaison d'authentification de l'**application mobile** d'Hydro-Québec. Ce client renouvelle la session automatiquement et la conserve environ **90 jours** : le code n'est donc demandé qu'à la première configuration et lorsque la session expire.
+
 1. Pendant la configuration initiale, une reconfiguration ou une réauthentification, l'intégration affiche l'étape **Vérification par courriel**.
 2. Entrez le code reçu. Laissez le champ vide pour recevoir un nouveau code. Si le code est expiré, la connexion est relancée et un nouveau code est envoyé automatiquement.
 3. La session du portail (jeton de rafraîchissement et témoins de connexion Azure AD B2C) est conservée dans le stockage de Home Assistant. Au redémarrage, l'intégration tente une connexion silencieuse avant de redemander des identifiants. La session obtenue pendant la configuration initiale est réutilisée : aucun second code n'est demandé juste après l'ajout.
@@ -171,9 +173,18 @@ Hydro-Québec peut exiger un code de vérification envoyé par courriel après l
 
 Les connexions automatiques s'arrêtent à l'étape de vérification : aucun code n'est envoyé et la connexion n'est pas relancée en boucle. Home Assistant affiche **Réauthentification requise** dans **Paramètres** > **Appareils et services**. Cliquez sur **Réauthentifier** pour saisir un nouveau code.
 
-{{% alert color="warning" title="Session valide environ 24 h" %}}
+{{% alert color="warning" title="La durée de la session dépend du client de connexion" %}}
 
-Le portail Hydro-Québec conserve la session environ **24 heures**. Pendant ce délai, les redémarrages ne demandent ni mot de passe ni code. Passé ce délai, une nouvelle connexion avec code de vérification est obligatoire : prévoyez une réauthentification environ une fois par jour.
+Le client de connexion se choisit dans **Paramètres** > **Appareils et services** > **Hydro-Québec** > **Configurer** > **Avancé** > **Client de connexion** :
+
+| Client | Durée de la session | Code de vérification |
+| --- | --- | --- |
+| **Application mobile** (par défaut) | 90 jours, renouvelée à chaque connexion | Une seule fois, puis seulement si la session expire |
+| **Portail web** | 24 heures | Chaque jour |
+
+Avec le client mobile par défaut, les redémarrages ne demandent ni mot de passe ni code tant que la session est valide. Avec le client du portail web, la session dure environ **24 heures** et un nouveau code par courriel est obligatoire chaque jour.
+
+Changer de client recharge l'intégration et demande un nouveau code : la session d'un client ne sert pas à l'autre. Si le client mobile cesse de fonctionner, choisissez le portail web.
 
 {{% /alert %}}
 
